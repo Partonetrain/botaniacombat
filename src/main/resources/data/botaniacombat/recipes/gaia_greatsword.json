@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x^^",
+    "x/^",
+    "/xx"
+  ],
+  "key": {
+    "^": {
+      "item": "botania:terra_sword"
+    },
+    "/": {
+      "item": "botania:livingwood_twig"
+    },
+	"x": {
+      "item": "botania:gaia_spreader"
+    }
+  },
+  "result": {
+    "item": "botaniacombat:gaia_greatsword",
+    "count": 1
+  }
+}

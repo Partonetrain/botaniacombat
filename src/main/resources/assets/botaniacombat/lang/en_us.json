@@ -1,0 +1,16 @@
+{
+  "item.botaniacombat.elementium_dagger": "Elementium Dagger",
+  "item.botaniacombat.terrasteel_dagger": "Terra Edge",
+  
+  "item.botaniacombat.soulstaff": "Soulstaff",
+  "item.botaniacombat.elementium_spear": "Elementium Spear",
+  "item.botaniacombat.terrasteel_spear": "Terra Warspear",
+
+  "item.botaniacombat.gaia_greatsword": "Gaia Greatsword",
+
+  "botaniacombat.entry.gaia_greatsword": "Gaia Greatsword",
+  "botaniacombat.tagline.gaia_greatsword": "A greatsword that fires seven beams",
+  "botaniacombat.page.gaiaGreatsword0": "It is possible to use$(br)$(item)Terrasteel$(0) and $(item)Gaia Spirits$(0) in tandem as long as the Spirits do not directly touch the Terrasteel. $(br2)Because $(item)Gaia Spreaders$(0) have an outer layer of $(item)Dreamwood$(0), it is possible to attach them to Terrasteel and keep the Gaia energy seperate. By forging three $(item)Terra Blades$(0) together and affixing four $(item)Gaia Spreaders$(0), a massive, daunting greatsword is made.",
+  "botaniacombat.page.gaiaGreatsword1": "Seven Deadly Mana Beams",
+  "botaniacombat.page.gaiaGreatsword2": "Since the Gaia $(item)Gaia Greatsword$(0) is very heavy, it takes a great deal of effort and time to swing. A user of the $(item)Gaia Greatsword$(0) must take care to have enough \"wind-up\" time before getting too close to assailants."
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "/"
+  ],
+  "key": {
+    "#": {
+      "item": "botania:elementium_ingot"
+    },
+    "/": {
+      "item": "botania:dreamwood_twig"
+    }
+  },
+  "result": {
+    "item": "botaniacombat:elementium_dagger",
+    "count": 1
+  }
+}

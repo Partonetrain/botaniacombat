@@ -1,0 +1,6 @@
+{
+  "parent": "botaniacombat:item/handheld_big_spear",
+  "textures": {
+    "layer0": "botaniacombat:item/terrasteel_spear_held"
+  }
+}

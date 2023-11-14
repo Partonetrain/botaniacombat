@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "info.partonetrain.botaniacombat.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+      "ElementiumSwordItemMixin",
+	  "TerraBladeItemMixin",
+	  "BotaniaLeftClickPacketMixin",
+	  "PixieHandlerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

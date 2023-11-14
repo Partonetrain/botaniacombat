@@ -1,0 +1,7 @@
+{
+  "parent": "botaniacombat:item/handheld_big_staff",
+  "textures": {
+    "layer0": "botaniacombat:item/soulstaff_held",
+    "layer1": "botaniacombat:item/soulstaff_held_overlay"
+  }
+}

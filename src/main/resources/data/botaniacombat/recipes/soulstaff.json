@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  m",
+    " / ",
+	"x  "
+  ],
+  "key": {
+    "m": {
+      "item": "botania:mana_pearl"
+    },
+    "/": {
+      "item": "botania:livingwood_twig"
+    },
+	"x": {
+      "item": "botania:manasteel_ingot"
+    }
+  },
+  "result": {
+    "item": "botaniacombat:soulstaff",
+    "count": 1
+  }
+}

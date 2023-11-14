@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "/"
+  ],
+  "key": {
+    "#": {
+      "item": "botania:terrasteel_ingot"
+    },
+    "/": {
+      "item": "botania:livingwood_twig"
+    }
+  },
+  "result": {
+    "item": "botaniacombat:terrasteel_dagger",
+    "count": 1
+  }
+}

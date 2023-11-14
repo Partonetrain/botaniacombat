@@ -1,0 +1,22 @@
+{
+  "name": "botaniacombat.entry.gaia_greatsword",
+  "category": "botania:alfhomancy",
+  "icon": "botaniacombat:gaia_greatsword",
+  "entry_color": "aa00",
+  "advancement": "botania:main/gaia_guardian_kill",
+  "pages": [
+    {
+      "type": "text",
+      "text": "botaniacombat.page.gaiaGreatsword0"
+    },
+    {
+      "type": "crafting",
+      "text": "botaniacombat.page.gaiaGreatsword1",
+      "recipe": "botaniacombat:gaia_greatsword"
+    },
+    {
+      "type": "text",
+      "text": "botaniacombat.page.gaiaGreatsword2"
+    }
+  ]
+}
