@@ -1,0 +1,45 @@
+{
+  "display": {
+    "icon": {
+      "item": "botaniacombat:mjolnir"
+    },
+    "title": {
+      "translate": "advancement.botaniacombat:mjolnir"
+    },
+    "description": {
+      "translate": "advancement.botaniacombat:mjolnir.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "botania:challenge/gaia_gaurdian_hardmode",
+  "criteria": {
+    "guardian": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "botania:doppleganger",
+              "nbt": "{hardMode:1b}"
+            }
+          },
+          {
+            "condition": "minecraft:weather_check",
+            "thundering": true
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "loot": [
+      "botaniacombat:mjolnir_loot"
+    ]
+  },
+  "sends_telemetry_event": true
+}

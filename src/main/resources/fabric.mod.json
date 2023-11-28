@@ -3,13 +3,13 @@
 	"id": "botaniacombat",
 	"version": "${version}",
 	"name": "botaniacombat",
-	"description": "Integrates Botania and BetterCombat",
+	"description": "Adds BetterCombat-compatible weapons to Botania",
 	"authors": [
 		"Partonetrain"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/Partonetrain/botaniacombat",
+		"sources": "https://github.com/Partonetrain/botaniacombat"
 	},
 	"license": "MIT",
 	"icon": "assets/botaniacombat/icon.png",
