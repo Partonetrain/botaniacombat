@@ -14,11 +14,17 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "botania:challenge/gaia_gaurdian_hardmode",
+  "parent": "botania:challenge/gaia_guardian_hardmode",
   "criteria": {
-    "guardian": {
+    "kill_guardian_in_thunder": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:weather_check",
+            "thundering": true
+          }
+        ],
         "entity": [
           {
             "condition": "minecraft:entity_properties",
@@ -27,15 +33,16 @@
               "type": "botania:doppleganger",
               "nbt": "{hardMode:1b}"
             }
-          },
-          {
-            "condition": "minecraft:weather_check",
-            "thundering": true
           }
         ]
       }
     }
   },
+  "requirements": [
+    [
+      "kill_guardian_in_thunder"
+    ]
+  ],
   "rewards": {
     "loot": [
       "botaniacombat:mjolnir_loot"
