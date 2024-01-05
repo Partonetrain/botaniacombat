@@ -14,18 +14,18 @@ public class BotaniaCombat implements ModInitializer {
 	public static final String MOD_ID = "botaniacombat";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static boolean BetterCombatInstalled;
+	public static boolean FabricShieldLibInstalled;
 
 	public static final int MANA_PER_DAMAGE = 60;
 	public static final int MANA_PER_DAMAGE_TERRA = 100;
 
-
-
 	@Override
 	public void onInitialize() {
 		BetterCombatInstalled = FabricLoader.getInstance().isModLoaded("bettercombat");
+		FabricShieldLibInstalled = FabricLoader.getInstance().isModLoaded("fabricshieldlib");
 		BotaniaCombatRegistry.init();
 
-		AttackEntityCallback.EVENT.register(TerrasteelWeaponItem::attackEntity);
+		AttackEntityCallback.EVENT.register(TerrasteelWeaponItem::attackEntity); //fabric events for if BetterCombat is not installed
 		AttackEntityCallback.EVENT.register(GaiaGreatswordItem::attackEntity);
 		LOGGER.info("BotaniaCombat initialized");
 		PsiContributorColors.get();

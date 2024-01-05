@@ -1,7 +1,10 @@
 package info.partonetrain.botaniacombat.registry;
 
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
+import info.partonetrain.botaniacombat.BotaniaCombat;
 import info.partonetrain.botaniacombat.item.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 
 import java.util.*;
 
@@ -21,6 +24,7 @@ public final class BotaniaCombatItems {
     public static final int mjolnirDamageModifier = 4; //ingame tier + 5 (12)
     public static final float mjolnirSpeed = -2.8f; //ingame 1.2
 
+    public static final int shieldCooldownTicks = 100; //equivalent to vanilla shield
 
     public static HashMap<String, Item> items = new LinkedHashMap<>() {};
 
@@ -37,7 +41,12 @@ public final class BotaniaCombatItems {
         items.put("terrasteel_spear", new TerrasteelWeaponItem(BotaniaCombatTiers.TERRASTEEL_TIER, spearDamageModifier, spearSpeed, itemPropertiesFireResist));
 
         items.put("gaia_greatsword", new GaiaGreatswordItem(BotaniaCombatTiers.TERRASTEEL_TIER, greatswordDamageModifier, greatswordSpeed, itemPropertiesFireResist));
-        items.put("mjolnir", new MjolnirItem(BotaniaCombatTiers.TERRASTEEL_TIER, mjolnirDamageModifier, mjolnirSpeed, itemPropertiesFireResist));
+        items.put("mjolnir", new MjolnirItem(BotaniaCombatTiers.TERRASTEEL_TIER, mjolnirDamageModifier, mjolnirSpeed, itemPropertiesFireResist.rarity(Rarity.EPIC)));
+
+        if(BotaniaCombat.FabricShieldLibInstalled){
+            items.put("manasteel_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.MANASTEEL_TIER));
+        }
+
 
 
     }

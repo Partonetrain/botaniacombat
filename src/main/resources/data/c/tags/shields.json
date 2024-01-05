@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "botaniacombat:manasteel_shield",
+      "required": false
+    }
+  ]
+}

@@ -36,6 +36,13 @@ repositories {
 		name = 'ParchmentMC'
 		url = 'https://maven.parchmentmc.org'
 	}
+
+	//fabricshieldlib requirements
+	maven { url = 'https://jitpack.io' }
+	maven {url = 'https://jitpack.io'}
+	maven {url "https://maven.terraformersmc.com/releases/"}
+	maven {url = "https://api.modrinth.com/maven"}
+
 }
 
 loom {
@@ -64,6 +71,11 @@ dependencies {
     include modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim}")
 
 	modImplementation "vazkii.botania:Botania-xplat:${project.botania_version}"
+
+	modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
+	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
+	modImplementation "com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"
 
 	mappings loom.layered() {
 		officialMojangMappings()

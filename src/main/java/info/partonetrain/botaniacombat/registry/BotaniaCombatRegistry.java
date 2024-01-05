@@ -20,8 +20,8 @@ public class BotaniaCombatRegistry {
         }
     }
 
-    public static Item registerItem(String name, Item item) {
-        return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(BotaniaCombat.MOD_ID, name), item);
+    public static void registerItem(String name, Item item) {
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(BotaniaCombat.MOD_ID, name), item);
     }
 
 
