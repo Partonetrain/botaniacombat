@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import vazkii.botania.api.mana.ManaItemHandler;
+import vazkii.botania.common.handler.EquipmentHandler;
 import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.item.equipment.CustomDamageItem;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
@@ -18,7 +19,7 @@ import java.util.function.Consumer;
 
 public class ManasteelShieldItem extends FabricShieldItem implements CustomDamageItem, FabricShield {
     public ManasteelShieldItem(Properties properties, int cooldownTicks, Tier tier) {
-        super(properties, cooldownTicks, tier);
+        super(properties, cooldownTicks, BotaniaCombatTiers.MANASTEEL_TIER);
     }
 
     public int getManaPerDamage() {

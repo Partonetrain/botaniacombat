@@ -15,7 +15,6 @@ public class BotaniaCombat implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static boolean BetterCombatInstalled;
 	public static boolean FabricShieldLibInstalled;
-
 	public static final int MANA_PER_DAMAGE = 60;
 	public static final int MANA_PER_DAMAGE_TERRA = 100;
 

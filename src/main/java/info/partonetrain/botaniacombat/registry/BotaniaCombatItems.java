@@ -1,6 +1,5 @@
 package info.partonetrain.botaniacombat.registry;
 
-import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import info.partonetrain.botaniacombat.BotaniaCombat;
 import info.partonetrain.botaniacombat.item.*;
 import net.minecraft.world.item.Item;
@@ -27,11 +26,13 @@ public final class BotaniaCombatItems {
     public static final int shieldCooldownTicks = 100; //equivalent to vanilla shield
 
     public static HashMap<String, Item> items = new LinkedHashMap<>() {};
+    public static HashMap<String, Item> callbackItems = new LinkedHashMap<>() {}; //items that will be registered with the callback event instead of during init
 
     public static final Item.Properties itemProperties = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric();
-    public static final Item.Properties itemPropertiesFireResist = itemProperties.fireResistant();
+    public static final Item.Properties itemPropertiesFireResist = itemProperties.fireResistant().rarity(Rarity.UNCOMMON);
 
     public static void Init(){
+
         //manasteel dagger = botania soulscribe
         items.put("elementium_dagger", new SingleHandedElementiumWeaponItem(BotaniaCombatTiers.ELEMENTIUM_TIER, daggerDamageModifier, daggerSpeed, itemProperties));
         items.put("terrasteel_dagger", new TerrasteelWeaponItem(BotaniaCombatTiers.TERRASTEEL_TIER, daggerDamageModifier, daggerSpeed, itemPropertiesFireResist));
@@ -44,10 +45,8 @@ public final class BotaniaCombatItems {
         items.put("mjolnir", new MjolnirItem(BotaniaCombatTiers.TERRASTEEL_TIER, mjolnirDamageModifier, mjolnirSpeed, itemPropertiesFireResist.rarity(Rarity.EPIC)));
 
         if(BotaniaCombat.FabricShieldLibInstalled){
-            items.put("manasteel_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.MANASTEEL_TIER));
+            callbackItems.put("manasteel_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.MANASTEEL_TIER));
         }
-
-
 
     }
 
