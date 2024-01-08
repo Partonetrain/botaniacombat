@@ -2,6 +2,7 @@ package info.partonetrain.botaniacombat;
 
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
+import info.partonetrain.botaniacombat.registry.BotaniaCombatRegistryCallback;
 import info.partonetrain.botaniacombat.registry.BotaniaCombatRegistry;
 import net.fabricmc.api.ModInitializer;
 
@@ -23,6 +24,7 @@ public class BotaniaCombat implements ModInitializer {
 		BetterCombatInstalled = FabricLoader.getInstance().isModLoaded("bettercombat");
 		FabricShieldLibInstalled = FabricLoader.getInstance().isModLoaded("fabricshieldlib");
 		BotaniaCombatRegistry.init();
+		BotaniaCombatRegistryCallback.init();
 
 		AttackEntityCallback.EVENT.register(TerrasteelWeaponItem::attackEntity); //fabric events for if BetterCombat is not installed
 		AttackEntityCallback.EVENT.register(GaiaGreatswordItem::attackEntity);

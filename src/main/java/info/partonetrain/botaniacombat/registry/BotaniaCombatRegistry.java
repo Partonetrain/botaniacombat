@@ -14,30 +14,18 @@ import java.util.Map;
 
 public class BotaniaCombatRegistry {
 
-    static final ResourceLocation manasteel = new ResourceLocation("botania", "manasteel_ingot");
-
     public static void init() {
         BotaniaCombatItems.Init();
         for (Map.Entry<String,Item> entry : BotaniaCombatItems.items.entrySet()){
             registerItem(entry.getKey(), entry.getValue());
             ItemGroupEvents.modifyEntriesEvent(BotaniaRegistries.BOTANIA_TAB_KEY).register(entries -> entries.accept(entry.getValue()));
         }
-        for (Map.Entry<String,Item> entry : BotaniaCombatItems.callbackItems.entrySet()){
-            registerItemWithCallback(entry.getKey(), entry.getValue());
-            ItemGroupEvents.modifyEntriesEvent(BotaniaRegistries.BOTANIA_TAB_KEY).register(entries -> entries.accept(entry.getValue()));
-        }
+
     }
 
     public static void registerItem(String name, Item item) {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(BotaniaCombat.MOD_ID, name), item);
     }
 
-    public static void registerItemWithCallback(String name, Item item){
-        RegistryEntryAddedCallback.event(BuiltInRegistries.ITEM).register((rawId, id, item1) ->  {
-            if(id == manasteel){
-                Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(BotaniaCombat.MOD_ID, name), item);
-            }
-        });
-    }
 
 }
