@@ -2,7 +2,6 @@ package info.partonetrain.botaniacombat;
 
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
-import info.partonetrain.botaniacombat.registry.BotaniaCombatRegistryCallback;
 import info.partonetrain.botaniacombat.registry.BotaniaCombatRegistry;
 import net.fabricmc.api.ModInitializer;
 
@@ -10,6 +9,7 @@ import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import vazkii.botania.common.handler.EquipmentHandler;
 
 public class BotaniaCombat implements ModInitializer {
 	public static final String MOD_ID = "botaniacombat";
@@ -23,8 +23,9 @@ public class BotaniaCombat implements ModInitializer {
 	public void onInitialize() {
 		BetterCombatInstalled = FabricLoader.getInstance().isModLoaded("bettercombat");
 		FabricShieldLibInstalled = FabricLoader.getInstance().isModLoaded("fabricshieldlib");
+		EquipmentHandler.init(); //initialize Botania's Equipment code if it hasn't been initialized already
+
 		BotaniaCombatRegistry.init();
-		BotaniaCombatRegistryCallback.init();
 
 		AttackEntityCallback.EVENT.register(TerrasteelWeaponItem::attackEntity); //fabric events for if BetterCombat is not installed
 		AttackEntityCallback.EVENT.register(GaiaGreatswordItem::attackEntity);

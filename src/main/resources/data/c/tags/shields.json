@@ -4,6 +4,14 @@
     {
       "id": "botaniacombat:manasteel_shield",
       "required": false
+    },
+    {
+      "id": "botaniacombat:elementium_banner_shield",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:terrasteel_shield",
+      "required": false
     }
   ]
 }

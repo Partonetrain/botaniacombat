@@ -2,6 +2,7 @@ package info.partonetrain.botaniacombat.item;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import info.partonetrain.botaniacombat.BotaniaCombat;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -25,7 +26,7 @@ public class SingleHandedElementiumWeaponItem extends BotaniaCombatWeaponItem {
             ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Weapon modifier", 0.05));
         }
 
-        if (slot == EquipmentSlot.OFFHAND && FabricLoader.getInstance().isModLoaded("bettercombat")) {
+        if (slot == EquipmentSlot.OFFHAND && BotaniaCombat.BetterCombatInstalled) {
             ret = HashMultimap.create(ret);
             ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Weapon modifier", 0.05));
         }

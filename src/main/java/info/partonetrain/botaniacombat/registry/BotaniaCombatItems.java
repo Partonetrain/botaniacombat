@@ -45,7 +45,8 @@ public final class BotaniaCombatItems {
         items.put("mjolnir", new MjolnirItem(BotaniaCombatTiers.TERRASTEEL_TIER, mjolnirDamageModifier, mjolnirSpeed, itemPropertiesFireResist.rarity(Rarity.EPIC)));
 
         if(BotaniaCombat.FabricShieldLibInstalled){
-            callbackItems.put("manasteel_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.MANASTEEL_TIER));
+            items.put("manasteel_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.MANASTEEL_TIER));
+            //items.put("elementium_banner_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.ELEMENTIUM_TIER));
         }
 
     }
