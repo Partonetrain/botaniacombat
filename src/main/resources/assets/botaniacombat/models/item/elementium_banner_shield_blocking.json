@@ -1,6 +1,3 @@
 {
-  "parent": "botaniacombat:item/fabric_shield_blocking",
-  "textures":{
-    "shield":"botaniacombat:item/elementium_banner_shield"
-  }
+  "parent": "fabricshieldlib:item/fabric_shield_blocking"
 }

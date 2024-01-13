@@ -28,7 +28,7 @@ public final class BotaniaCombatItems {
     public static HashMap<String, Item> items = new LinkedHashMap<>() {};
     public static HashMap<String, Item> callbackItems = new LinkedHashMap<>() {}; //items that will be registered with the callback event instead of during init
 
-    public static final Item.Properties itemProperties = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric();
+    public static final Item.Properties itemProperties = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().rarity(Rarity.COMMON);
     public static final Item.Properties itemPropertiesFireResist = itemProperties.fireResistant().rarity(Rarity.UNCOMMON);
 
     public static void Init(){
@@ -46,7 +46,7 @@ public final class BotaniaCombatItems {
 
         if(BotaniaCombat.FabricShieldLibInstalled){
             items.put("manasteel_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.MANASTEEL_TIER));
-            //items.put("elementium_banner_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.ELEMENTIUM_TIER));
+            items.put("elementium_banner_shield", new ElementiumBannerShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.ELEMENTIUM_TIER));
         }
 
     }
