@@ -12,6 +12,10 @@
     {
       "id": "botaniacombat:terrasteel_shield",
       "required": false
+    },
+    {
+      "id": "botaniacombat:svalinn",
+      "required": false
     }
   ]
 }

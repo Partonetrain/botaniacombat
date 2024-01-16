@@ -1,0 +1,170 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "botaniacombat:item/terrasteel_shield",
+		"particle": "botaniacombat:item/terrasteel_shield"
+	},
+	"elements": [
+		{
+			"name": "main",
+			"from": [2, 1, 13],
+			"to": [12, 21, 15],
+			"faces": {
+				"north": {"uv": [0, 0, 5, 10], "texture": "#0"},
+				"east": {"uv": [11, 0, 12, 10], "texture": "#0"},
+				"south": {"uv": [5, 0, 10, 10], "texture": "#0"},
+				"west": {"uv": [10, 0, 11, 10], "texture": "#0"},
+				"up": {"uv": [7, 10, 12, 11], "texture": "#0"},
+				"down": {"uv": [7, 11, 12, 12], "texture": "#0"}
+			}
+		},
+		{
+			"name": "handle",
+			"from": [5, 8, 5],
+			"to": [7, 14, 13],
+			"faces": {
+				"north": {"uv": [12, 10, 13, 13], "texture": "#0"},
+				"east": {"uv": [4, 12, 8, 15], "texture": "#0"},
+				"south": {"uv": [13, 10, 14, 13], "texture": "#0"},
+				"west": {"uv": [8, 12, 12, 15], "texture": "#0"},
+				"up": {"uv": [16, 14, 15, 10], "texture": "#0"},
+				"down": {"uv": [15, 10, 14, 14], "texture": "#0"}
+			}
+		},
+		{
+			"name": "decor",
+			"from": [5, 9, 14],
+			"to": [9, 13, 16],
+			"faces": {
+				"north": {"uv": [0, 11, 2, 13], "texture": "#0"},
+				"east": {"uv": [0, 13, 1, 15], "texture": "#0"},
+				"south": {"uv": [2, 11, 4, 13], "texture": "#0"},
+				"west": {"uv": [1, 13, 2, 15], "texture": "#0"},
+				"up": {"uv": [2, 13, 4, 14], "texture": "#0"},
+				"down": {"uv": [2, 14, 4, 15], "texture": "#0"}
+			}
+		},
+		{
+			"name": "spike1",
+			"from": [0, 20, 14],
+			"to": [2, 24, 16],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [3, 22, 14]},
+			"faces": {
+				"north": {"uv": [13, 3, 14, 5], "texture": "#0"},
+				"east": {"uv": [13, 1, 14, 3], "texture": "#0"},
+				"south": {"uv": [12, 3, 13, 5], "texture": "#0"},
+				"west": {"uv": [12, 1, 13, 3], "texture": "#0"},
+				"up": {"uv": [13, 0, 14, 1], "texture": "#0"},
+				"down": {"uv": [12, 0, 13, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "spike2",
+			"from": [12, 20, 14],
+			"to": [14, 24, 16],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [3, 22, 14]},
+			"faces": {
+				"north": {"uv": [13, 3, 14, 5], "texture": "#0"},
+				"east": {"uv": [13, 1, 14, 3], "texture": "#0"},
+				"south": {"uv": [12, 3, 13, 5], "texture": "#0"},
+				"west": {"uv": [12, 1, 13, 3], "texture": "#0"},
+				"up": {"uv": [13, 0, 14, 1], "texture": "#0"},
+				"down": {"uv": [12, 0, 13, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "spike3",
+			"from": [12, -2, 14],
+			"to": [14, 2, 16],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [13, 0, 15]},
+			"faces": {
+				"north": {"uv": [12, 3, 13, 5], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [13, 1, 14, 3], "rotation": 180, "texture": "#0"},
+				"south": {"uv": [13, 3, 14, 5], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [12, 1, 13, 3], "rotation": 180, "texture": "#0"},
+				"up": {"uv": [12, 0, 13, 1], "texture": "#0"},
+				"down": {"uv": [13, 0, 14, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "spike4",
+			"from": [0, -2, 14],
+			"to": [2, 2, 16],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [13, 0, 15]},
+			"faces": {
+				"north": {"uv": [12, 3, 13, 5], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [13, 1, 14, 3], "rotation": 180, "texture": "#0"},
+				"south": {"uv": [13, 3, 14, 5], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [12, 1, 13, 3], "rotation": 180, "texture": "#0"},
+				"up": {"uv": [12, 0, 13, 1], "texture": "#0"},
+				"down": {"uv": [13, 0, 14, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "spike5",
+			"from": [-1, 10, 15],
+			"to": [3, 12, 17],
+			"rotation": {"angle": 45, "axis": "y", "origin": [1, 11, 16]},
+			"faces": {
+				"north": {"uv": [12, 1, 13, 3], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [12, 0, 13, 1], "rotation": 180, "texture": "#0"},
+				"south": {"uv": [13, 1, 14, 3], "rotation": 270, "texture": "#0"},
+				"west": {"uv": [13, 0, 14, 1], "texture": "#0"},
+				"up": {"uv": [13, 3, 14, 5], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [12, 3, 13, 5], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "spike6",
+			"from": [11, 10, 15],
+			"to": [15, 12, 17],
+			"rotation": {"angle": -45, "axis": "y", "origin": [13, 11, 16]},
+			"faces": {
+				"north": {"uv": [13, 1, 14, 3], "rotation": 270, "texture": "#0"},
+				"east": {"uv": [13, 0, 14, 1], "texture": "#0"},
+				"south": {"uv": [12, 1, 13, 3], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [12, 0, 13, 1], "rotation": 180, "texture": "#0"},
+				"up": {"uv": [13, 3, 14, 5], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [12, 3, 13, 5], "rotation": 90, "texture": "#0"}
+			}
+		}
+	],
+	"overrides": [
+		{"predicate": {"blocking": 1}, "model": "botaniacombat:item/terrasteel_shield_blocking"}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 90, 0],
+			"translation": [0.5, -5, 2]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, 0],
+			"translation": [0.5, -5, 6]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 180, 5],
+			"translation": [-2, -24, 0],
+			"scale": [1.65, 1.65, 1.65]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 180, 5],
+			"translation": [4.5, -24, 2],
+			"scale": [1.65, 1.65, 1.65]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [15, -25, -5],
+			"translation": [2, -2, 0],
+			"scale": [0.65, 0.65, 0.65]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0],
+			"translation": [1, -1.5, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

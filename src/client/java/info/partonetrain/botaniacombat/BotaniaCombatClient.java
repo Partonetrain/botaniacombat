@@ -43,6 +43,7 @@ public class BotaniaCombatClient implements ClientModInitializer {
 		}
 
 		if(BotaniaCombat.FabricShieldLibInstalled){
+			BotaniaCombat.LOGGER.info("FabricShieldLib found, running client code");
 			EntityModelLayerRegistry.registerModelLayer(ELEMENTIUM_SHIELD_MODEL_LAYER, ShieldModel::createLayer);
 
 			ShieldSetModelCallback.EVENT.register((loader) -> {

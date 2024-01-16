@@ -39,7 +39,6 @@ public class MjolnirItem extends BotaniaCombatWeaponItem {
     @NotNull
     public InteractionResult useOn(UseOnContext ctx) {
         Player player = ctx.getPlayer();
-        //BotaniaCombat.LOGGER.info("useOn");
         if (player != null) {
             if (ctx.getHand() == InteractionHand.MAIN_HAND &&
                     (ManaItemHandler.instance().requestManaExactForTool(ctx.getItemInHand(), player, BOLT_MANA_COST, true)) || ctx.getPlayer().getAbilities().instabuild) //check for creative

@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 
 public class ManasteelShieldItem extends FabricShieldItem implements CustomDamageItem, FabricShield {
 
-    UUID attrUUID = UUID.fromString("1b711943-4f29-43af-8d55-0b41d5983acf");
+    public final UUID ATTR_UUID = UUID.fromString("1b711943-4f29-43af-8d55-0b41d5983acf");
     public ManasteelShieldItem(Properties properties, int cooldownTicks, Tier tier) {
         super(properties, cooldownTicks, tier);
     }
@@ -52,7 +52,7 @@ public class ManasteelShieldItem extends FabricShieldItem implements CustomDamag
         Multimap<Attribute, AttributeModifier> ret = super.getDefaultAttributeModifiers(slot);
         if (slot == EquipmentSlot.OFFHAND) {
             ret = HashMultimap.create(ret);
-            ret.put(Attributes.ATTACK_SPEED, new AttributeModifier(attrUUID, "Manasteel Shield modifier", 0.2, AttributeModifier.Operation.ADDITION));
+            ret.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTR_UUID, "Manasteel Shield modifier", 0.2, AttributeModifier.Operation.ADDITION));
         }
 
         return ret;

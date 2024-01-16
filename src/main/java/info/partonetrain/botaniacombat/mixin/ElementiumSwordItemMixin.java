@@ -35,7 +35,7 @@ public class ElementiumSwordItemMixin {
     )
     private void BotaniaCombat_addOffhandAttributeToElementiumSword(@NotNull EquipmentSlot slot, CallbackInfoReturnable<@NotNull Multimap<Attribute, AttributeModifier>> cir, Multimap<Attribute, AttributeModifier> ret) {
         if (slot == EquipmentSlot.OFFHAND && BotaniaCombat.BetterCombatInstalled) {
-            ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Sword modifier", 0.05));
+            ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Elementium Sword modifier", 0.05));
         }
     }
 
