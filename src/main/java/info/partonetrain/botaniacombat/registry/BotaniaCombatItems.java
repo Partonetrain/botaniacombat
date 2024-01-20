@@ -28,7 +28,8 @@ public final class BotaniaCombatItems {
     public static HashMap<String, Item> items = new LinkedHashMap<>() {};
 
     public static final Item.Properties itemProperties = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric();
-    public static final Item.Properties itemPropertiesFireResist = itemProperties.fireResistant().rarity(Rarity.UNCOMMON);
+    public static final Item.Properties itemPropertiesFireResist = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().fireResistant().rarity(Rarity.UNCOMMON);
+    public static final Item.Properties itemPropertiesEpic = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().fireResistant().rarity(Rarity.EPIC);
 
     public static void Init(){
 
@@ -41,13 +42,17 @@ public final class BotaniaCombatItems {
         items.put("terrasteel_spear", new TerrasteelWeaponItem(BotaniaCombatTiers.TERRASTEEL_TIER, spearDamageModifier, spearSpeed, itemPropertiesFireResist));
 
         items.put("gaia_greatsword", new GaiaGreatswordItem(BotaniaCombatTiers.TERRASTEEL_TIER, greatswordDamageModifier, greatswordSpeed, itemPropertiesFireResist));
-        items.put("mjolnir", new MjolnirItem(BotaniaCombatTiers.TERRASTEEL_TIER, mjolnirDamageModifier, mjolnirSpeed, itemPropertiesFireResist.rarity(Rarity.EPIC)));
+        items.put("mjolnir", new MjolnirItem(BotaniaCombatTiers.TERRASTEEL_TIER, mjolnirDamageModifier, mjolnirSpeed, itemPropertiesEpic));
 
         if(BotaniaCombat.FabricShieldLibInstalled){
             items.put("manasteel_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.MANASTEEL_TIER));
             items.put("elementium_banner_shield", new ElementiumBannerShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.ELEMENTIUM_TIER));
             items.put("terrasteel_shield", new TerrasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.TERRASTEEL_TIER));
-            items.put("svalinn", new SvalinnItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.TERRASTEEL_TIER));
+            items.put("svalinn", new SvalinnItem(itemPropertiesEpic, shieldCooldownTicks, BotaniaCombatTiers.TERRASTEEL_TIER));
+        }
+
+        if(BotaniaCombat.RangedWeaponAPIInstalled){
+
         }
 
     }

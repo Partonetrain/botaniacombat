@@ -31,7 +31,7 @@ public class ElementiumAxeItemMixin extends Item implements ElementiumAxeAccess 
     //Extremely cursed mixin to add an overridden method
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@Local @NotNull EquipmentSlot slot) {
-        Multimap<Attribute, AttributeModifier> ret = HashMultimap.create(super.getDefaultAttributeModifiers(slot));
+        Multimap<Attribute, AttributeModifier> ret = HashMultimap.create(super.getDefaultAttributeModifiers(slot)); //.create makes it mutable
         if (slot == EquipmentSlot.MAINHAND) {
             ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Elementium Axe modifier", 0.05));
         }

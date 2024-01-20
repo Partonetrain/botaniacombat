@@ -83,6 +83,8 @@ dependencies {
 	}
 
 	implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${mixin_extras_version}"))
+
+	modImplementation "maven.modrinth:ranged-weapon-api:${project.ranged_weapon_api_version}"
 }
 
 processResources {
