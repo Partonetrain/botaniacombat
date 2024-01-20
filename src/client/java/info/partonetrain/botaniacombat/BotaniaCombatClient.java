@@ -36,10 +36,10 @@ public class BotaniaCombatClient implements ClientModInitializer {
 		ColorHandler.submitBotaniaCombatItems(ColorProviderRegistry.ITEM::register);
 
 		if (BotaniaCombat.BetterCombatInstalled){
+			BotaniaCombat.LOGGER.info("BetterCombat found, running client code");
 			BetterCombatClientEvents.ATTACK_START.register(this::CheckTerrasteelSwing);
-			BotaniaCombat.LOGGER.info("BotaniaCombat Terrasteel ATTACK_START registered for BetterCombat");
 		}else{
-			BotaniaCombat.LOGGER.info("BetterCombat not found, ignoring ATTACK_START code.");
+			//BotaniaCombat.LOGGER.info("BetterCombat not found, ignoring ATTACK_START code.");
 		}
 
 		if(BotaniaCombat.FabricShieldLibInstalled){

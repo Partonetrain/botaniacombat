@@ -47,7 +47,7 @@ public final class BotaniaCombatItems {
             items.put("manasteel_shield", new ManasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.MANASTEEL_TIER));
             items.put("elementium_banner_shield", new ElementiumBannerShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.ELEMENTIUM_TIER));
             items.put("terrasteel_shield", new TerrasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.TERRASTEEL_TIER));
-            items.put("svalinn", new TerrasteelShieldItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.TERRASTEEL_TIER));
+            items.put("svalinn", new SvalinnItem(itemProperties, shieldCooldownTicks, BotaniaCombatTiers.TERRASTEEL_TIER));
         }
 
     }

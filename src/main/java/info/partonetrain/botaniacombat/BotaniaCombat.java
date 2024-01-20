@@ -16,6 +16,7 @@ public class BotaniaCombat implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static boolean BetterCombatInstalled;
 	public static boolean FabricShieldLibInstalled;
+	public static boolean RangedWeaponAPIInstalled;
 	public static final int MANA_PER_DAMAGE = 60;
 	public static final int MANA_PER_DAMAGE_TERRA = 100;
 
@@ -23,6 +24,7 @@ public class BotaniaCombat implements ModInitializer {
 	public void onInitialize() {
 		BetterCombatInstalled = FabricLoader.getInstance().isModLoaded("bettercombat");
 		FabricShieldLibInstalled = FabricLoader.getInstance().isModLoaded("fabricshieldlib");
+		RangedWeaponAPIInstalled = FabricLoader.getInstance().isModLoaded("rangedweaponapi");
 		EquipmentHandler.init(); //initialize Botania's Equipment code if it hasn't been initialized already
 
 		BotaniaCombatRegistry.init();
