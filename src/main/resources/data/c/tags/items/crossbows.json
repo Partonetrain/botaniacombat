@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "botaniacombat:livingwood_crossbow",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:crystal_crossbow",
+      "required": false
+    }
+  ]
+}

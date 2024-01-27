@@ -1,0 +1,6 @@
+{
+    "parent": "botaniacombat:item/livingwood_crossbow",
+    "textures": {
+        "layer0": "botaniacombat:item/livingwood_crossbow_pulling_2"
+    }
+}

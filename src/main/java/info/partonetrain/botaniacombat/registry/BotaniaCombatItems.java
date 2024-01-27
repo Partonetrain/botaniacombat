@@ -2,8 +2,17 @@ package info.partonetrain.botaniacombat.registry;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
 import info.partonetrain.botaniacombat.item.*;
+import info.partonetrain.botaniacombat.item.ranged.CrystalCrossbowItem;
+import info.partonetrain.botaniacombat.item.ranged.LivingwoodCrossbowItem;
+import info.partonetrain.botaniacombat.item.shield.ElementiumBannerShieldItem;
+import info.partonetrain.botaniacombat.item.shield.ManasteelShieldItem;
+import info.partonetrain.botaniacombat.item.shield.SvalinnItem;
+import info.partonetrain.botaniacombat.item.shield.TerrasteelShieldItem;
+import net.fabric_extras.ranged_weapon.api.RangedConfig;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.crafting.Ingredient;
+import vazkii.botania.common.item.BotaniaItems;
 
 import java.util.*;
 
@@ -31,6 +40,8 @@ public final class BotaniaCombatItems {
     public static final Item.Properties itemPropertiesFireResist = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().fireResistant().rarity(Rarity.UNCOMMON);
     public static final Item.Properties itemPropertiesEpic = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().fireResistant().rarity(Rarity.EPIC);
 
+
+
     public static void Init(){
 
         //manasteel dagger = botania soulscribe
@@ -53,6 +64,13 @@ public final class BotaniaCombatItems {
 
         if(BotaniaCombat.RangedWeaponAPIInstalled){
 
+            final RangedConfig livingwoodCrossbowConfig = new RangedConfig(25, 9f, null);
+            final RangedConfig crystalCrossbowConfig = new RangedConfig(15, 9f, null);
+            final RangedConfig skadiBowConfig = new RangedConfig(20, 9f, 10f);
+
+            items.put("livingwood_crossbow", new LivingwoodCrossbowItem(itemProperties.defaultDurability(300), () -> Ingredient.of(BotaniaItems.livingwoodTwig), livingwoodCrossbowConfig));
+            items.put("crystal_crossbow", new CrystalCrossbowItem(itemProperties.defaultDurability(500), () -> Ingredient.of(BotaniaItems.livingwoodTwig), crystalCrossbowConfig));
+            //
         }
 
     }

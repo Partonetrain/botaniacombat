@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "/w/",
+    "#s#",
+    " / "
+  ],
+  "key": {
+    "#": {
+      "item": "botania:terrasteel_ingot"
+    },
+    "w": {
+      "item": "botania:rune_of_wind"
+    },
+    "/": {
+      "item": "botania:livingwood_twig"
+    },
+    "s": {
+      "item": "botaniacombat:manasteel_shield"
+    }
+  },
+  "result": {
+    "item": "botaniacombat:terrasteel_shield",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "fabricshieldlib"
+      ]
+    }
+  ]
+}

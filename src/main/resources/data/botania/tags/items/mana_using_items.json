@@ -1,0 +1,62 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "botaniacombat:elementium_dagger",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:terrasteel_dagger",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:soulstaff",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:elementium_spear",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:terrasteel_spear",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:gaia_greatsword",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:mjolnir",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:manasteel_shield",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:elementium_banner_shield",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:terrasteel_shield",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:svalinn",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:livingwood_crossbow",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:crystal_crossbow",
+      "required": false
+    },
+    {
+      "id": "botaniacombat:skadi_bow",
+      "required": false
+    }
+
+  ]
+}

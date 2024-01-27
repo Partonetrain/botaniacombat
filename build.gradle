@@ -55,6 +55,8 @@ loom {
 		}
 	}
 
+	accessWidenerPath = file("src/main/resources/botaniacombat.accesswidener")
+
 }
 
 dependencies {

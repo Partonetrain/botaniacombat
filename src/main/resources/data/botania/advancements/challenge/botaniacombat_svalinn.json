@@ -1,0 +1,69 @@
+{
+  "fabric:load_conditions": [
+      {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "fabricshieldlib"
+      ]
+      }
+  ],
+  "display": {
+    "icon": {
+      "item": "botaniacombat:svalinn"
+    },
+    "title": {
+      "translate": "advancement.botaniacombat:svalinn"
+    },
+    "description": {
+      "translate": "advancement.botaniacombat:svalinn.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "botania:challenge/gaia_guardian_hardmode",
+  "criteria": {
+    "kill_guardian_high_elevation": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "position": {
+                "y": {
+                  "min": 100,
+                  "max": 999
+                }
+              },
+              "dimension": "minecraft:overworld"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "botania:doppleganger",
+              "nbt": "{hardMode:1b}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kill_guardian_high_elevation"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "botaniacombat:svalinn_loot"
+    ],
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

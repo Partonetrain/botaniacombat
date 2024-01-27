@@ -1,0 +1,7 @@
+accessWidener v2 named
+accessible method net/minecraft/world/item/CrossbowItem loadProjectile (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;ZZ)Z
+accessible method net/minecraft/world/item/CrossbowItem getPowerForTime (ILnet/minecraft/world/item/ItemStack;)F
+accessible method net/minecraft/world/item/CrossbowItem getArrow (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/entity/projectile/AbstractArrow;
+accessible method net/minecraft/world/item/CrossbowItem getChargedProjectiles (Lnet/minecraft/world/item/ItemStack;)Ljava/util/List;
+accessible method net/minecraft/world/item/CrossbowItem getShotPitches (Lnet/minecraft/util/RandomSource;)[F
+accessible method net/minecraft/world/item/CrossbowItem onCrossbowShot (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;)V

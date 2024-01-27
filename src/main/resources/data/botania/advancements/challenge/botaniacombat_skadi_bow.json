@@ -1,0 +1,71 @@
+{
+  "fabric:load_conditions": [
+      {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+          "ranged_weapon_api"
+      ]
+      }
+  ],
+  "display": {
+    "icon": {
+      "item": "botaniacombat:skadi_bow"
+    },
+    "title": {
+      "translate": "advancement.botaniacombat:skadi_bow"
+    },
+    "description": {
+      "translate": "advancement.botaniacombat:skadi_bow.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "botania:challenge/gaia_guardian_hardmode",
+  "criteria": {
+    "kill_guardian_with_warm_boots": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "feet": {
+                  "items": [
+                    "minecraft:leather_boots",
+                    "botania:manaweave_boots"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "botania:doppleganger",
+              "nbt": "{hardMode:1b}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kill_guardian_with_warm_boots"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "botaniacombat:skadi_bow_loot"
+    ],
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

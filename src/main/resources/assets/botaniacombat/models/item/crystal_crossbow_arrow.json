@@ -1,0 +1,6 @@
+{
+    "parent": "botaniacombat:item/crystal_crossbow",
+    "textures": {
+        "layer0": "botaniacombat:item/crystal_crossbow_arrow"
+    }
+}

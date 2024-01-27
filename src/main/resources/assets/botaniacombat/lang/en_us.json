@@ -6,6 +6,7 @@
   "item.botaniacombat.terrasteel_spear": "Terra Warspear",
   "item.botaniacombat.gaia_greatsword": "Gaia Greatsword",
   "item.botaniacombat.mjolnir": "Mjölnir",
+
   "item.botaniacombat.manasteel_shield": "Manasteel Buckler",
   "item.botaniacombat.elementium_banner_shield": "Elementium Shield",
   "item.botaniacombat.elementium_banner_shield.red": "Red Elementium Shield",
@@ -27,8 +28,17 @@
   "item.botaniacombat.elementium_banner_shield.black": "Black Elementium Shield",
   "item.botaniacombat.terrasteel_shield": "Terra Tower Shield",
   "item.botaniacombat.svalinn": "Svalinn",
+
+  "item.botaniacombat.livingwood_crossbow": "Livingwood Crossbow",
+  "item.botaniacombat.crystal_crossbow": "Crystal Crossbow",
+  "item.botaniacombat.skadi_bow": "Skaði's Bow",
+
   "advancement.botaniacombat:mjolnir": "Hammer of the Thunder God",
-  "advancement.botaniacombat:mjolnir.desc": "Under the tempest's rage, where lightning dances free,\ndefeat Gaia Gaurdian II, and witness Thor's gift to thee.",
+  "advancement.botaniacombat:mjolnir.desc": "Under the tempest's rage, where lightning dances free,\ndefeat Guardian II, to witness Thor's gift to thee.",
+  "advancement.botaniacombat:svalinn": "The Splendid Sun-shield",
+  "advancement.botaniacombat:svalinn.desc": "Legend tells of a shield that reflects the sun,\ndefeat Guardian II on high to obtain one.",
+  "advancement.botaniacombat:skadi_bow": "Bow of the Skiing Jötunn",
+  "advancement.botaniacombat:skadi_bow.desc": "While protecting your feet from powdered snow\ndefeat Guardian II, and find Skaði's giant bow.",
 
   "botaniacombat.entry.gaia_greatsword": "Gaia Greatsword",
   "botaniacombat.tagline.gaia_greatsword": "A greatsword that fires seven beams",

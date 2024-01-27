@@ -9,7 +9,8 @@
 	],
 	"contact": {
 		"homepage": "https://github.com/Partonetrain/botaniacombat",
-		"sources": "https://github.com/Partonetrain/botaniacombat"
+		"sources": "https://github.com/Partonetrain/botaniacombat",
+		"email": "Train@violetmoon.org"
 	},
 	"license": "MIT",
 	"icon": "assets/botaniacombat/icon.png",
@@ -39,6 +40,8 @@
 	"suggests": {
 		"bettercombat": "https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus",
 		"modelfix": "https://www.curseforge.com/minecraft/mc-mods/model-gap-fix",
-		"fabricshieldlib": "https://www.curseforge.com/minecraft/mc-mods/fabric-shield-lib"
-	}
+		"fabricshieldlib": "https://www.curseforge.com/minecraft/mc-mods/fabric-shield-lib",
+		"ranged_weapon_api": "https://www.curseforge.com/minecraft/mc-mods/ranged-weapon-api"
+	},
+	"accessWidener" : "botaniacombat.accesswidener"
 }

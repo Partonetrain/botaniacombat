@@ -98,6 +98,67 @@ public class BotaniaCombatTiers {
         }
     };
 
+    public static final Tier LIVINGWOOD_TIER = new Tier() {
+        @Override
+        public int getUses() {
+            return 300;
+        }
 
+        @Override
+        public float getSpeed() {
+            return 6.2f;
+        }
 
+        @Override
+        public float getAttackDamageBonus() {
+            return 6;
+        }
+
+        @Override
+        public int getLevel() {
+            return 3;
+        }
+
+        @Override
+        public int getEnchantmentValue() {
+            return 20;
+        }
+
+        @Override
+        public Ingredient getRepairIngredient() {
+            return Ingredient.of(BotaniaItems.manaSteel);
+        }
+    };
+
+    public static final Tier CRYSTAL_TIER = new Tier() {
+        @Override
+        public int getUses() {
+            return 500;
+        }
+
+        @Override
+        public float getSpeed() {
+            return 6.2f;
+        }
+
+        @Override
+        public float getAttackDamageBonus() {
+            return 6;
+        }
+
+        @Override
+        public int getLevel() {
+            return 3;
+        }
+
+        @Override
+        public int getEnchantmentValue() {
+            return 20;
+        }
+
+        @Override
+        public Ingredient getRepairIngredient() {
+            return Ingredient.of(BotaniaItems.dragonstone);
+        }
+    };
 }

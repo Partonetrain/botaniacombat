@@ -1,4 +1,4 @@
-package info.partonetrain.botaniacombat.item;
+package info.partonetrain.botaniacombat.item.shield;
 
 import net.minecraft.world.item.Tier;
 
@@ -7,5 +7,5 @@ public class SvalinnItem extends TerrasteelShieldItem {
         super(properties, cooldownTicks, tier);
     }
 
-    //mob slow effect code is in TerrasteelShieldItem
+    //all Svalinn effects are in TerrasteelShieldItem
 }

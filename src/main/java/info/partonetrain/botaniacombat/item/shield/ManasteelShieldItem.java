@@ -1,4 +1,4 @@
-package info.partonetrain.botaniacombat.item;
+package info.partonetrain.botaniacombat.item.shield;
 
 import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShield;
 import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;

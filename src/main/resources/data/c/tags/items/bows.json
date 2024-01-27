@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "botaniacombat:skadi_bow",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "botania:livingwood_bow",
+    "botania:crystal_bow",
+    "botaniacombat:livingwood_crossbow",
+    "botaniacombat:crystal_crossbow",
+    "botaniacombat:skadi_bow"
+  ]
+}

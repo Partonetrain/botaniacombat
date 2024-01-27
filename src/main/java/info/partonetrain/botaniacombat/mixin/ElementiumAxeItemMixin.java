@@ -32,11 +32,14 @@ public class ElementiumAxeItemMixin extends Item implements ElementiumAxeAccess 
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@Local @NotNull EquipmentSlot slot) {
         Multimap<Attribute, AttributeModifier> ret = HashMultimap.create(super.getDefaultAttributeModifiers(slot)); //.create makes it mutable
-        if (slot == EquipmentSlot.MAINHAND) {
-            ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Elementium Axe modifier", 0.05));
-        }
-        if (slot == EquipmentSlot.OFFHAND && BotaniaCombat.BetterCombatInstalled) {
-            ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Elementium Axe modifier", 0.05));
+        if(BotaniaCombat.BetterCombatInstalled) {
+            if (slot == EquipmentSlot.MAINHAND) {
+                ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Elementium Axe modifier", 0.05));
+            }
+            if (slot == EquipmentSlot.OFFHAND && BotaniaCombat.BetterCombatInstalled) {
+                ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Elementium Axe modifier", 0.05));
+            }
+            return ret;
         }
         return ret;
     }

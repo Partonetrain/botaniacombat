@@ -24,7 +24,7 @@ public class BotaniaCombat implements ModInitializer {
 	public void onInitialize() {
 		BetterCombatInstalled = FabricLoader.getInstance().isModLoaded("bettercombat");
 		FabricShieldLibInstalled = FabricLoader.getInstance().isModLoaded("fabricshieldlib");
-		RangedWeaponAPIInstalled = FabricLoader.getInstance().isModLoaded("rangedweaponapi");
+		RangedWeaponAPIInstalled = FabricLoader.getInstance().isModLoaded("ranged_weapon_api");
 		EquipmentHandler.init(); //initialize Botania's Equipment code if it hasn't been initialized already
 
 		BotaniaCombatRegistry.init();

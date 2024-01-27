@@ -1,13 +1,15 @@
 {
   "required": true,
   "package": "info.partonetrain.botaniacombat.mixin",
+  "plugin": "info.partonetrain.botaniacombat.BotaniaCombatMixinPlugin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BotaniaLeftClickPacketMixin",
     "ElementiumAxeItemMixin",
     "ElementiumSwordItemMixin",
     "PixieHandlerMixin",
-    "TerraBladeItemMixin"
+    "TerraBladeItemMixin",
+    "ranged.LivingwoodBowItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1
