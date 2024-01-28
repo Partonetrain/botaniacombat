@@ -6,7 +6,8 @@
     "ItemRendererAccessor",
     "ItemRendererMixin",
     "MinecraftMixin",
-    "ModelBakeryMixin"
+    "ModelBakeryMixin",
+    "access.ModelManagerAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

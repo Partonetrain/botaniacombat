@@ -30,6 +30,8 @@ public class BotaniaCombatClient implements ClientModInitializer {
 	public static final Material ELEMENTIUM_BANNER_SHIELD_BASE = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(BotaniaCombat.MOD_ID, "entity/elementium_banner_shield_base"));
 	public static final Material ELEMENTIUM_BANNER_SHIELD_BASE_NO_PATTERN = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(BotaniaCombat.MOD_ID, "entity/elementium_banner_shield_base_nopattern"));
 
+	public static final ResourceLocation SKADI_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/skadi_bow");
+	public static final ResourceLocation SKADI_HELD_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/skadi_bow_held");
 
 	@Override
 	public void onInitializeClient() {
@@ -55,6 +57,13 @@ public class BotaniaCombatClient implements ClientModInitializer {
 				renderBanner(stack, matrices, vertexConsumers, light, overlay, modelElementiumShield, ELEMENTIUM_BANNER_SHIELD_BASE, ELEMENTIUM_BANNER_SHIELD_BASE_NO_PATTERN);
 				//The first five parameters are taken from the method, while the last 3 you provide yourself. You will provide the model, and then your 2 sprite identifiers in the order of SHIELD_NAME_BASE and then SHIELD_NAME_BASE_NOPATTERN.
 			});
+		}
+
+		if(BotaniaCombat.RangedWeaponAPIInstalled){
+			BotaniaCombat.LOGGER.info("RangedWeaponAPI found, running client code");
+
+			BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("skadi_bow"),
+					new DifferentPerspectiveItemRender(SKADI_MODEL, SKADI_HELD_MODEL));
 		}
 	}
 

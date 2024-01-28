@@ -49,12 +49,14 @@ public abstract class ItemRendererMixin {
                 }
 
                  */
+
+
                 default -> false;
             };
         }
 
         if(flag) {
-            return ((ItemRendererAccessor) this).BotaniaCombat$getModels() .getModelManager().getModel(new ModelResourceLocation(BotaniaCombat.MOD_ID, resourceLocation, "inventory"));
+            return ((ItemRendererAccessor) this).BotaniaCombat$getModels().getModelManager().getModel(new ModelResourceLocation(BotaniaCombat.MOD_ID, resourceLocation, "inventory"));
         }
         else {
             return value;

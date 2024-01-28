@@ -1,7 +1,7 @@
 {
     "parent": "botaniacombat:item/handheld_big_bow",
     "textures": {
-      "layer0": "botaniacombat:item/skadi_bow"
+      "layer0": "botaniacombat:item/skadi_bow_held"
     },
     "overrides": [
       {

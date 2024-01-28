@@ -31,8 +31,11 @@ public abstract class ModelBakeryMixin {
 		this.loadTopLevel(new ModelResourceLocation(BotaniaCombat.MOD_ID, "soulstaff_held", "inventory"));
 		this.loadTopLevel(new ModelResourceLocation(BotaniaCombat.MOD_ID, "elementium_spear_held", "inventory"));
 		this.loadTopLevel(new ModelResourceLocation(BotaniaCombat.MOD_ID, "terrasteel_spear_held", "inventory"));
-
 		this.loadTopLevel(new ModelResourceLocation(BotaniaCombat.MOD_ID, "gaia_greatsword_held", "inventory"));
+
+		//this.loadTopLevel(new ModelResourceLocation(BotaniaCombat.MOD_ID, "skadi_bow_held", "inventory"));
+		//this.loadTopLevel(new ModelResourceLocation(BotaniaCombat.MOD_ID, "skadi_bow_pulling_0_held", "inventory"));
+
 	}
 
 }

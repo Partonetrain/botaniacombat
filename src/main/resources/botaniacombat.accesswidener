@@ -5,3 +5,4 @@ accessible method net/minecraft/world/item/CrossbowItem getArrow (Lnet/minecraft
 accessible method net/minecraft/world/item/CrossbowItem getChargedProjectiles (Lnet/minecraft/world/item/ItemStack;)Ljava/util/List;
 accessible method net/minecraft/world/item/CrossbowItem getShotPitches (Lnet/minecraft/util/RandomSource;)[F
 accessible method net/minecraft/world/item/CrossbowItem onCrossbowShot (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;)V
+accessible method net/minecraft/client/renderer/entity/ItemRenderer renderModelLists (Lnet/minecraft/client/resources/model/BakedModel;Lnet/minecraft/world/item/ItemStack;IILcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;)V
