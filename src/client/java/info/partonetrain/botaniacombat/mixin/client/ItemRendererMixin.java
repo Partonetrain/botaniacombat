@@ -42,6 +42,13 @@ public abstract class ItemRendererMixin {
                     resourceLocation = "gaia_greatsword_held";
                     yield true;
                 }
+                /*
+                case "item.botaniacombat.skadi_bow" -> {
+                    resourceLocation = "skadi_bow_held";
+                    yield true;
+                }
+
+                 */
                 default -> false;
             };
         }

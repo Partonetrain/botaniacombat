@@ -4,6 +4,7 @@ import info.partonetrain.botaniacombat.BotaniaCombat;
 import info.partonetrain.botaniacombat.item.*;
 import info.partonetrain.botaniacombat.item.ranged.CrystalCrossbowItem;
 import info.partonetrain.botaniacombat.item.ranged.LivingwoodCrossbowItem;
+import info.partonetrain.botaniacombat.item.ranged.SkadiBowItem;
 import info.partonetrain.botaniacombat.item.shield.ElementiumBannerShieldItem;
 import info.partonetrain.botaniacombat.item.shield.ManasteelShieldItem;
 import info.partonetrain.botaniacombat.item.shield.SvalinnItem;
@@ -70,7 +71,7 @@ public final class BotaniaCombatItems {
 
             items.put("livingwood_crossbow", new LivingwoodCrossbowItem(itemProperties.defaultDurability(300), () -> Ingredient.of(BotaniaItems.livingwoodTwig), livingwoodCrossbowConfig));
             items.put("crystal_crossbow", new CrystalCrossbowItem(itemProperties.defaultDurability(500), () -> Ingredient.of(BotaniaItems.livingwoodTwig), crystalCrossbowConfig));
-            //
+            items.put("skadi_bow", new SkadiBowItem(itemPropertiesEpic.defaultDurability(8000), () -> Ingredient.of(BotaniaItems.terrasteel), skadiBowConfig));
         }
 
     }
