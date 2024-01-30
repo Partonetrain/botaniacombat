@@ -1,0 +1,12 @@
+{
+  "comment": "This resource pack overwrites Botania lang keys to be more accurate to the changes made by BotaniaCombat.",
+  
+  "advancement.botania:terrasteelWeaponCraft.desc": "Arm yourself with a Terra Blade",
+  
+  "botania.page.enderDagger1": "Due to the concentration of energy, though, the dagger's only good for a few kills, and its compactness prevents the $(item)Manasteel$(0) in its recipe from healing with $(thing)Mana$(0), the way typical tools would. $(br2)One could also make a $(item)Soulstaff$(0), which is a quarterstaff with similar abilities and limitations.",
+  "botania.page.elfGear10": "Finally, the $(item)Elementium Sword$(0), when held, increases the chance of a $(thing)Pixie$(0) spawning when hit (this holds true even when no $(item)Elementium Armor$(0) is worn).$(br2)Alternatively, one could create an $(item)Elementium Dagger$(0) or $(item)Elementium Spear$(0) instead.",
+  "botania.page.terraSword1": "If you prefer, other forms of fashioning Terrasteel into weapons also exist: the $(item)Terra Edge$(0) and $(item)Terra Warspear$(0).",
+  
+  "botania.subtitle.terraBlade": "Terrasteel weapon activates"
+  
+}

@@ -31,7 +31,7 @@ If [Ranged Weapon API](https://www.curseforge.com/minecraft/mc-mods/ranged-weapo
 - Adds Crystal Crossbow (w/ a different Multishot angle)
 - Adds a secret bow
 
-**NOTE**: If you want the text in the Lexica Botania and subtitles to be accurate, you will need [this resource pack](https://modrinth.com/resourcepack/botaniacombatlang/settings/description).
+**NOTE**: To ensure that the Lexica and Subtitles from Botania are accurate, this mod includes an enabled-by-default resource pack that overrides some of Botania's lang file.
 
 Credits / Thanks:
 [Large weapon handheld model implementation](https://github.com/Partonetrain/botaniacombat/blob/main/src/client/java/info/partonetrain/botaniacombat/mixin/client/ItemRendererMixin.java) largely adapted from [Basic Weapons](https://www.curseforge.com/minecraft/mc-mods/basic-weapons) by June

@@ -10,6 +10,6 @@ import java.util.Map;
 
 @Mixin(ModelManager.class)
 public interface ModelManagerAccessor {
-    @Accessor
+    @Accessor("bakedRegistry")
     Map<ResourceLocation, BakedModel> getBakedRegistry();
 }

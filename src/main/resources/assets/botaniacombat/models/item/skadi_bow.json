@@ -1,5 +1,5 @@
 {
-    "parent": "item/generated",
+    "parent": "botaniacombat:item/perspective_model",
     "textures": {
         "layer0": "botaniacombat:item/skadi_bow"
     },

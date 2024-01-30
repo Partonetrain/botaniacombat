@@ -15,10 +15,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.Map;
+
 public class DifferentPerspectiveItemRender implements BuiltinItemRendererRegistry.DynamicItemRenderer {
 
-    private final ResourceLocation heldModel;
     private final ResourceLocation guiModel;
+    private final ResourceLocation heldModel;
 
     public DifferentPerspectiveItemRender(ResourceLocation guiModel, ResourceLocation heldModel){
         this.guiModel = guiModel;
@@ -48,7 +50,10 @@ public class DifferentPerspectiveItemRender implements BuiltinItemRendererRegist
 
     public static BakedModel getModel(ModelManager modelManager, ResourceLocation modelLocation)
     {
-        return (BakedModel) ((ModelManagerAccessor)modelManager).getBakedRegistry().getOrDefault(modelLocation, modelManager.getMissingModel());
+        Map<ResourceLocation, BakedModel> bakedReg = ((ModelManagerAccessor)modelManager).getBakedRegistry();
+        BakedModel model = bakedReg.get(modelLocation);
+        BotaniaCombat.LOGGER.info("my model: "+String.valueOf(bakedReg.containsKey(modelLocation)));
+        return model;
     }
 
 }

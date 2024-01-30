@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "minecraft:item/generated",
+	"parent": "builtin/entity",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, -90, 55],

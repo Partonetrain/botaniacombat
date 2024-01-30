@@ -10,11 +10,15 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.model.ShieldModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.Material;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import vazkii.botania.common.item.equipment.tool.terrasteel.TerraBladeItem;
@@ -32,16 +36,24 @@ public class BotaniaCombatClient implements ClientModInitializer {
 
 	public static final ResourceLocation SKADI_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/skadi_bow");
 	public static final ResourceLocation SKADI_HELD_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/skadi_bow_held");
+	public static final ResourceLocation GREATSWORD_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/gaia_greatsword");
+	public static final ResourceLocation GREATSWORD_HELD_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/gaia_greatsword_held");
+	public static final ResourceLocation TERRASPEAR_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/terrasteel_spear");
+	public static final ResourceLocation TERRASPEAR_MODEL_HELD = new ResourceLocation(BotaniaCombat.MOD_ID, "item/terrasteel_spear_held");
 
 	@Override
 	public void onInitializeClient() {
 		ColorHandler.submitBotaniaCombatItems(ColorProviderRegistry.ITEM::register);
+		registerOptionalResourcePack();
+
+		BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("gaia_greatsword"),
+				new DifferentPerspectiveItemRender(GREATSWORD_MODEL, GREATSWORD_HELD_MODEL));
+		BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("terrasteel_spear"),
+				new DifferentPerspectiveItemRender(TERRASPEAR_MODEL, TERRASPEAR_MODEL_HELD));
 
 		if (BotaniaCombat.BetterCombatInstalled){
 			BotaniaCombat.LOGGER.info("BetterCombat found, running client code");
 			BetterCombatClientEvents.ATTACK_START.register(this::CheckTerrasteelSwing);
-		}else{
-			//BotaniaCombat.LOGGER.info("BetterCombat not found, ignoring ATTACK_START code.");
 		}
 
 		if(BotaniaCombat.FabricShieldLibInstalled){
@@ -76,5 +88,12 @@ public class BotaniaCombatClient implements ClientModInitializer {
 			GaiaGreatswordItem.leftClick(attackHand.itemStack());
 		}
 	}
+
+	public void registerOptionalResourcePack(){
+		ResourceLocation folderName = new ResourceLocation(BotaniaCombat.MOD_ID, "botaniacombatlang");
+		Component displayName = Component.literal("BotaniaCombat Lang Fixes");
+		FabricLoader.getInstance().getModContainer(folderName.getNamespace()).ifPresent(c -> ResourceManagerHelper.registerBuiltinResourcePack(folderName, c, displayName, ResourcePackActivationType.DEFAULT_ENABLED));
+	}
+
 
 }

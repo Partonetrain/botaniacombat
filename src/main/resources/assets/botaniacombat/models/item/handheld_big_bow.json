@@ -1,5 +1,5 @@
 {
-    "parent": "builtin/entity",
+    "parent": "botaniacombat:item/perspective_model",
     "display": {
       "thirdperson_righthand": {
         "rotation": [ -80, 260, -40 ],
