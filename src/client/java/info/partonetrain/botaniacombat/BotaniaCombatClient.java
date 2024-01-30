@@ -7,6 +7,7 @@ import info.partonetrain.botaniacombat.registry.BotaniaCombatItems;
 import net.bettercombat.api.AttackHand;
 import net.bettercombat.api.client.BetterCombatClientEvents;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -22,6 +23,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import vazkii.botania.common.item.equipment.tool.terrasteel.TerraBladeItem;
+import info.partonetrain.botaniacombat.ModelConstants;
 
 import static com.github.crimsondawn45.fabricshieldlib.initializers.FabricShieldLibClient.renderBanner;
 
@@ -34,22 +36,19 @@ public class BotaniaCombatClient implements ClientModInitializer {
 	public static final Material ELEMENTIUM_BANNER_SHIELD_BASE = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(BotaniaCombat.MOD_ID, "entity/elementium_banner_shield_base"));
 	public static final Material ELEMENTIUM_BANNER_SHIELD_BASE_NO_PATTERN = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(BotaniaCombat.MOD_ID, "entity/elementium_banner_shield_base_nopattern"));
 
-	public static final ResourceLocation SKADI_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/skadi_bow");
-	public static final ResourceLocation SKADI_HELD_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/skadi_bow_held");
-	public static final ResourceLocation GREATSWORD_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/gaia_greatsword");
-	public static final ResourceLocation GREATSWORD_HELD_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/gaia_greatsword_held");
-	public static final ResourceLocation TERRASPEAR_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/terrasteel_spear");
-	public static final ResourceLocation TERRASPEAR_MODEL_HELD = new ResourceLocation(BotaniaCombat.MOD_ID, "item/terrasteel_spear_held");
 
 	@Override
 	public void onInitializeClient() {
-		ColorHandler.submitBotaniaCombatItems(ColorProviderRegistry.ITEM::register);
-		registerOptionalResourcePack();
+		ColorHandler.submitBotaniaCombatItems(ColorProviderRegistry.ITEM::register); //for colorchanging items
+		registerOptionalResourcePack(); //for botaniacombatlang respack
 
+		// Model stuff for always-enabled items
+		ModelLoadingPlugin.register(new BotaniaCombatModelLoadingPlugin());
 		BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("gaia_greatsword"),
-				new DifferentPerspectiveItemRender(GREATSWORD_MODEL, GREATSWORD_HELD_MODEL));
+				new DifferentPerspectiveItemRender(ModelConstants.GREATSWORD_MODEL, ModelConstants.GREATSWORD_HELD_MODEL));
 		BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("terrasteel_spear"),
-				new DifferentPerspectiveItemRender(TERRASPEAR_MODEL, TERRASPEAR_MODEL_HELD));
+				new DifferentPerspectiveItemRender(ModelConstants.TERRASPEAR_MODEL, ModelConstants.TERRASPEAR_MODEL_HELD));
+
 
 		if (BotaniaCombat.BetterCombatInstalled){
 			BotaniaCombat.LOGGER.info("BetterCombat found, running client code");
@@ -71,12 +70,14 @@ public class BotaniaCombatClient implements ClientModInitializer {
 			});
 		}
 
-		if(BotaniaCombat.RangedWeaponAPIInstalled){
+		if(BotaniaCombat.RangedWeaponAPIInstalled) {
 			BotaniaCombat.LOGGER.info("RangedWeaponAPI found, running client code");
 
 			BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("skadi_bow"),
-					new DifferentPerspectiveItemRender(SKADI_MODEL, SKADI_HELD_MODEL));
+					new DifferentPerspectiveItemRender(ModelConstants.SKADI_MODEL, ModelConstants.SKADI_HELD_MODEL));
 		}
+
+
 	}
 
 	public void CheckTerrasteelSwing(LocalPlayer clientPlayerEntity, AttackHand attackHand){

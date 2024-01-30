@@ -31,12 +31,13 @@ If [Ranged Weapon API](https://www.curseforge.com/minecraft/mc-mods/ranged-weapo
 - Adds Crystal Crossbow (w/ a different Multishot angle)
 - Adds a secret bow
 
-**NOTE**: To ensure that the Lexica and Subtitles from Botania are accurate, this mod includes an enabled-by-default resource pack that overrides some of Botania's lang file.
+**NOTE**: To ensure that the Lexica and subtitles from Botania are accurate, this mod includes an enabled-by-default resource pack that overrides some of Botania's lang file.
 
 Credits / Thanks:
-[Large weapon handheld model implementation](https://github.com/Partonetrain/botaniacombat/blob/main/src/client/java/info/partonetrain/botaniacombat/mixin/client/ItemRendererMixin.java) largely adapted from [Basic Weapons](https://www.curseforge.com/minecraft/mc-mods/basic-weapons) by June
+MehVahdJukaar for telling me about and helping me with DynamicItemRenderer
 arkosammy12 for helping with the Elementium Axe mixin
 Adarsh and everyone else on the Violet Moon forums giving me feedback and ideas
+June (of BasicWeapons) for letting me use that mod's method for dynamic item renders in the older versions
 
 ## FAQ
 #### *How much damage does the mana beam from the new weapons do?*

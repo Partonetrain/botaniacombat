@@ -51,8 +51,7 @@ public class DifferentPerspectiveItemRender implements BuiltinItemRendererRegist
     public static BakedModel getModel(ModelManager modelManager, ResourceLocation modelLocation)
     {
         Map<ResourceLocation, BakedModel> bakedReg = ((ModelManagerAccessor)modelManager).getBakedRegistry();
-        BakedModel model = bakedReg.get(modelLocation);
-        BotaniaCombat.LOGGER.info("my model: "+String.valueOf(bakedReg.containsKey(modelLocation)));
+        BakedModel model = bakedReg.getOrDefault(modelLocation, modelManager.getMissingModel());
         return model;
     }
 
