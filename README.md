@@ -34,10 +34,10 @@ If [Ranged Weapon API](https://www.curseforge.com/minecraft/mc-mods/ranged-weapo
 **NOTE**: To ensure that the Lexica and subtitles from Botania are accurate, this mod includes an enabled-by-default resource pack that overrides some of Botania's lang file.
 
 Credits / Thanks:
-MehVahdJukaar for telling me about and helping me with DynamicItemRenderer
-arkosammy12 for helping with the Elementium Axe mixin
-Adarsh and everyone else on the Violet Moon forums giving me feedback and ideas
-June (of BasicWeapons) for letting me use that mod's method for dynamic item renders in the older versions
+- MehVahdJukaar for telling me about and helping me with DynamicItemRenderer
+- arkosammy12 for helping with the Elementium Axe mixin
+- Adarsh and everyone else on the Violet Moon forums giving me feedback and ideas
+- June (of BasicWeapons) for letting me use that mod's method for dynamic item renders in the older versions
 
 ## FAQ
 #### *How much damage does the mana beam from the new weapons do?*
