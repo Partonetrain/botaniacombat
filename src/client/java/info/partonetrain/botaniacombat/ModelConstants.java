@@ -14,5 +14,4 @@ public class ModelConstants {
     public static final ResourceLocation SKADI_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/skadi_bow");
     public static final ResourceLocation SKADI_HELD_MODEL = new ResourceLocation(BotaniaCombat.MOD_ID, "item/skadi_bow_held");
 
-
 }

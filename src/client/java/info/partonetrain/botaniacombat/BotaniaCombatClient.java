@@ -22,8 +22,10 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.level.ItemLike;
 import vazkii.botania.common.item.equipment.tool.terrasteel.TerraBladeItem;
-import info.partonetrain.botaniacombat.ModelConstants;
+
+import java.util.ArrayList;
 
 import static com.github.crimsondawn45.fabricshieldlib.initializers.FabricShieldLibClient.renderBanner;
 
@@ -36,19 +38,19 @@ public class BotaniaCombatClient implements ClientModInitializer {
 	public static final Material ELEMENTIUM_BANNER_SHIELD_BASE = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(BotaniaCombat.MOD_ID, "entity/elementium_banner_shield_base"));
 	public static final Material ELEMENTIUM_BANNER_SHIELD_BASE_NO_PATTERN = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(BotaniaCombat.MOD_ID, "entity/elementium_banner_shield_base_nopattern"));
 
+	public static ArrayList<DifferentPerspectiveItemRender> itemRenders = new ArrayList<>();
 
 	@Override
 	public void onInitializeClient() {
 		ColorHandler.submitBotaniaCombatItems(ColorProviderRegistry.ITEM::register); //for colorchanging items
-		registerOptionalResourcePack(); //for botaniacombatlang respack
+		RegisterOptionalResourcePack(); //for botaniacombatlang respack
 
 		// Model stuff for always-enabled items
 		ModelLoadingPlugin.register(new BotaniaCombatModelLoadingPlugin());
-		BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("gaia_greatsword"),
-				new DifferentPerspectiveItemRender(ModelConstants.GREATSWORD_MODEL, ModelConstants.GREATSWORD_HELD_MODEL));
-		BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("terrasteel_spear"),
-				new DifferentPerspectiveItemRender(ModelConstants.TERRASPEAR_MODEL, ModelConstants.TERRASPEAR_MODEL_HELD));
-
+		AddCustomRender(BotaniaCombatItems.items.get("soulstaff"), ModelConstants.SOULSTAFF_MODEL, ModelConstants.SOULSTAFF_MODEL_HELD);
+		AddCustomRender(BotaniaCombatItems.items.get("elementium_spear"), ModelConstants.ELEMENTIUM_SPEAR_MODEL, ModelConstants.ELEMENTIUM_SPEAR_MODEL_HELD);
+		AddCustomRender(BotaniaCombatItems.items.get("terrasteel_spear"), ModelConstants.TERRASPEAR_MODEL, ModelConstants.TERRASPEAR_MODEL_HELD);
+		AddCustomRender(BotaniaCombatItems.items.get("gaia_greatsword"), ModelConstants.GREATSWORD_MODEL, ModelConstants.GREATSWORD_HELD_MODEL);
 
 		if (BotaniaCombat.BetterCombatInstalled){
 			BotaniaCombat.LOGGER.info("BetterCombat found, running client code");
@@ -73,8 +75,7 @@ public class BotaniaCombatClient implements ClientModInitializer {
 		if(BotaniaCombat.RangedWeaponAPIInstalled) {
 			BotaniaCombat.LOGGER.info("RangedWeaponAPI found, running client code");
 
-			BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("skadi_bow"),
-					new DifferentPerspectiveItemRender(ModelConstants.SKADI_MODEL, ModelConstants.SKADI_HELD_MODEL));
+			AddCustomRender(BotaniaCombatItems.items.get("skadi_bow"), ModelConstants.SKADI_MODEL, ModelConstants.SKADI_HELD_MODEL);
 		}
 
 
@@ -90,11 +91,19 @@ public class BotaniaCombatClient implements ClientModInitializer {
 		}
 	}
 
-	public void registerOptionalResourcePack(){
+	public void RegisterOptionalResourcePack(){
 		ResourceLocation folderName = new ResourceLocation(BotaniaCombat.MOD_ID, "botaniacombatlang");
 		Component displayName = Component.literal("BotaniaCombat Lang Fixes");
 		FabricLoader.getInstance().getModContainer(folderName.getNamespace()).ifPresent(c -> ResourceManagerHelper.registerBuiltinResourcePack(folderName, c, displayName, ResourcePackActivationType.DEFAULT_ENABLED));
 	}
 
+	public void AddCustomRender(ItemLike item, ResourceLocation guiModel, ResourceLocation heldModel)
+	{
+		DifferentPerspectiveItemRender customModelRender = new DifferentPerspectiveItemRender(guiModel, heldModel);
+		itemRenders.add(customModelRender);
+		BuiltinItemRendererRegistry.DynamicItemRenderer dynamicItemRenderer = customModelRender;
+		BuiltinItemRendererRegistry.INSTANCE.register(item, dynamicItemRenderer);
+		//ResourceLoader.get(PackType.CLIENT_RESOURCES).registerReloader(customModelRender); //not sure what the fabric equivalent of this is or if this even needs to be done
+	}
 
 }
