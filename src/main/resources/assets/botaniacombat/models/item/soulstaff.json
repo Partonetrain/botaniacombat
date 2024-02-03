@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "botaniacombat:item/handheld_big_staff",
   "textures": {
-    "layer0": "botaniacombat:item/soulstaff",
-    "layer1": "botaniacombat:item/soulstaff_overlay"
+    "layer0": "botaniacombat:item/soulstaff_held",
+    "layer1": "botaniacombat:item/soulstaff_held_overlay"
   }
 }

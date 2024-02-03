@@ -1,5 +1,5 @@
 {
-    "parent": "botaniacombat:item/perspective_model",
+    "parent": "minecraft:item/generated",
     "display": {
       "thirdperson_righthand": {
         "rotation": [ -80, 260, -40 ],

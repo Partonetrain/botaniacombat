@@ -1,28 +1,28 @@
 {
-    "parent": "botaniacombat:item/perspective_model",
+    "parent": "botaniacombat:item/handheld_big_bow",
     "textures": {
-        "layer0": "botaniacombat:item/skadi_bow"
+        "layer0": "botaniacombat:item/skadi_bow_held"
     },
     "overrides": [
         {
             "predicate": {
                 "pulling": 1
             },
-            "model": "botaniacombat:item/skadi_bow_pulling_0"
+            "model": "botaniacombat:item/skadi_bow_held_pulling_0"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.65
             },
-            "model": "botaniacombat:item/skadi_bow_pulling_1"
+            "model": "botaniacombat:item/skadi_bow_held_pulling_1"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.9
             },
-            "model": "botaniacombat:item/skadi_bow_pulling_2"
+            "model": "botaniacombat:item/skadi_bow_held_pulling_2"
         }
     ]
 }

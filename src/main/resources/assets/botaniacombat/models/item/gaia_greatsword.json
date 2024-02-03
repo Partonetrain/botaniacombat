@@ -1,7 +1,7 @@
 {
-  "parent": "builtin/entity",
+  "parent": "botaniacombat:item/handheld_big_sword",
   "textures": {
-    "layer0": "botaniacombat:item/gaia_greatsword_overlay",
-    "layer1": "botaniacombat:item/gaia_greatsword"
+    "layer0": "botaniacombat:item/gaia_greatsword_held_overlay",
+    "layer1": "botaniacombat:item/gaia_greatsword_held"
   }
 }

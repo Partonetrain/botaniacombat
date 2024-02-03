@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "botaniacombat:item/handheld_big_spear",
   "textures": {
-    "layer0": "botaniacombat:item/terrasteel_spear"
+    "layer0": "botaniacombat:item/terrasteel_spear_held"
   }
 }

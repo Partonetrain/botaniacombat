@@ -46,11 +46,11 @@ public class BotaniaCombatClient implements ClientModInitializer {
 		RegisterOptionalResourcePack(); //for botaniacombatlang respack
 
 		// Model stuff for always-enabled items
-		ModelLoadingPlugin.register(new BotaniaCombatModelLoadingPlugin());
-		AddCustomRender(BotaniaCombatItems.items.get("soulstaff"), ModelConstants.SOULSTAFF_MODEL, ModelConstants.SOULSTAFF_MODEL_HELD);
-		AddCustomRender(BotaniaCombatItems.items.get("elementium_spear"), ModelConstants.ELEMENTIUM_SPEAR_MODEL, ModelConstants.ELEMENTIUM_SPEAR_MODEL_HELD);
-		AddCustomRender(BotaniaCombatItems.items.get("terrasteel_spear"), ModelConstants.TERRASPEAR_MODEL, ModelConstants.TERRASPEAR_MODEL_HELD);
-		AddCustomRender(BotaniaCombatItems.items.get("gaia_greatsword"), ModelConstants.GREATSWORD_MODEL, ModelConstants.GREATSWORD_HELD_MODEL);
+//		ModelLoadingPlugin.register(new BotaniaCombatModelLoadingPlugin());
+//		AddCustomRender(BotaniaCombatItems.items.get("soulstaff"), ModelConstants.SOULSTAFF_MODEL, ModelConstants.SOULSTAFF_MODEL_HELD);
+//		AddCustomRender(BotaniaCombatItems.items.get("elementium_spear"), ModelConstants.ELEMENTIUM_SPEAR_MODEL, ModelConstants.ELEMENTIUM_SPEAR_MODEL_HELD);
+//		AddCustomRender(BotaniaCombatItems.items.get("terrasteel_spear"), ModelConstants.TERRASPEAR_MODEL, ModelConstants.TERRASPEAR_MODEL_HELD);
+//		AddCustomRender(BotaniaCombatItems.items.get("gaia_greatsword"), ModelConstants.GREATSWORD_MODEL, ModelConstants.GREATSWORD_HELD_MODEL);
 
 		if (BotaniaCombat.BetterCombatInstalled){
 			BotaniaCombat.LOGGER.info("BetterCombat found, running client code");
@@ -75,7 +75,7 @@ public class BotaniaCombatClient implements ClientModInitializer {
 		if(BotaniaCombat.RangedWeaponAPIInstalled) {
 			BotaniaCombat.LOGGER.info("RangedWeaponAPI found, running client code");
 
-			AddCustomRender(BotaniaCombatItems.items.get("skadi_bow"), ModelConstants.SKADI_MODEL, ModelConstants.SKADI_HELD_MODEL);
+//			AddCustomRender(BotaniaCombatItems.items.get("skadi_bow"), ModelConstants.SKADI_MODEL, ModelConstants.SKADI_HELD_MODEL);
 		}
 
 
