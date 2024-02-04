@@ -10,7 +10,7 @@ This mod does the following:
 - If you are a patron of Vazkii, terrasteel weapons will emit mana beams with a random color from your [Psi CAD colorizer](https://github.com/VazkiiMods/Psi/blob/master/contributors.properties) colors
 - Adds additional post-Gaia weapon, the Gaia Greatsword, which can use all of your Patreon colors
 - Buffs player-spawned pixies by making them always have the +2 damage bonus that would normally only be applied when the player is holding the Elementium Sword
-- Adds a secret weapon
+- Adds Gaia Gifts: "secret" weapon(s) obtained by defeating Gaia II under specific conditions
 
 If [Better Combat](https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus) is installed, it also does the following:
 
@@ -23,21 +23,23 @@ If [Fabric Shield Lib](https://www.curseforge.com/minecraft/mc-mods/fabric-shiel
 - Adds the Manasteel Buckler
 - Adds the Elementium Shield
 - Adds the Terra Tower Shield
-- Adds a secret shield
+- Adds a shield-like Gaia Gift
 
 If [Ranged Weapon API](https://www.curseforge.com/minecraft/mc-mods/ranged-weapon-api) is installed, it also does the following:
 - Adds Pull Time and Projectile Damage attributes to Botania's bows
 - Adds Livingwood Crossbow
 - Adds Crystal Crossbow (w/ a different Multishot angle)
-- Adds a secret bow
+- Adds bow Gaia Gift
 
 **NOTE**: To ensure that the Lexica and subtitles from Botania are accurate, this mod includes an enabled-by-default resource pack that overrides some of Botania's lang file.
+This mod only supports en_us.json currently.
 
 Credits / Thanks:
-- MehVahdJukaar for telling me about and helping me with DynamicItemRenderer
 - arkosammy12 for helping with the Elementium Axe mixin
 - Adarsh and everyone else on the Violet Moon forums giving me feedback and ideas
 - June (of BasicWeapons) for letting me use that mod's method for dynamic item renders in the older versions
+
+If you like this mod, [consider supporting me on ko-fi](https://ko-fi.com/partonetrain) ^_^
 
 ## FAQ
 #### *How much damage does the mana beam from the new weapons do?*

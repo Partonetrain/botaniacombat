@@ -1,7 +1,9 @@
 package info.partonetrain.botaniacombat;
 
+import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldBlockCallback;
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
+import info.partonetrain.botaniacombat.item.shield.ElementiumBannerShieldItem;
 import info.partonetrain.botaniacombat.registry.BotaniaCombatRegistry;
 import net.fabricmc.api.ModInitializer;
 
@@ -31,6 +33,9 @@ public class BotaniaCombat implements ModInitializer {
 
 		AttackEntityCallback.EVENT.register(TerrasteelWeaponItem::attackEntity); //fabric events for if BetterCombat is not installed
 		AttackEntityCallback.EVENT.register(GaiaGreatswordItem::attackEntity);
+		if(FabricShieldLibInstalled){
+			ShieldBlockCallback.EVENT.register(ElementiumBannerShieldItem::BlockAttack);
+		}
 		LOGGER.info("BotaniaCombat initialized");
 		PsiContributorColors.get();
 

@@ -1,6 +1,6 @@
 {
     "parent": "botaniacombat:item/skadi_bow",
     "textures": {
-        "layer0": "botaniacombat:item/skadi_bow_pulling_1_held"
+        "layer0": "botaniacombat:item/skadi_bow_pulling_0_held"
     }
 }

@@ -1,0 +1,18 @@
+{
+  "flag": "mod:fabricshieldlib",
+  "name": "botaniacombat.entry.svalinn",
+  "category": "botania:alfhomancy",
+  "icon": "botaniacombat:svalinn",
+  "entry_color": "aa00aa",
+  "advancement": "botania:challenge/botaniacombat_svalinn",
+  "pages": [
+    {
+      "type": "text",
+      "text": "botaniacombat.page.svalinn0"
+    },
+    {
+      "type": "text",
+      "text": "botaniacombat.page.svalinn1"
+    }
+  ]
+}

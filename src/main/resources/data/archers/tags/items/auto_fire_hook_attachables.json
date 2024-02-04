@@ -1,10 +1,25 @@
 {
   "replace": false,
   "values": [
-    "botania:livingwood_bow",
-    "botania:crystal_bow",
-    "botaniacombat:livingwood_crossbow",
-    "botaniacombat:crystal_crossbow",
-    "botaniacombat:skadi_bow"
+    {
+      "id":"botania:livingwood_bow",
+      "required": true
+    },
+    {
+      "id":"botania:crystal_bow",
+      "required": true
+    },
+    {
+      "id":"botaniacombat:livingwood_crossbow",
+      "required": false
+    },
+    {
+      "id":"botaniacombat:crystal_crossbow",
+      "required": false
+    },
+    {
+      "id":"botaniacombat:skadi_bow",
+      "required": false
+    }
   ]
 }

@@ -44,7 +44,7 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack crossbowStack = player.getItemInHand(usedHand);
-        BotaniaCombat.LOGGER.info("canCharge: " + String.valueOf(CanChargeWithMana(crossbowStack, player)));
+        //BotaniaCombat.LOGGER.info("canCharge: " + String.valueOf(CanChargeWithMana(crossbowStack, player)));
         if (isCharged(crossbowStack)) {
             float shootingPower = containsChargedProjectile(crossbowStack, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
             performShooting(level, player, usedHand, crossbowStack, shootingPower, 0);
@@ -175,7 +175,5 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
     private static boolean CanChargeWithMana(ItemStack stack, Player player) {
         return player.getAbilities().instabuild || ManaItemHandler.instance().requestManaExactForTool(stack, player, ARROW_COST, false);
     }
-
-
 
 }

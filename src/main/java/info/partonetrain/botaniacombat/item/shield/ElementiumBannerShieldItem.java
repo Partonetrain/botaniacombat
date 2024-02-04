@@ -5,13 +5,15 @@ import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShield;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import info.partonetrain.botaniacombat.BotaniaCombat;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
@@ -24,7 +26,6 @@ import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import java.util.function.Consumer;
 
 public class ElementiumBannerShieldItem extends FabricBannerShieldItem implements CustomDamageItem, FabricShield {
-
 
     public ElementiumBannerShieldItem(Properties settings, int coolDownTicks, Tier material) {
         super(settings, coolDownTicks, material);
@@ -55,5 +56,12 @@ public class ElementiumBannerShieldItem extends FabricBannerShieldItem implement
             ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Elementium Shield modifier", 0.05));
         }
         return ret;
+    }
+
+    public static InteractionResult BlockAttack(LivingEntity defender, DamageSource damageSource, float v, InteractionHand interactionHand, ItemStack itemStack) {
+        if(defender instanceof Player player){
+            PixieHandler.onDamageTaken(player, damageSource);
+        }
+        return InteractionResult.PASS;
     }
 }

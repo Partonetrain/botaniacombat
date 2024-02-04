@@ -3,27 +3,27 @@
   "values": [
     {
       "id": "botaniacombat:elementium_dagger",
-      "required": false
+      "required": true
     },
     {
       "id": "botaniacombat:terrasteel_dagger",
-      "required": false
+      "required": true
     },
     {
       "id": "botaniacombat:soulstaff",
-      "required": false
+      "required": true
     },
     {
       "id": "botaniacombat:elementium_spear",
-      "required": false
+      "required": true
     },
     {
       "id": "botaniacombat:terrasteel_spear",
-      "required": false
+      "required": true
     },
     {
       "id": "botaniacombat:gaia_greatsword",
-      "required": false
+      "required": true
     },
     {
       "id": "botaniacombat:mjolnir",

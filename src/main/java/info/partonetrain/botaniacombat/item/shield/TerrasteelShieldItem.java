@@ -4,10 +4,7 @@ import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShield;
 import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import info.partonetrain.botaniacombat.BotaniaCombat;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -54,7 +51,8 @@ public class TerrasteelShieldItem extends FabricShieldItem implements CustomDama
             stack.setDamageValue(stack.getDamageValue() - 1);
         }
 
-        if(isSvalinn(stack) && entity instanceof Player player && player.isOnFire()){
+        if(isSvalinn(stack) && entity instanceof Player player && player.isOnFire()
+                && ManaItemHandler.instance().requestManaExactForTool(stack, player, PUSH_COST, true)){
             player.clearFire();
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 300));
         }
@@ -67,11 +65,8 @@ public class TerrasteelShieldItem extends FabricShieldItem implements CustomDama
         ItemStack itemStack = user.getItemInHand(hand);
 
         user.startUsingItem(hand);
-        double pushPower = 2 + (2 * user.getAttribute(Attributes.KNOCKBACK_RESISTANCE).getValue()); //IDE says this may result in NPE but how?
-
         if(itemStack.getItem() instanceof TerrasteelShieldItem && user.isShiftKeyDown()
                 && !world.isClientSide() && ManaItemHandler.instance().requestManaExactForTool(itemStack, user, PUSH_COST, true)){
-
 
             final double range = 2.0D;
 
@@ -86,32 +81,69 @@ public class TerrasteelShieldItem extends FabricShieldItem implements CustomDama
             List<LivingEntity> mobsInFront = world.getEntitiesOfClass(LivingEntity.class, areaInFrontOfPlayer);
             //BotaniaCombat.LOGGER.info("Found " + mobsInFront.size() + " mobs");
 
-            for(LivingEntity living : mobsInFront){
-                if(living.isAlive() && !living.is(user) && !user.isAlliedTo(living)){
-                    living.knockback(pushPower, -lookAngle.x, -lookAngle.z);
-                    if(isSvalinn(itemStack)){
-                        living.setSecondsOnFire(5);
+            for(LivingEntity living : mobsInFront) {
+                if (living.isAlive() && !living.is(user) && !user.isAlliedTo(living)) {
+                    living.knockback((getPushPower(user)), -lookAngle.x, -lookAngle.z);
+                    if (isSvalinn(itemStack)) {
+                        living.setSecondsOnFire(getSvalinnSecondsOnFire(world.getDayTime()));
+                        BotaniaCombat.LOGGER.info(String.valueOf(getSvalinnSecondsOnFire(world.getDayTime())));
                     }
                 }
+                doFX(world, areaInFrontOfPlayer, user.getOnPos().above(), user, isSvalinn(itemStack), world.getDayTime());
+                user.getCooldowns().addCooldown(this, PUSH_COOLDOWN_TIME);
             }
-            doFX(world, areaInFrontOfPlayer, user.getOnPos().above(), pushPower, isSvalinn(itemStack));
-
-            user.getCooldowns().addCooldown(this, PUSH_COOLDOWN_TIME);
-
         }
         return InteractionResultHolder.consume(itemStack);
     }
 
-    private static boolean isSvalinn(ItemStack itemStack) {
-        boolean isSvalinn = itemStack.getItem() instanceof SvalinnItem;
-        return isSvalinn;
+    private static double getPushPower(Player player){
+        return 2 + (2 * player.getAttribute(Attributes.KNOCKBACK_RESISTANCE).getValue()); //IDE says this may result in NPE but how?
     }
 
-    public static void doFX(Level world, AABB aabb, BlockPos soundLocation, double particleMult, boolean isSvalinn){
+    private static boolean isSvalinn(ItemStack itemStack) {
+        return itemStack.getItem() instanceof SvalinnItem;
+    }
+
+    private static int getSvalinnSecondsOnFire(long dayTime){
+
+        dayTime %= 24000; //convert total ticks in world to ticks out of day
+
+        if(dayTime <= 2000){
+            return 2;    //6:00 - 8:00
+        }
+        else if(dayTime <= 4000){
+            return 3;    //8:00 - 10:00
+        }
+        else if(dayTime <= 8000){
+            return 8;   //10:00 - 14:00
+        }
+        else if(dayTime <= 12000){
+            return 4;   //18:00 - 22:00
+        }
+        else if(dayTime <= 16000){
+            return 1;   //20:00 - 24:00
+        }
+        else if(dayTime <= 20000){
+            return 0;   //24:00 - 4:00
+        }
+        else if(dayTime <= 24000){
+            return 1;   //4:00 - 6:00
+        }
+        return 0;
+    }
+
+
+
+    public static void doFX(Level world, AABB aabb, BlockPos soundLocation, Player player, boolean isSvalinn, long timeOfDay){
         world.playSound(null, soundLocation, BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1.0F, 2.0F);
+
+        int poofParticleMult = (int) getPushPower(player);
+
         if (world instanceof ServerLevel ws) {
-            SimpleParticleType particleType = isSvalinn ? ParticleTypes.FLAME: ParticleTypes.POOF;
-            ws.sendParticles(particleType, aabb.getCenter().x(), aabb.getCenter().y(), aabb.getCenter().z(), 5 * (int)particleMult, 0, 0, 0, 0.5D);
+            ws.sendParticles(ParticleTypes.POOF, aabb.getCenter().x(), aabb.getCenter().y(), aabb.getCenter().z(), 5 * poofParticleMult, 0, 0, 0, 0.5D);
+            if(isSvalinn){
+                ws.sendParticles(ParticleTypes.FLAME, aabb.getCenter().x(), aabb.getCenter().y(), aabb.getCenter().z(), getSvalinnSecondsOnFire(timeOfDay), 0, 0, 0, 0.25D);
+            }
             /*
             // bounding box indicators
             ws.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK_MARKER, BotaniaBlocks.cellBlock.defaultBlockState()), aabb.maxX, aabb.maxY, aabb.maxZ, 5, 0, 0, 0, 0);

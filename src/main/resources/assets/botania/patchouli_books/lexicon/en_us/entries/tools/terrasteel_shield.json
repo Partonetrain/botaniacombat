@@ -1,0 +1,18 @@
+{
+  "flag": "mod:fabricshieldlib",
+  "name": "botaniacombat.entry.terrasteel_shield",
+  "category": "botania:tools",
+  "icon": "botaniacombat:terrasteel_shield",
+  "advancement": "botania:main/terrasteel_pickup_lexicon",
+  "pages": [
+    {
+      "type": "text",
+      "text": "botaniacombat.page.terrasteel_shield0"
+    },
+    {
+      "type": "crafting",
+      "text": "botaniacombat.page.terrasteel_shield1",
+      "recipe": "botaniacombat:terrasteel_shield"
+    }
+  ]
+}

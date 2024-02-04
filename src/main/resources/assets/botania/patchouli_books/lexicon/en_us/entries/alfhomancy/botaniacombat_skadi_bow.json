@@ -1,0 +1,18 @@
+{
+  "flag": "mod:ranged_weapon_api",
+  "name": "botaniacombat.entry.skadi_bow",
+  "category": "botania:alfhomancy",
+  "icon": "botaniacombat:skadi_bow",
+  "entry_color": "aa00aa",
+  "advancement": "botania:challenge/botaniacombat_skadi_bow",
+  "pages": [
+    {
+      "type": "text",
+      "text": "botaniacombat.page.skadi_bow0"
+    },
+    {
+      "type": "text",
+      "text": "botaniacombat.page.skadi_bow1"
+    }
+  ]
+}

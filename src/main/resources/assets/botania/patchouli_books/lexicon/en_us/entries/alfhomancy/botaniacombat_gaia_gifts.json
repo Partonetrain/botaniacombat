@@ -1,0 +1,13 @@
+{
+  "name": "botaniacombat.entry.gaiaGifts",
+  "category": "botania:alfhomancy",
+  "icon": "botania:gaia_head",
+  "entry_color": "aa00",
+  "advancement": "botania:challenge/gaia_guardian_hardmode",
+  "pages": [
+    {
+      "type": "text",
+      "text": "botaniacombat.page.gaiaGifts"
+    }
+  ]
+}

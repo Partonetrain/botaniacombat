@@ -41,8 +41,42 @@
   "advancement.botaniacombat:skadi_bow.desc": "While protecting your feet from powdered snow\ndefeat Guardian II, and find Skaði's giant bow.",
 
   "botaniacombat.entry.gaia_greatsword": "Gaia Greatsword",
-  "botaniacombat.tagline.gaia_greatsword": "A greatsword that fires seven beams",
-  "botaniacombat.page.gaiaGreatsword0": "It is possible to use the power of $(item)Terrasteel$(0) and $(item)Gaia Spirits$(0)$(br)in tandem as long as the Spirits do not directly make contact with the Terrasteel. $(br2)Because $(item)Gaia Spreaders$(0) have an outer layer of $(item)Dreamwood$(0), it is possible to attach them to Terrasteel and keep the Gaia energy separate. By forging three $(item)Terra Blades$(0) together and affixing four $(item)Gaia Spreaders$(0), a massive, daunting greatsword is made.",
+  "botaniacombat.tagline.gaia_greatsword": "Seven Deadly Mana Beams",
+  "botaniacombat.page.gaiaGreatsword0": "It is possible to use the power of $(item)Terrasteel$(0) and $(item)Gaia Spirits$(0)$(br)in tandem as long as the Spirits do not directly make contact with the Terrasteel.Because $(item)Gaia Spreaders$(0) have an outer layer of $(item)Dreamwood$(0), it is possible to attach them to Terrasteel and keep the Gaia energy separate. By forging three $(item)Terra Blades$(0) together and affixing four $(item)Gaia Spreaders$(0), a massive, daunting greatsword is made.",
   "botaniacombat.page.gaiaGreatsword1": "Seven Deadly Mana Beams",
-  "botaniacombat.page.gaiaGreatsword2": "Since the Gaia $(item)Gaia Greatsword$(0) is very heavy, it takes a great deal of effort and time to swing. A user of the $(item)Gaia Greatsword$(0) must take care to have enough \"wind-up\" time before getting too close to assailants."
+  "botaniacombat.page.gaiaGreatsword2": "Since the Gaia $(item)Gaia Greatsword$(0) is very heavy, it takes a great deal of effort and time to swing. A user of the $(item)Gaia Greatsword$(0) must take care to have enough \"wind-up\" time before getting too close to assailants.",
+
+  "botaniacombat.entry.gaiaGifts": "Gaia Gifts",
+  "botaniacombat.tagline.gaiaGifts": "Weapons of beings long since past",
+  "botaniacombat.page.gaiaGifts": "[BotaniaCombat] Given the $(l:alfhomancy/gaia_ritual_hardmode)$(thing)Gaia Guardian II$(0)$(/l) is known to drop $(l:alfhomancy/relic_info)$(thing)Dice of Fate$(0)$(/l), it is clear it holds the essence of beings from an age since past. Perhaps if you were to defeat it under certain conditions, it would grant you replicas of the weapons used by such entities.",
+
+  "botaniacombat.entry.mjolnir": "Gaia Gift: Mjölnir",
+  "botaniacombat.tagline.mjolnir": "Thunder Hammer",
+  "botaniacombat.page.mjolnir0": "$(item)Mjölnir$() is the hammer of Thor, forged by dwarf brothers, Eitri and Brokkr. Although it was designed to be a hammer, the handle ended up being shorter, making it swing like a mace instead. $(br)It functions similarly to the $(l:ender/thunder_sword)$(thing)Thundercaller$(0)$(/l), but with a larger electricity range, mob-hopping cap, and damage output at the cost of slower swing speed.",
+  "botaniacombat.page.mjolnir1": "Right-click to summon a lightning bolt at the cost of some mana. Be careful with this power, however, as you will be in range to be electrocuted by the very lightning bolt you summoned.",
+
+  "botaniacombat.entry.manasteel_shield": "Manasteel Buckler",
+  "botaniacombat.tagline.manasteel_shield":  "More like Ministeel",
+  "botaniacombat.page.manasteel_shield0": "The $(item)Manasteel Buckler$() is a small, mana-using shield. With its compactness, it enables you to swing faster than you would be able to with a normal shield. Banners cannot be attached to it.",
+  "botaniacombat.page.manasteel_shield1": "Don't ask how swinging without a shield is slower than swinging with this",
+
+  "botaniacombat.entry.elementium_banner_shield": "Elementium Shield",
+  "botaniacombat.tagline.elementium_banner_shield":  "Great Fairy Shield",
+  "botaniacombat.page.elementium_banner_shield0": "The $(item)Elementium Shield$() is a standard-sized shield with the benefit of increasing your pixie spawn chance while it is being wielded.$(br)Successfully blocking with the Elementium Shield has a chance to spawn a pixie, just like if you had been damaged.",
+  "botaniacombat.page.elementium_shield1": "Like Thorns, but for shields",
+
+  "botaniacombat.entry.terrasteel_shield": "Terra Tower Shield",
+  "botaniacombat.tagline.terrasteel_shield":  "Getting Pushy",
+  "botaniacombat.page.terrasteel_shield0": "Shields, while useful for protecting yourself from projectiles, can't prevent you from getting cornered. That is, not unless your shield is a $(item)Terra Tower Shield$(). To perform a Shield Bash, begin blocking while sneaking. This will send mobs in front of you back. $(br)The Shield Bash deflects knockback; that is, the more knockback resistance you have, the more knockback will be applied to mobs.",
+  "botaniacombat.page.terrasteel_shield1": "I wanna push you around$(br)Well, I will, well, I will",
+
+  "botaniacombat.entry.svalinn": "Gaia Gift: Svalinn",
+  "botaniacombat.tagline.svalinn": "Sun Shield",
+  "botaniacombat.page.svalinn0": "Svalinn is a shield that protects the world (or, more specifically, Midgard - what seems to be known as the \"overworld\") from the sun. In the same way that the $(l:tools/terrasteel_shield)$(item)Terra Tower Shield$(0)$(/l) takes in knockback and deflects it during a Shield Bash, Svalinn takes in heat from the sun to burn enemies.",
+  "botaniacombat.page.svalinn1": "How long enemies burn for is dependent on how high in the sky the sun is, and there will be no ignition if used during the darkest hours of the night.$(br2)It will also grant its user immunity to fire at the cost of some mana, should they get ignited themselves.",
+
+  "botaniacombat.entry.skadi_bow": "Gaia Gift: Skaði's Bow",
+  "botaniacombat.tagline.skadi_bow": "Frost Bow",
+  "botaniacombat.page.skadi_bow0": "Long, long ago, a jötunn by the name of Skaði skied down snowy mountains and hunted game. Her bow had the ability to nearly freeze her prey in place for a moment, which was just enough time to deliver the killing blow.",
+  "botaniacombat.page.skadi_bow1": "Skaði's Bow freely converts mundane arrows into Arrows of Slowness IV when fired. Being a larger bow, any arrow fired from it will have a greater velocity, resulting in greater damage.$(br2)Additionally, when enchanted with Infinity, Skaði's Bow does not require arrows at all. It will still consume non-mundane arrows."
 }

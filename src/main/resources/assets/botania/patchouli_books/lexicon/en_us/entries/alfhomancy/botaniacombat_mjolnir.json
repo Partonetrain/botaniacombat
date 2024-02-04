@@ -1,0 +1,17 @@
+{
+  "name": "botaniacombat.entry.mjolnir",
+  "category": "botania:alfhomancy",
+  "icon": "botaniacombat:mjolnir",
+  "entry_color": "aa00aa",
+  "advancement": "botania:challenge/botaniacombat_mjolnir",
+  "pages": [
+    {
+      "type": "text",
+      "text": "botaniacombat.page.mjolnir0"
+    },
+    {
+      "type": "text",
+      "text": "botaniacombat.page.mjolnir1"
+    }
+  ]
+}

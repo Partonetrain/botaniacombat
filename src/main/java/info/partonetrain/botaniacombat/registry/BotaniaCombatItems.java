@@ -67,12 +67,12 @@ public final class BotaniaCombatItems {
 
             final RangedConfig livingwoodCrossbowConfig = new RangedConfig(25, 9f, null);
             final RangedConfig crystalCrossbowConfig = new RangedConfig(15, 9f, null);
-            final RangedConfig skadiBowConfig = new RangedConfig(20, 10f, 5f);
+            final RangedConfig skadiBowConfig = new RangedConfig(30, 10f, 5f);
 
             items.put("livingwood_crossbow", new LivingwoodCrossbowItem(itemProperties.defaultDurability(300), () -> Ingredient.of(BotaniaItems.livingwoodTwig), livingwoodCrossbowConfig));
             items.put("crystal_crossbow", new CrystalCrossbowItem(itemProperties.defaultDurability(500), () -> Ingredient.of(BotaniaItems.livingwoodTwig), crystalCrossbowConfig));
-            //items.put("skadi_bow", new SkadiBowItem(itemPropertiesEpic.defaultDurability(3200), () -> Ingredient.of(BotaniaItems.terrasteel), skadiBowConfig));
-            items.put("skadi_bow", new SkadiBowItem(itemPropertiesEpic.defaultDurability(3200)));
+            items.put("skadi_bow", new SkadiBowItem(itemPropertiesEpic.defaultDurability(3200), () -> Ingredient.of(BotaniaItems.terrasteel), skadiBowConfig));
+            //items.put("skadi_bow", new SkadiBowItem(itemPropertiesEpic.defaultDurability(3200)));
         }
 
     }
