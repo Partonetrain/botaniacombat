@@ -28,13 +28,14 @@ If [Fabric Shield Lib](https://www.curseforge.com/minecraft/mc-mods/fabric-shiel
 If [Ranged Weapon API](https://www.curseforge.com/minecraft/mc-mods/ranged-weapon-api) is installed, it also does the following:
 - Adds Pull Time and Projectile Damage attributes to Botania's bows
 - Adds Livingwood Crossbow
-- Adds Crystal Crossbow (w/ a different Multishot angle)
+- Adds Crystal Crossbow
 - Adds bow Gaia Gift
 
 **NOTE**: To ensure that the Lexica and subtitles from Botania are accurate, this mod includes an enabled-by-default resource pack that overrides some of Botania's lang file.
 This mod only supports en_us.json currently.
 
 Credits / Thanks:
+- Daedulus_dev for making Ranged Weapon API
 - arkosammy12 for helping with the Elementium Axe mixin
 - Adarsh and everyone else on the Violet Moon forums giving me feedback and ideas
 - June (of BasicWeapons) for letting me use that mod's method for dynamic item renders in the older versions
