@@ -1,5 +1,14 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "fabricshieldlib"
+      ]
+    }
+  ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "/#/",
     "///",
@@ -16,13 +25,5 @@
   "result": {
     "item": "botaniacombat:elementium_banner_shield",
     "count": 1
-  },
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:all_mods_loaded",
-      "values": [
-        "fabricshieldlib"
-      ]
-    }
-  ]
+  }
 }

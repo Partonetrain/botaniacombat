@@ -1,0 +1,17 @@
+{
+  "name": "botaniacombat.entry.livingwood_crossbow",
+  "category": "botania:tools",
+  "icon": "botaniacombat:livingwood_crossbow",
+  "advancement": "botania:main/mana_pool_pickup_lexicon",
+  "pages": [
+    {
+      "type": "text",
+      "text": "botaniacombat.page.livingwood_crossbow0"
+    },
+    {
+      "type": "crafting",
+      "text": "botaniacombat.page.livingwood_crossbow1",
+      "recipe": "botaniacombat:livingwood_crossbow"
+    }
+  ]
+}

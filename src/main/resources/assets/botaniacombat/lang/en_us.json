@@ -41,10 +41,10 @@
   "advancement.botaniacombat:skadi_bow.desc": "While protecting your feet from powdered snow\ndefeat Guardian II, and find Skaði's giant bow.",
 
   "botaniacombat.entry.gaia_greatsword": "Gaia Greatsword",
-  "botaniacombat.tagline.gaia_greatsword": "Seven Deadly Mana Beams",
-  "botaniacombat.page.gaiaGreatsword0": "It is possible to use the power of $(item)Terrasteel$(0) and $(item)Gaia Spirits$(0)$(br)in tandem as long as the Spirits do not directly make contact with the Terrasteel.Because $(item)Gaia Spreaders$(0) have an outer layer of $(item)Dreamwood$(0), it is possible to attach them to Terrasteel and keep the Gaia energy separate. By forging three $(item)Terra Blades$(0) together and affixing four $(item)Gaia Spreaders$(0), a massive, daunting greatsword is made.",
-  "botaniacombat.page.gaiaGreatsword1": "Seven Deadly Mana Beams",
-  "botaniacombat.page.gaiaGreatsword2": "Since the Gaia $(item)Gaia Greatsword$(0) is very heavy, it takes a great deal of effort and time to swing. A user of the $(item)Gaia Greatsword$(0) must take care to have enough \"wind-up\" time before getting too close to assailants.",
+  "botaniacombat.tagline.gaia_greatsword": "A massive, beam-spitting sword",
+  "botaniacombat.page.gaia_greatsword0": "It is possible to use the power of $(item)Terrasteel$(0) and $(item)Gaia Spirits$(0)$(br)in tandem as long as the Spirits do not directly make contact with the Terrasteel.Because $(item)Gaia Spreaders$(0) have an outer layer of $(item)Dreamwood$(0), it is possible to attach them to Terrasteel and keep the Gaia energy separate. By forging three $(item)Terra Blades$(0) together and affixing four $(item)Gaia Spreaders$(0), a massive, daunting greatsword is made.",
+  "botaniacombat.page.gaia_greatsword1": "Seven Deadly Mana Beams",
+  "botaniacombat.page.gaia_greatsword2": "Since the Gaia $(item)Gaia Greatsword$(0) is very heavy, it takes a great deal of effort and time to swing. A user of the $(item)Gaia Greatsword$(0) must take care to have enough \"wind-up\" time before getting too close to assailants.",
 
   "botaniacombat.entry.gaiaGifts": "Gaia Gifts",
   "botaniacombat.tagline.gaiaGifts": "Weapons of beings long since past",
@@ -56,19 +56,29 @@
   "botaniacombat.page.mjolnir1": "Right-click to summon a lightning bolt at the cost of some mana. Be careful with this power, however, as you will be in range to be electrocuted by the very lightning bolt you summoned.",
 
   "botaniacombat.entry.manasteel_shield": "Manasteel Buckler",
-  "botaniacombat.tagline.manasteel_shield":  "More like Ministeel",
-  "botaniacombat.page.manasteel_shield0": "The $(item)Manasteel Buckler$() is a small, mana-using shield. With its compactness, it enables you to swing faster than you would be able to with a normal shield. Banners cannot be attached to it.",
+  "botaniacombat.tagline.manasteel_shield":  "Small shield made out of Manasteel",
+  "botaniacombat.page.manasteel_shield0": "The $(item)Manasteel Buckler$() is a small, $(thing)Mana-using$(0) shield. With its compactness, it enables you to swing faster than you would be able to with a normal shield. Banners cannot be attached to it.",
   "botaniacombat.page.manasteel_shield1": "Don't ask how swinging without a shield is slower than swinging with this",
 
   "botaniacombat.entry.elementium_banner_shield": "Elementium Shield",
-  "botaniacombat.tagline.elementium_banner_shield":  "Great Fairy Shield",
+  "botaniacombat.tagline.elementium_banner_shield":  "Shield made out of Elementium",
   "botaniacombat.page.elementium_banner_shield0": "The $(item)Elementium Shield$() is a standard-sized shield with the benefit of increasing your pixie spawn chance while it is being wielded.$(br)Successfully blocking with the Elementium Shield has a chance to spawn a pixie, just like if you had been damaged.",
-  "botaniacombat.page.elementium_shield1": "Like Thorns, but for shields",
+  "botaniacombat.page.elementium_shield1": "Great Fairy Shield",
 
   "botaniacombat.entry.terrasteel_shield": "Terra Tower Shield",
-  "botaniacombat.tagline.terrasteel_shield":  "Getting Pushy",
+  "botaniacombat.tagline.terrasteel_shield":  "Tall, pushy, and powerful shield",
   "botaniacombat.page.terrasteel_shield0": "Shields, while useful for protecting yourself from projectiles, can't prevent you from getting cornered. That is, not unless your shield is a $(item)Terra Tower Shield$(). To perform a Shield Bash, begin blocking while sneaking. This will send mobs in front of you back. $(br)The Shield Bash deflects knockback; that is, the more knockback resistance you have, the more knockback will be applied to mobs.",
   "botaniacombat.page.terrasteel_shield1": "I wanna push you around$(br)Well, I will, well, I will",
+
+  "botaniacombat.entry.livingwood_crossbow": "Livingwood Crossbow",
+  "botaniacombat.tagline.livingwood_crossbow":  "A crossbow that regenerates using Mana",
+  "botaniacombat.page.livingwood_crossbow0": "The Livingwood Crossbow is the $(l:tools/livingwood_bow)$(item)Livingwood Bow$(0)$(/l) to the mundane Crossbow. That is to say, it works like a Crossbow does, but repairs itself with mana.",
+  "botaniacombat.page.livingwood_crossbow1": "This one doesn't shoot airplanes either",
+
+  "botaniacombat.entry.crystal_crossbow": "Crystal Crossbow",
+  "botaniacombat.tagline.crystal_crossbow":  "A fast crossbow that creates arrows from Mana",
+  "botaniacombat.page.crystal_crossbow0": "The Crystal Crossbow is the crossbow equivalent to the $(l:tools/crystal_bow)$(item)Crystal Bow$(0)$(/l). When charged, instead of conjuring an arrow, it stores the energy until the trigger is pulled, at which point the arrow is manifested. It is slightly more accurate than your standard crossbow.$(br)Should it be enchanted with $(thing)Multishot$(), the angle of the multiplied projectiles will be slightly wider.",
+  "botaniacombat.page.crystal_crossbow1": "Probably unbalanced",
 
   "botaniacombat.entry.svalinn": "Gaia Gift: Svalinn",
   "botaniacombat.tagline.svalinn": "Sun Shield",

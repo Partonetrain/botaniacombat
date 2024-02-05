@@ -47,7 +47,7 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
         //BotaniaCombat.LOGGER.info("canCharge: " + String.valueOf(CanChargeWithMana(crossbowStack, player)));
         if (isCharged(crossbowStack)) {
             float shootingPower = containsChargedProjectile(crossbowStack, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
-            performShooting(level, player, usedHand, crossbowStack, shootingPower, 0);
+            performShooting(level, player, usedHand, crossbowStack, shootingPower, 0.5F);
             CrossbowItem.setCharged(crossbowStack, false);
             return InteractionResultHolder.consume(crossbowStack);
         } else if (CanChargeWithMana(crossbowStack, player)) {
@@ -169,11 +169,13 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
 
     @Override
     public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
-        return ToolCommons.damageItemIfPossible(stack, amount, entity, ARROW_COST);
+        boolean infinity = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0; //archers mod makes this possible
+        return ToolCommons.damageItemIfPossible(stack, amount, entity, ARROW_COST / (infinity ? 2 : 1));
     }
 
     private static boolean CanChargeWithMana(ItemStack stack, Player player) {
-        return player.getAbilities().instabuild || ManaItemHandler.instance().requestManaExactForTool(stack, player, ARROW_COST, false);
+        boolean infinity = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
+        return player.getAbilities().instabuild || ManaItemHandler.instance().requestManaExactForTool(stack, player, ARROW_COST / (infinity ? 2 : 1), false);
     }
 
 }

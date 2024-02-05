@@ -7,16 +7,16 @@
   "pages": [
     {
       "type": "text",
-      "text": "botaniacombat.page.gaiaGreatsword0"
+      "text": "botaniacombat.page.gaia_greatsword0"
     },
     {
       "type": "crafting",
-      "text": "botaniacombat.page.gaiaGreatsword1",
+      "text": "botaniacombat.page.gaia_greatsword1",
       "recipe": "botaniacombat:gaia_greatsword"
     },
     {
       "type": "text",
-      "text": "botaniacombat.page.gaiaGreatsword2"
+      "text": "botaniacombat.page.gaia_greatsword2"
     }
   ]
 }

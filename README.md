@@ -23,7 +23,7 @@ If [Fabric Shield Lib](https://www.curseforge.com/minecraft/mc-mods/fabric-shiel
 - Adds the Manasteel Buckler
 - Adds the Elementium Shield
 - Adds the Terra Tower Shield
-- Adds a shield-like Gaia Gift
+- Adds shield Gaia Gift
 
 If [Ranged Weapon API](https://www.curseforge.com/minecraft/mc-mods/ranged-weapon-api) is installed, it also does the following:
 - Adds Pull Time and Projectile Damage attributes to Botania's bows
@@ -42,11 +42,14 @@ Credits / Thanks:
 If you like this mod, [consider supporting me on ko-fi](https://ko-fi.com/partonetrain) ^_^
 
 ## FAQ
+####  *Will you make a Forge version?*
+Maybe, but I am going to have to learn Architecturey first. Considering this uses a lot of Fabric libraries, I'm not sure that will happen without some outside help.
+
+####  *Does this work with Sinytra Connector?*
+idk try it ¯\_(ツ)_/¯ If it does, then support for it is low priority
+
 #### *How much damage does the mana beam from the new weapons do?*
 7 (or 3.5 hearts), same as Terra Blade's.
-
-####  *Will you make a Forge version?*
-Maybe, but I am going to have to learn Architecturey first. Considering this uses a lot of Fabric libraries, I'm not sure that will happen.
 
 #### *Why so many optional dependencies*?
 A couple of reasons, but mostly these are mods I already use myself, and I don't like doing mixin on vanilla when there's just a library I could use that does it

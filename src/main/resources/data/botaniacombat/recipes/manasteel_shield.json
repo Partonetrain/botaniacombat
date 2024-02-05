@@ -6,8 +6,9 @@
       "fabricshieldlib"
     ]
   }
-],
+  ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "#",
     "/"
