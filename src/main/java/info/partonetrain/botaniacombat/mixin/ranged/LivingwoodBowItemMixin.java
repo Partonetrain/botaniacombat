@@ -11,7 +11,7 @@ import net.fabric_extras.ranged_weapon.api.CustomRangedWeapon;
 
 @Mixin(LivingwoodBowItem.class)
 public abstract class LivingwoodBowItemMixin {
-    //This is not injected if RangedWeaponsAPI is not installed. See BotaniaCombatMixinPlugin
+    //This is not injected if RangedWeaponAPI is not installed. See BotaniaCombatMixinPlugin
     @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/world/item/Item$Properties;)V")
     private void botaniacombat_addRangedConfigToBotania(CallbackInfo info) {
         RangedConfig rangedConfig = new RangedConfig(20, 6, null);

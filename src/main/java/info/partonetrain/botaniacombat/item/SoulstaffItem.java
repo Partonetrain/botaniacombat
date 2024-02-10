@@ -37,7 +37,8 @@ public class SoulstaffItem extends BotaniaCombatWeaponItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, Level world, Entity player, int slot, boolean selected) {}
+    public void inventoryTick(ItemStack stack, Level world, Entity player, int slot, boolean selected) {
+    }
 
     @Override
     public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {

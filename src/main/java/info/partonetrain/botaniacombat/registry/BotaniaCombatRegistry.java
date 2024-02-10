@@ -1,14 +1,12 @@
 package info.partonetrain.botaniacombat.registry;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
-import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import vazkii.botania.api.BotaniaRegistries;
-import vazkii.botania.common.item.BotaniaItems;
 
 import java.util.Map;
 

@@ -65,12 +65,14 @@ public class BotaniaCombatTiers {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return  Ingredient.of(BotaniaItems.elementium);
+            return Ingredient.of(BotaniaItems.elementium);
         }
     };
     public static final Tier TERRASTEEL_TIER = new Tier() {
         @Override
-        public int getUses() { return 3200;}
+        public int getUses() {
+            return 3200;
+        }
 
         @Override
         public float getSpeed() {
@@ -94,7 +96,7 @@ public class BotaniaCombatTiers {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return  Ingredient.of(BotaniaItems.terrasteel);
+            return Ingredient.of(BotaniaItems.terrasteel);
         }
     };
 

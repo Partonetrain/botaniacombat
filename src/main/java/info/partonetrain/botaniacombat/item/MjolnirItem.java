@@ -9,7 +9,10 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
@@ -43,7 +46,7 @@ public class MjolnirItem extends BotaniaCombatWeaponItem {
             if (ctx.getHand() == InteractionHand.MAIN_HAND &&
                     (ManaItemHandler.instance().requestManaExactForTool(ctx.getItemInHand(), player, BOLT_MANA_COST, true)) || ctx.getPlayer().getAbilities().instabuild) //check for creative
             {
-                LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT,ctx.getLevel());
+                LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, ctx.getLevel());
                 // bolt.setCause(); //is this necessary? what does this do?
                 bolt.setPos(ctx.getClickLocation());
                 ctx.getLevel().addFreshEntity(bolt);

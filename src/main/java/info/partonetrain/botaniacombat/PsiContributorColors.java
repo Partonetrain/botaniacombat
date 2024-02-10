@@ -1,5 +1,5 @@
 /*
- * This class reads Psi's contributors.properties file to get colors for the Supernova Gauntlet.
+ * This class reads Psi's contributors.properties file to get colors for Terrasteel weapons.
  * This class uses code from Psi.
  * https://github.com/VazkiiMods/Psi/blob/master/src/main/java/vazkii/psi/common/core/handler/ContributorSpellCircleHandler.java
  *
@@ -27,7 +27,7 @@ public abstract class PsiContributorColors {
             try {
                 int[] values = Stream.of(value.split(",")).mapToInt(el -> Integer.parseInt(el.substring(2), 16)).toArray();
                 m.put(key, values);
-            } catch (NumberFormatException|IndexOutOfBoundsException e) {
+            } catch (NumberFormatException | IndexOutOfBoundsException e) {
                 BotaniaCombat.LOGGER.error("Psi Contributor " + key + " has an invalid hexcode!");
             }
         }
@@ -39,7 +39,7 @@ public abstract class PsiContributorColors {
     }
 
     public static int[] getColors(String name) {
-        return colormap.getOrDefault(name, new int[] { ColorContainer.DEFAULT_COLOR });
+        return colormap.getOrDefault(name, new int[]{ColorContainer.DEFAULT_COLOR});
     }
 
     public static void get() {

@@ -24,7 +24,7 @@ public class LivingwoodCrossbowItem extends CustomCrossbow implements CustomDama
 
     public LivingwoodCrossbowItem(Item.Properties properties, Supplier<Ingredient> repairIngredientSupplier, RangedConfig rangedConfig) {
         super(properties, repairIngredientSupplier);
-        ((CustomRangedWeapon)this).configure(rangedConfig);
+        ((CustomRangedWeapon) this).configure(rangedConfig);
     }
 
     @Override

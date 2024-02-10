@@ -152,10 +152,10 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
                 crossbowAttackMob.shootCrossbowProjectile(crossbowAttackMob.getTarget(), crossbowStack, projectile, projectileAngle);
             } else {
                 Vec3 vec3 = shooter.getUpVector(1.0F);
-                Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(projectileAngle * 0.017453292F), vec3.x, vec3.y, vec3.z);
+                Quaternionf quaternionf = (new Quaternionf()).setAngleAxis(projectileAngle * 0.017453292F, vec3.x, vec3.y, vec3.z);
                 Vec3 vec32 = shooter.getViewVector(1.0F);
                 Vector3f vector3f = vec32.toVector3f().rotate(quaternionf);
-                (projectile).shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), velocity, inaccuracy);
+                (projectile).shoot(vector3f.x(), vector3f.y(), vector3f.z(), velocity, inaccuracy);
             }
 
             crossbowStack.hurtAndBreak(isFirework ? 3 : 1, shooter, (livingEntity) -> {

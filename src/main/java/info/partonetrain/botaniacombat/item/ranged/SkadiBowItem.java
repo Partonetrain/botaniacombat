@@ -13,7 +13,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArrowItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -31,9 +33,10 @@ import java.util.function.Supplier;
 public class SkadiBowItem extends CustomBow implements CustomDamageItem {
 
     RangedConfig rangedConfig;
+
     public SkadiBowItem(Properties settings, Supplier<Ingredient> repairIngredientSupplier, RangedConfig rangedConfig) {
         super(settings, repairIngredientSupplier);
-        ((CustomRangedWeapon)this).configure(rangedConfig);
+        ((CustomRangedWeapon) this).configure(rangedConfig);
         this.rangedConfig = rangedConfig;
     }
 
@@ -79,7 +82,7 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
             if (itemStack.isEmpty()) {
                 itemStack = new ItemStack(Items.ARROW);
             }
-            boolean arrowWasFree = player.getAbilities().instabuild || (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0)  && itemStack.is(Items.ARROW);
+            boolean arrowWasFree = player.getAbilities().instabuild || (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0) && itemStack.is(Items.ARROW);
 
             if (itemStack.is(Items.ARROW)) {
                 itemStack = new ItemStack(Items.TIPPED_ARROW, 1);
@@ -88,9 +91,9 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
 
             int i = this.getUseDuration(stack) - timeCharged;
             float f = getPowerForTime(i);
-            if (!((double)f < 0.1)) {
+            if (!((double) f < 0.1)) {
                 if (!level.isClientSide) {
-                    ArrowItem arrowItem = (ArrowItem)(itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Items.ARROW);
+                    ArrowItem arrowItem = (ArrowItem) (itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Items.ARROW);
                     AbstractArrow abstractArrow = arrowItem.createArrow(level, itemStack, player);
 
                     abstractArrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, f * 3.0F, 0);
@@ -101,7 +104,7 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
 
                     int j = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, stack);
                     if (j > 0) {
-                        abstractArrow.setBaseDamage(abstractArrow.getBaseDamage() + (double)j * 0.5 + 0.5);
+                        abstractArrow.setBaseDamage(abstractArrow.getBaseDamage() + (double) j * 0.5 + 0.5);
                     }
                     int k = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PUNCH_ARROWS, stack);
                     if (k > 0) {
@@ -124,7 +127,7 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
                 level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                 if (!player.getAbilities().instabuild) {
 
-                    if(!arrowWasFree){
+                    if (!arrowWasFree) {
                         originalItemStack.shrink(1);
                     }
 

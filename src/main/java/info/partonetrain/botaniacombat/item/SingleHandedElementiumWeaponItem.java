@@ -3,7 +3,6 @@ package info.partonetrain.botaniacombat.item;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import info.partonetrain.botaniacombat.BotaniaCombat;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;

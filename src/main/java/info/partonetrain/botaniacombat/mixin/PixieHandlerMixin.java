@@ -12,7 +12,7 @@ public class PixieHandlerMixin {
             method = "onDamageTaken",
             at = @At(value = "INVOKE", target = "Lvazkii/botania/common/entity/PixieEntity;setProps(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;IF)V")
     )
-    private static float BotaniaCombat_BuffPixieDamage(float dmg){
+    private static float BotaniaCombat_BuffPixieDamage(float dmg) {
         return 6;
     }
 }

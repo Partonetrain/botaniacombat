@@ -95,6 +95,8 @@ processResources {
 	filesMatching("fabric.mod.json") {
 		expand "version": project.version
 	}
+
+	exclude('**/*.bbmodel')
 }
 
 tasks.withType(JavaCompile).configureEach {

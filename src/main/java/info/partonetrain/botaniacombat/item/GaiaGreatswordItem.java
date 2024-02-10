@@ -64,11 +64,11 @@ public class GaiaGreatswordItem extends BotaniaCombatWeaponItem {
         }
     }
 
-    public static void SpawnBursts(Player player){
+    public static void SpawnBursts(Player player) {
         final ItemStack DUMMY_TERRABLADE = new ItemStack(BotaniaItems.terraSword);
         ColorContainer cc = new ColorContainer(player.getName().getString());
 
-        for(int i = 0; i < BURST_ANGLES.length; i++){
+        for (int i = 0; i < BURST_ANGLES.length; i++) {
             ManaBurstEntity burst = new ManaBurstEntity(player);
 
             float motionModifier = 10F;
@@ -79,7 +79,7 @@ public class GaiaGreatswordItem extends BotaniaCombatWeaponItem {
             burst.setMinManaLoss(40);
             burst.setManaLossPerTick(4F);
             burst.setGravity(0F);
-            burst.setDeltaMovement(ManaBurstEntity.calculateBurstVelocity(burst.getXRot(), burst.getYRot()+ BURST_ANGLES[i]).scale(motionModifier));
+            burst.setDeltaMovement(ManaBurstEntity.calculateBurstVelocity(burst.getXRot(), burst.getYRot() + BURST_ANGLES[i]).scale(motionModifier));
 
             burst.setSourceLens(DUMMY_TERRABLADE);
 

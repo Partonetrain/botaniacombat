@@ -3,12 +3,12 @@ package info.partonetrain.botaniacombat.mixin;
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vazkii.botania.network.serverbound.LeftClickPacket;
-import net.minecraft.server.level.ServerPlayer;
 
 @Mixin(LeftClickPacket.class)
 public class BotaniaLeftClickPacketMixin {

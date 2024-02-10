@@ -27,7 +27,7 @@ public class TerraBladeItemMixin {
             locals = LocalCapture.CAPTURE_FAILHARD,
             cancellable = true)
     private static void BotaniaCombat_AddOffhandBurst(Player player, float attackStrength, CallbackInfo ci) {
-        if(BotaniaCombat.BetterCombatInstalled){
+        if (BotaniaCombat.BetterCombatInstalled) {
             if (!player.getOffhandItem().isEmpty()
                     && player.getOffhandItem().getItem() instanceof TerraBladeItem
                     && attackStrength == 1) {
@@ -42,8 +42,8 @@ public class TerraBladeItemMixin {
     }
 
     @Inject(method = "getBurst", at = @At("TAIL"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private static void BotaniaCombat_makeManaBeamPatronColors(Player player, ItemStack stack, CallbackInfoReturnable<ManaBurstEntity> cir, ManaBurstEntity burst){
-        if(PsiContributorColors.isContributor(player.getName().getString().toLowerCase())){
+    private static void BotaniaCombat_makeManaBeamPatronColors(Player player, ItemStack stack, CallbackInfoReturnable<ManaBurstEntity> cir, ManaBurstEntity burst) {
+        if (PsiContributorColors.isContributor(player.getName().getString().toLowerCase())) {
             int[] colors = PsiContributorColors.getColors(player.getName().getString().toLowerCase());
             int random = Mth.randomBetweenInclusive(player.level().random, 0, colors.length - 1);
             burst.setColor(colors[random]);

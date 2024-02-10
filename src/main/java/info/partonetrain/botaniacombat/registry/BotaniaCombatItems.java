@@ -19,13 +19,10 @@ import java.util.*;
 
 public final class BotaniaCombatItems {
 
-    //these stats are based on BasicWeapons by June. attack_range is determined by weapon_attributes in data (also based on same mod)
     public static final int daggerDamageModifier = -3; //ingame tier - 2
     public static final float daggerSpeed = -2.0f; //ingame 2.25
     public static final int spearDamageModifier = -1; //ingame tier - 0
     public static final float spearSpeed = -2.8f; //ingame 1.2
-
-    //These stats are for the original weapons
     public static final int soulstaffDamageModifier = -1; //ingame tier + 0 (6)
     public static final float soulstaffSpeed = -2.3f; //ingame 1.7
     public static final int greatswordDamageModifier = 3;
@@ -72,7 +69,6 @@ public final class BotaniaCombatItems {
             items.put("livingwood_crossbow", new LivingwoodCrossbowItem(itemProperties.defaultDurability(300), () -> Ingredient.of(BotaniaItems.livingwoodTwig), livingwoodCrossbowConfig));
             items.put("crystal_crossbow", new CrystalCrossbowItem(itemProperties.defaultDurability(500), () -> Ingredient.of(BotaniaItems.livingwoodTwig), crystalCrossbowConfig));
             items.put("skadi_bow", new SkadiBowItem(itemPropertiesEpic.defaultDurability(3200), () -> Ingredient.of(BotaniaItems.terrasteel), skadiBowConfig));
-            //items.put("skadi_bow", new SkadiBowItem(itemPropertiesEpic.defaultDurability(3200)));
         }
 
     }
