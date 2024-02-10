@@ -26,7 +26,6 @@ import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import java.util.function.Consumer;
 
 public class ElementiumBannerShieldItem extends FabricBannerShieldItem implements CustomDamageItem, FabricShield {
-
     public ElementiumBannerShieldItem(Properties settings, int coolDownTicks, Tier material) {
         super(settings, coolDownTicks, material);
     }
@@ -42,7 +41,7 @@ public class ElementiumBannerShieldItem extends FabricBannerShieldItem implement
 
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (!world.isClientSide && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
+        if (!world.isClientSide() && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
             stack.setDamageValue(stack.getDamageValue() - 1);
         }
     }
@@ -51,17 +50,20 @@ public class ElementiumBannerShieldItem extends FabricBannerShieldItem implement
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {
         Multimap<Attribute, AttributeModifier> ret = super.getDefaultAttributeModifiers(slot);
-        if (slot == EquipmentSlot.OFFHAND) {
+
+        if (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND) {
             ret = HashMultimap.create(ret);
-            ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Elementium Shield modifier", 0.05));
+            ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Shield modifier", 0.05));
         }
+
         return ret;
     }
 
     public static InteractionResult BlockAttack(LivingEntity defender, DamageSource damageSource, float v, InteractionHand interactionHand, ItemStack itemStack) {
-        if(defender instanceof Player player){
+        if (defender instanceof Player player) {
             PixieHandler.onDamageTaken(player, damageSource);
         }
+
         return InteractionResult.PASS;
     }
 }

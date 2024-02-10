@@ -19,8 +19,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class LivingwoodCrossbowItem extends CustomCrossbow implements CustomDamageItem {
-
-    public static final int MANA_PER_DAMAGE = 40;
+    private static final int MANA_PER_DAMAGE = 40;
 
     public LivingwoodCrossbowItem(Item.Properties properties, Supplier<Ingredient> repairIngredientSupplier, RangedConfig rangedConfig) {
         super(properties, repairIngredientSupplier);
@@ -29,7 +28,7 @@ public class LivingwoodCrossbowItem extends CustomCrossbow implements CustomDama
 
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (!world.isClientSide && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, MANA_PER_DAMAGE * 2, true)) {
+        if (!world.isClientSide() && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, MANA_PER_DAMAGE * 2, true)) {
             stack.setDamageValue(stack.getDamageValue() - 1);
         }
     }

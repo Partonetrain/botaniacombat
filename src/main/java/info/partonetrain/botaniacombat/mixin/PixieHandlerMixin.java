@@ -7,12 +7,11 @@ import vazkii.botania.common.handler.PixieHandler;
 
 @Mixin(PixieHandler.class)
 public class PixieHandlerMixin {
-
     @ModifyArg(
             method = "onDamageTaken",
             at = @At(value = "INVOKE", target = "Lvazkii/botania/common/entity/PixieEntity;setProps(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;IF)V")
     )
-    private static float BotaniaCombat_BuffPixieDamage(float dmg) {
+    private static float botaniacombat$buffPixieDamage(float dmg) {
         return 6;
     }
 }

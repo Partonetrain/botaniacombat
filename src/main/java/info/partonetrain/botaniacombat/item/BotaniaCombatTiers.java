@@ -1,11 +1,13 @@
 package info.partonetrain.botaniacombat.item;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import vazkii.botania.common.item.BotaniaItems;
 
 public class BotaniaCombatTiers {
     //Botania has "dummy" tiers, so the actual in-game stats of BotaniaCombat items are defined here
+    //(and... let's try to avoid classloading BotaniaItems!)
     public static final Tier MANASTEEL_TIER = new Tier() {
         @Override
         public int getUses() {
@@ -34,7 +36,7 @@ public class BotaniaCombatTiers {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return Ingredient.of(BotaniaItems.manaSteel);
+            return Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "manasteel_ingot")));
         }
     };
 
@@ -65,7 +67,7 @@ public class BotaniaCombatTiers {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return Ingredient.of(BotaniaItems.elementium);
+            return Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "elementium_ingot")));
         }
     };
     public static final Tier TERRASTEEL_TIER = new Tier() {
@@ -96,7 +98,7 @@ public class BotaniaCombatTiers {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return Ingredient.of(BotaniaItems.terrasteel);
+            return Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "terrasteel_ingot")));
         }
     };
 
@@ -128,7 +130,7 @@ public class BotaniaCombatTiers {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return Ingredient.of(BotaniaItems.manaSteel);
+            return Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "manasteel_ingot")));
         }
     };
 
@@ -160,7 +162,7 @@ public class BotaniaCombatTiers {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return Ingredient.of(BotaniaItems.dragonstone);
+            return Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "dragonstone")));
         }
     };
 }

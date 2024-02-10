@@ -19,8 +19,7 @@ import vazkii.botania.network.serverbound.LeftClickPacket;
 import vazkii.botania.xplat.ClientXplatAbstractions;
 
 public class GaiaGreatswordItem extends BotaniaCombatWeaponItem {
-
-    static final int[] BURST_ANGLES = new int[]{-30, -20, -10, 0, 10, 20, 30};
+    private static final int[] BURST_ANGLES = new int[]{-30, -20, -10, 0, 10, 20, 30};
 
     public GaiaGreatswordItem(Tier mat, int attackDamageFromWeaponType, float attackSpeed, Properties props) {
         super(mat, attackDamageFromWeaponType, attackSpeed, props);
@@ -33,9 +32,10 @@ public class GaiaGreatswordItem extends BotaniaCombatWeaponItem {
     }
 
     public static InteractionResult attackEntity(Player player, Level world, InteractionHand hand, Entity target, @Nullable EntityHitResult hit) {
-        if (!player.level().isClientSide && !player.isSpectator()) {
+        if (!player.level().isClientSide() && !player.isSpectator()) {
             trySpawnBursts(player);
         }
+
         return InteractionResult.PASS;
     }
 
@@ -44,27 +44,28 @@ public class GaiaGreatswordItem extends BotaniaCombatWeaponItem {
     }
 
     public static void trySpawnBursts(Player player, float attackStrength) {
+        if (!player.isSpectator()) {
+            //mainhand
+            if (!player.getMainHandItem().isEmpty()
+                    && player.getMainHandItem().getItem() instanceof GaiaGreatswordItem
+                    && attackStrength == 1) {
+                spawnBursts(player);
+                player.getMainHandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+            }
 
-        //mainhand
-        if (!player.getMainHandItem().isEmpty()
-                && player.getMainHandItem().getItem() instanceof GaiaGreatswordItem
-                && attackStrength == 1) {
-            SpawnBursts(player);
-            player.getMainHandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
-            player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
-            return; //at this point don't bother checking the offhand
-        }
-        //offhand
-        if (!player.getOffhandItem().isEmpty()
-                && player.getOffhandItem().getItem() instanceof GaiaGreatswordItem
-                && attackStrength == 1) {
-            SpawnBursts(player);
-            player.getOffhandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.OFF_HAND));
-            player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+            //offhand
+            if (!player.getOffhandItem().isEmpty()
+                    && player.getOffhandItem().getItem() instanceof GaiaGreatswordItem
+                    && attackStrength == 1) {
+                spawnBursts(player);
+                player.getOffhandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.OFF_HAND));
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+            }
         }
     }
 
-    public static void SpawnBursts(Player player) {
+    public static void spawnBursts(Player player) {
         final ItemStack DUMMY_TERRABLADE = new ItemStack(BotaniaItems.terraSword);
         ColorContainer cc = new ColorContainer(player.getName().getString());
 
@@ -92,5 +93,4 @@ public class GaiaGreatswordItem extends BotaniaCombatWeaponItem {
     public int getManaPerDamage() {
         return BotaniaCombat.MANA_PER_DAMAGE_TERRA * BURST_ANGLES.length;
     }
-
 }

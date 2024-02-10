@@ -10,28 +10,31 @@ package info.partonetrain.botaniacombat;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
-import java.util.stream.Stream;
 import java.net.URL;
-
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.stream.Stream;
 
 public abstract class PsiContributorColors {
-
     private static volatile Map<String, int[]> colormap = Collections.emptyMap();
 
     public static void load(Properties props) {
-        Map<String, int[]> m = new HashMap<>();
+        Map<String, int[]> map = new HashMap<>();
+
         for (String key : props.stringPropertyNames()) {
             String value = props.getProperty(key).replace("#", "0x");
             try {
                 int[] values = Stream.of(value.split(",")).mapToInt(el -> Integer.parseInt(el.substring(2), 16)).toArray();
-                m.put(key, values);
+                map.put(key, values);
             } catch (NumberFormatException | IndexOutOfBoundsException e) {
                 BotaniaCombat.LOGGER.error("Psi Contributor " + key + " has an invalid hexcode!");
             }
         }
-        colormap = m;
+
+        PsiContributorColors.colormap = map;
     }
 
     public static boolean isContributor(String name) {
@@ -51,7 +54,7 @@ public abstract class PsiContributorColors {
                 load(props);
             }
         } catch (IOException e) {
-            BotaniaCombat.LOGGER.info("Could not load Psi contributors list. Either you're offline or github is down. Nothing to worry about, carry on~");
+            BotaniaCombat.LOGGER.info("Could not load Psi contributors list. Either you're offline or GitHub is down. Nothing to worry about, carry on~");
         }
     }
 }

@@ -31,7 +31,6 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class SkadiBowItem extends CustomBow implements CustomDamageItem {
-
     RangedConfig rangedConfig;
 
     public SkadiBowItem(Properties settings, Supplier<Ingredient> repairIngredientSupplier, RangedConfig rangedConfig) {
@@ -42,7 +41,7 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (!world.isClientSide && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, BotaniaCombat.MANA_PER_DAMAGE_TERRA * 2, true)) {
+        if (!world.isClientSide() && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, BotaniaCombat.MANA_PER_DAMAGE_TERRA * 2, true)) {
             stack.setDamageValue(stack.getDamageValue() - 1);
         }
     }
@@ -56,32 +55,32 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
+
         if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0) { //builtin "InfiniBows"
             player.startUsingItem(usedHand);
         }
 
-        ItemStack itemStack = player.getItemInHand(usedHand);
-        boolean bl = !player.getProjectile(itemStack).isEmpty();
+        boolean bl = !player.getProjectile(stack).isEmpty();
+
         if (!player.getAbilities().instabuild && !bl) {
-            return InteractionResultHolder.fail(itemStack);
+            return InteractionResultHolder.fail(stack);
         } else {
             player.startUsingItem(usedHand);
-            return InteractionResultHolder.consume(itemStack);
+            return InteractionResultHolder.consume(stack);
         }
     }
 
     //vanilla copy
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity livingEntity, int timeCharged) {
-
         if (livingEntity instanceof Player player) {
-
             ItemStack originalItemStack = player.getProjectile(stack);
             ItemStack itemStack = originalItemStack.copy();
 
             if (itemStack.isEmpty()) {
                 itemStack = new ItemStack(Items.ARROW);
             }
+
             boolean arrowWasFree = player.getAbilities().instabuild || (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0) && itemStack.is(Items.ARROW);
 
             if (itemStack.is(Items.ARROW)) {
@@ -91,13 +90,15 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
 
             int i = this.getUseDuration(stack) - timeCharged;
             float f = getPowerForTime(i);
-            if (!((double) f < 0.1)) {
+
+            if (!(f < 0.1)) {
                 if (!level.isClientSide) {
                     ArrowItem arrowItem = (ArrowItem) (itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Items.ARROW);
                     AbstractArrow abstractArrow = arrowItem.createArrow(level, itemStack, player);
 
                     abstractArrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, f * 3.0F, 0);
                     abstractArrow.setDeltaMovement(abstractArrow.getDeltaMovement().scale((rangedConfig.velocity() / 3.0F))); //set velocity using rangedConfig
+
                     if (f == 1.0F) {
                         abstractArrow.setCritArrow(true);
                     }
@@ -106,10 +107,12 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
                     if (j > 0) {
                         abstractArrow.setBaseDamage(abstractArrow.getBaseDamage() + (double) j * 0.5 + 0.5);
                     }
+
                     int k = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PUNCH_ARROWS, stack);
                     if (k > 0) {
                         abstractArrow.setKnockback(k);
                     }
+
                     if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FLAMING_ARROWS, stack) > 0) {
                         abstractArrow.setSecondsOnFire(100);
                     }
@@ -117,6 +120,7 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
                     stack.hurtAndBreak(1, player, (player2) -> {
                         player2.broadcastBreakEvent(player.getUsedItemHand());
                     });
+
                     if (arrowWasFree) {
                         abstractArrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                     }
@@ -125,8 +129,8 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
                 }
 
                 level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                if (!player.getAbilities().instabuild) {
 
+                if (!player.getAbilities().instabuild) {
                     if (!arrowWasFree) {
                         originalItemStack.shrink(1);
                     }
@@ -138,7 +142,6 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
 
                 player.awardStat(Stats.ITEM_USED.get(this));
             }
-
         }
     }
 }

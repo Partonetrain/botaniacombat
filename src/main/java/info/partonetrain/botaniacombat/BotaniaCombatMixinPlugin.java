@@ -1,9 +1,9 @@
 package info.partonetrain.botaniacombat;
 
-import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -12,18 +12,8 @@ import java.util.Set;
 //thx to arkosammy12 for the help
 public class BotaniaCombatMixinPlugin implements IMixinConfigPlugin {
     @Override
-    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        String[] packageTree = mixinClassName.split("\\.");
-        if (Arrays.asList(packageTree).contains("ranged")) {
-            return FabricLoader.getInstance().isModLoaded("ranged_weapon_api"); //this plugin can run before the main mod class
-        }
-        return true;
-    }
-
-    //everything below this is irrelevant
-
-    @Override
     public void onLoad(String mixinPackage) {
+        // NO-OP
     }
 
     @Override
@@ -32,7 +22,19 @@ public class BotaniaCombatMixinPlugin implements IMixinConfigPlugin {
     }
 
     @Override
+    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        String[] packageTree = mixinClassName.split("\\.");
+
+        if (Arrays.asList(packageTree).contains("ranged")) {
+            return BotaniaCombat.RANGED_WEAPON_API_INSTALLED;
+        }
+
+        return true;
+    }
+
+    @Override
     public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {
+        // NO-OP
     }
 
     @Override
@@ -42,9 +44,11 @@ public class BotaniaCombatMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public void preApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
+        // NO-OP
     }
 
     @Override
     public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
+        // NO-OP
     }
 }

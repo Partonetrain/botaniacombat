@@ -7,6 +7,7 @@ package info.partonetrain.botaniacombat.item;
 
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -30,8 +31,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class MjolnirItem extends BotaniaCombatWeaponItem {
-
-    public final int BOLT_MANA_COST = 2500;
+    private static final int BOLT_MANA_COST = 2500;
     private static final int COOLDOWN_TIME = 100; //5 secs
 
     public MjolnirItem(Tier mat, int attackDamageFromWeaponType, float attackSpeed, Properties properties) {
@@ -42,19 +42,23 @@ public class MjolnirItem extends BotaniaCombatWeaponItem {
     @NotNull
     public InteractionResult useOn(UseOnContext ctx) {
         Player player = ctx.getPlayer();
+
         if (player != null) {
-            if (ctx.getHand() == InteractionHand.MAIN_HAND &&
-                    (ManaItemHandler.instance().requestManaExactForTool(ctx.getItemInHand(), player, BOLT_MANA_COST, true)) || ctx.getPlayer().getAbilities().instabuild) //check for creative
-            {
+            if (ctx.getHand() == InteractionHand.MAIN_HAND && (ManaItemHandler.instance().requestManaExactForTool(ctx.getItemInHand(), player, BOLT_MANA_COST, true)) || ctx.getPlayer().isCreative()) {
                 LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, ctx.getLevel());
-                // bolt.setCause(); //is this necessary? what does this do?
+
+                if (!ctx.getLevel().isClientSide()) {
+                    bolt.setCause((ServerPlayer) player);
+                }
+
                 bolt.setPos(ctx.getClickLocation());
                 ctx.getLevel().addFreshEntity(bolt);
                 player.getCooldowns().addCooldown(this, COOLDOWN_TIME);
-                //return InteractionResult.PASS;
-                return InteractionResult.sidedSuccess(ctx.getLevel().isClientSide); //this is what does the "used" animation
+
+                return InteractionResult.sidedSuccess(ctx.getLevel().isClientSide()); //this is what does the "used" animation
             }
         }
+
         return InteractionResult.PASS;
     }
 
@@ -69,6 +73,7 @@ public class MjolnirItem extends BotaniaCombatWeaponItem {
         LivingEntity prevTarget = entity;
         int hops = 10;
         int dmg = (int) attacker.getAttribute(Attributes.ATTACK_DAMAGE).getValue();
+
         for (int i = 0; i < hops; i++) {
             List<Entity> entities = entity.level().getEntities(prevTarget, new AABB(prevTarget.getX() - range, prevTarget.getY() - range, prevTarget.getZ() - range, prevTarget.getX() + range, prevTarget.getY() + range, prevTarget.getZ() + range), selector);
             if (entities.isEmpty()) {
@@ -96,5 +101,4 @@ public class MjolnirItem extends BotaniaCombatWeaponItem {
 
         return super.hurtEnemy(stack, entity, attacker);
     }
-
 }
