@@ -99,7 +99,7 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
                         usedProjectileStack = multishotDummyAmmo.copy();
                     }
 
-                    if (!CrossbowItem.loadProjectile(itemUser, crossbowStack, usedProjectileStack, i > 0, playerentity.getAbilities().instabuild)) {
+                    if (!CrossbowItem.loadProjectile(itemUser, crossbowStack, usedProjectileStack, i > 0, playerentity.isCreative())) {
                         return false;
                     }
                 }
@@ -118,7 +118,7 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
 
         for (int i = 0; i < list.size(); ++i) {
             ItemStack itemStack = list.get(i);
-            boolean creativeMode = shooter instanceof Player && ((Player)shooter).getAbilities().instabuild;
+            boolean creativeMode = shooter instanceof Player && ((Player)shooter).isCreative();
 
             if (!itemStack.isEmpty()) {
                 if (i == 0) {
@@ -180,6 +180,6 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
     private static boolean CanChargeWithMana(ItemStack stack, Player player) {
         boolean infinity = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
 
-        return player.getAbilities().instabuild || ManaItemHandler.instance().requestManaExactForTool(stack, player, ARROW_COST / (infinity ? 2 : 1), false);
+        return player.isCreative() || ManaItemHandler.instance().requestManaExactForTool(stack, player, ARROW_COST / (infinity ? 2 : 1), false);
     }
 }

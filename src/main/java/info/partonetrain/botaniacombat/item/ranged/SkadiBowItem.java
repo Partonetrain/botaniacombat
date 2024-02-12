@@ -62,7 +62,7 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
 
         boolean bl = !player.getProjectile(stack).isEmpty();
 
-        if (!player.getAbilities().instabuild && !bl) {
+        if (!player.isCreative() && !bl) {
             return InteractionResultHolder.fail(stack);
         } else {
             player.startUsingItem(usedHand);
@@ -81,7 +81,7 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
                 itemStack = new ItemStack(Items.ARROW);
             }
 
-            boolean arrowWasFree = player.getAbilities().instabuild || (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0) && itemStack.is(Items.ARROW);
+            boolean arrowWasFree = player.isCreative() || (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0) && itemStack.is(Items.ARROW);
 
             if (itemStack.is(Items.ARROW)) {
                 itemStack = new ItemStack(Items.TIPPED_ARROW, 1);
@@ -130,7 +130,7 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
 
                 level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
-                if (!player.getAbilities().instabuild) {
+                if (!player.isCreative()) {
                     if (!arrowWasFree) {
                         originalItemStack.shrink(1);
                     }

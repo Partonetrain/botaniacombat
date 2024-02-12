@@ -53,7 +53,7 @@ public class ManasteelShieldItem extends FabricShieldItem implements CustomDamag
 
         if (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND) {
             ret = HashMultimap.create(ret);
-            ret.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTR_UUID, "Manasteel Shield modifier", 0.2, AttributeModifier.Operation.ADDITION));
+            ret.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTR_UUID, "Shield modifier", 0.2, AttributeModifier.Operation.ADDITION));
         }
 
         return ret;
