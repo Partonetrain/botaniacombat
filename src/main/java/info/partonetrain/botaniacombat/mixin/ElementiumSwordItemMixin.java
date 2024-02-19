@@ -10,7 +10,6 @@ import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import vazkii.botania.common.handler.PixieHandler;
@@ -18,25 +17,15 @@ import vazkii.botania.common.item.equipment.tool.elementium.ElementiumSwordItem;
 
 @Mixin(ElementiumSwordItem.class)
 public class ElementiumSwordItemMixin {
-
-    @ModifyVariable(
-            method = "Lvazkii/botania/common/item/equipment/tool/elementium/ElementiumSwordItem;getDefaultAttributeModifiers(Lnet/minecraft/world/entity/EquipmentSlot;)Lcom/google/common/collect/Multimap;",
-            at = @At(value = "STORE", ordinal = 0),
-            ordinal = 0
-    )
-    private Multimap<Attribute, AttributeModifier> BotaniaCombat_makeElementiumSwordAttributesMutable(Multimap<Attribute, AttributeModifier> ret) {
-        return HashMultimap.create(ret);
-    }
-
     @Inject(
-            method = "Lvazkii/botania/common/item/equipment/tool/elementium/ElementiumSwordItem;getDefaultAttributeModifiers(Lnet/minecraft/world/entity/EquipmentSlot;)Lcom/google/common/collect/Multimap;",
+            method = "getDefaultAttributeModifiers(Lnet/minecraft/world/entity/EquipmentSlot;)Lcom/google/common/collect/Multimap;",
             at = @At("TAIL"),
             locals = LocalCapture.CAPTURE_FAILHARD
     )
-    private void BotaniaCombat_addOffhandAttributeToElementiumSword(@NotNull EquipmentSlot slot, CallbackInfoReturnable<@NotNull Multimap<Attribute, AttributeModifier>> cir, Multimap<Attribute, AttributeModifier> ret) {
-        if (slot == EquipmentSlot.OFFHAND && BotaniaCombat.BetterCombatInstalled) {
-            ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Elementium Sword modifier", 0.05));
+    private void botaniacombat$addOffhandAttributeToElementiumSword(@NotNull EquipmentSlot slot, CallbackInfoReturnable<@NotNull Multimap<Attribute, AttributeModifier>> cir, Multimap<Attribute, AttributeModifier> ret) {
+        if (BotaniaCombat.BETTER_COMBAT_INSTALLED && slot == EquipmentSlot.OFFHAND) {
+            ret = HashMultimap.create(ret);
+            ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Sword modifier", 0.05));
         }
     }
-
 }

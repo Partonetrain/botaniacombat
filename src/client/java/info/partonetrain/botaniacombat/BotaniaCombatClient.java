@@ -3,7 +3,7 @@ package info.partonetrain.botaniacombat;
 import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldSetModelCallback;
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
-import info.partonetrain.botaniacombat.registry.BotaniaCombatItems;
+import info.partonetrain.botaniacombat.registry.BotaniaCombatShieldItems;
 import net.bettercombat.api.AttackHand;
 import net.bettercombat.api.client.BetterCombatClientEvents;
 import net.fabricmc.api.ClientModInitializer;
@@ -26,25 +26,23 @@ import vazkii.botania.common.item.equipment.tool.terrasteel.TerraBladeItem;
 import static com.github.crimsondawn45.fabricshieldlib.initializers.FabricShieldLibClient.renderBanner;
 
 public class BotaniaCombatClient implements ClientModInitializer {
-
-    public static final ModelLayerLocation ELEMENTIUM_SHIELD_MODEL_LAYER = new ModelLayerLocation(new ResourceLocation(BotaniaCombat.MOD_ID, "elementium_banner_shield"), "main");
-
-    public static ShieldModel modelElementiumShield;
-
     public static final Material ELEMENTIUM_BANNER_SHIELD_BASE = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(BotaniaCombat.MOD_ID, "entity/elementium_banner_shield_base"));
     public static final Material ELEMENTIUM_BANNER_SHIELD_BASE_NO_PATTERN = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(BotaniaCombat.MOD_ID, "entity/elementium_banner_shield_base_nopattern"));
+    public static final ModelLayerLocation ELEMENTIUM_SHIELD_MODEL_LAYER = new ModelLayerLocation(new ResourceLocation(BotaniaCombat.MOD_ID, "elementium_banner_shield"), "main");
+
+    private static ShieldModel modelElementiumShield;
 
     @Override
     public void onInitializeClient() {
         ColorHandler.submitBotaniaCombatItems(ColorProviderRegistry.ITEM::register); //for colorchanging items
-        RegisterOptionalResourcePack(); //for botaniacombatlang respack
+        this.registerOptionalResourcePack(); //for botaniacombatlang respack
 
-        if (BotaniaCombat.BetterCombatInstalled) {
+        if (BotaniaCombat.BETTER_COMBAT_INSTALLED) {
             BotaniaCombat.LOGGER.info("BetterCombat found, running client code");
-            BetterCombatClientEvents.ATTACK_START.register(this::CheckTerrasteelSwing);
+            BetterCombatClientEvents.ATTACK_START.register(this::checkTerrasteelSwing);
         }
 
-        if (BotaniaCombat.FabricShieldLibInstalled) {
+        if (BotaniaCombat.FABRIC_SHIELD_LIB_INSTALLED) {
             BotaniaCombat.LOGGER.info("FabricShieldLib found, running client code");
             EntityModelLayerRegistry.registerModelLayer(ELEMENTIUM_SHIELD_MODEL_LAYER, ShieldModel::createLayer);
 
@@ -53,15 +51,14 @@ public class BotaniaCombatClient implements ClientModInitializer {
                 return InteractionResult.PASS;
             });
 
-            BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatItems.items.get("elementium_banner_shield"), (stack, mode, matrices, vertexConsumers, light, overlay) -> {
+            BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatShieldItems.ELEMENTIUM_BANNER_SHIELD, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
                 renderBanner(stack, matrices, vertexConsumers, light, overlay, modelElementiumShield, ELEMENTIUM_BANNER_SHIELD_BASE, ELEMENTIUM_BANNER_SHIELD_BASE_NO_PATTERN);
                 //The first five parameters are taken from the method, while the last 3 you provide yourself. You will provide the model, and then your 2 sprite identifiers in the order of SHIELD_NAME_BASE and then SHIELD_NAME_BASE_NOPATTERN.
             });
         }
-
     }
 
-    public void CheckTerrasteelSwing(LocalPlayer clientPlayerEntity, AttackHand attackHand) {
+    public void checkTerrasteelSwing(LocalPlayer clientPlayerEntity, AttackHand attackHand) {
         if (attackHand.itemStack().getItem() instanceof TerrasteelWeaponItem) {
             TerrasteelWeaponItem.leftClick(attackHand.itemStack());
         } else if (attackHand.itemStack().getItem() instanceof TerraBladeItem) {
@@ -71,11 +68,10 @@ public class BotaniaCombatClient implements ClientModInitializer {
         }
     }
 
-    public void RegisterOptionalResourcePack() {
+    public void registerOptionalResourcePack() {
         ResourceLocation folderName = new ResourceLocation(BotaniaCombat.MOD_ID, "botaniacombatlang");
         Component displayName = Component.literal("BotaniaCombat Lang Fixes");
-        FabricLoader.getInstance().getModContainer(folderName.getNamespace()).ifPresent(c -> ResourceManagerHelper.registerBuiltinResourcePack(folderName, c, displayName, ResourcePackActivationType.DEFAULT_ENABLED));
+
+        FabricLoader.getInstance().getModContainer(BotaniaCombat.MOD_ID).ifPresent(container -> ResourceManagerHelper.registerBuiltinResourcePack(folderName, container, displayName, ResourcePackActivationType.DEFAULT_ENABLED));
     }
-
-
 }

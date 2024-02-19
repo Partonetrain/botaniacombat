@@ -31,7 +31,7 @@ public class TerrasteelWeaponItem extends BotaniaCombatWeaponItem {
     }
 
     public static InteractionResult attackEntity(Player player, Level world, InteractionHand hand, Entity target, @Nullable EntityHitResult hit) {
-        if (!player.level().isClientSide && !player.isSpectator()) {
+        if (!player.level().isClientSide() && !player.isSpectator()) {
             trySpawnBurst(player);
         }
         return InteractionResult.PASS;
@@ -42,26 +42,29 @@ public class TerrasteelWeaponItem extends BotaniaCombatWeaponItem {
     }
 
     public static void trySpawnBurst(Player player, float attackStrength) {
-        final ItemStack DUMMY_TERRABLADE = new ItemStack(BotaniaItems.terraSword);
-        //mainhand
-        if (!player.getMainHandItem().isEmpty()
-                && player.getMainHandItem().getItem() instanceof TerrasteelWeaponItem
-                && attackStrength == 1) {
-            ManaBurstEntity burst = TerraBladeItem.getBurst(player, DUMMY_TERRABLADE);
-            player.level().addFreshEntity(burst);
-            player.getMainHandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
-            player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
-            return; //at this point don't bother checking the offhand
-        }
-        //offhand
-        if (!player.getOffhandItem().isEmpty()
-                && player.getOffhandItem().getItem() instanceof TerrasteelWeaponItem
-                && attackStrength == 1) {
-            ManaBurstEntity burst = TerraBladeItem.getBurst(player, DUMMY_TERRABLADE);
+        if (!player.isSpectator()) {
+            final ItemStack DUMMY_TERRABLADE = new ItemStack(BotaniaItems.terraSword);
 
-            player.level().addFreshEntity(burst);
-            player.getOffhandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.OFF_HAND));
-            player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+            //mainhand
+            if (!player.getMainHandItem().isEmpty()
+                    && player.getMainHandItem().getItem() instanceof TerrasteelWeaponItem
+                    && attackStrength == 1) {
+                ManaBurstEntity burst = TerraBladeItem.getBurst(player, DUMMY_TERRABLADE);
+                player.level().addFreshEntity(burst);
+                player.getMainHandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+            }
+
+            //offhand
+            if (!player.getOffhandItem().isEmpty()
+                    && player.getOffhandItem().getItem() instanceof TerrasteelWeaponItem
+                    && attackStrength == 1) {
+                ManaBurstEntity burst = TerraBladeItem.getBurst(player, DUMMY_TERRABLADE);
+
+                player.level().addFreshEntity(burst);
+                player.getOffhandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.OFF_HAND));
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+            }
         }
     }
 
@@ -69,5 +72,4 @@ public class TerrasteelWeaponItem extends BotaniaCombatWeaponItem {
     public int getManaPerDamage() {
         return BotaniaCombat.MANA_PER_DAMAGE_TERRA;
     }
-
 }

@@ -25,10 +25,9 @@ public class BotaniaLeftClickPacketMixin {
         partonetrain: good question. it's because I've never done that before
      */
     @Inject(method = "handle", at = @At(value = "TAIL"))
-    public void BotaniaCombat_handle(MinecraftServer server, ServerPlayer player, CallbackInfo ci) {
+    public void botaniacombat$handle(MinecraftServer server, ServerPlayer player, CallbackInfo ci) {
         float scale = player.getAttackStrengthScale(0F);
         server.execute(() -> TerrasteelWeaponItem.trySpawnBurst(player, scale));
         server.execute(() -> GaiaGreatswordItem.trySpawnBursts(player, scale));
     }
-
 }

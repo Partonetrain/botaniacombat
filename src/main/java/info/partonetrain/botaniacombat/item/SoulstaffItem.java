@@ -26,13 +26,14 @@ public class SoulstaffItem extends BotaniaCombatWeaponItem {
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, @NotNull LivingEntity attacker) {
-        if (!target.level().isClientSide
+        if (!target.level().isClientSide()
                 && target instanceof EnderMan
                 && attacker instanceof Player player) {
             target.hurt(player.damageSources().playerAttack(player), 20);
         }
 
         stack.hurtAndBreak(1, attacker, e -> e.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+
         return true;
     }
 

@@ -16,7 +16,6 @@ import vazkii.botania.common.item.equipment.tool.manasteel.ManasteelSwordItem;
 import java.util.function.Consumer;
 
 public class BotaniaCombatWeaponItem extends ManasteelSwordItem implements CustomDamageItem {
-
     public BotaniaCombatWeaponItem(Tier mat, int attackDamageFromWeaponType, float attackSpeed, Item.Properties properties) {
         super(mat, attackDamageFromWeaponType, attackSpeed, properties);
     }
@@ -34,9 +33,8 @@ public class BotaniaCombatWeaponItem extends ManasteelSwordItem implements Custo
 
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (!world.isClientSide && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
+        if (!world.isClientSide() && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
             stack.setDamageValue(stack.getDamageValue() - 1);
         }
     }
-
 }

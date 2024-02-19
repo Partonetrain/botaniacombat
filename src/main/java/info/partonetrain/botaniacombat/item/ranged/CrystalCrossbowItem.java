@@ -1,6 +1,5 @@
 package info.partonetrain.botaniacombat.item.ranged;
 
-import info.partonetrain.botaniacombat.BotaniaCombat;
 import net.fabric_extras.ranged_weapon.api.CustomCrossbow;
 import net.fabric_extras.ranged_weapon.api.CustomRangedWeapon;
 import net.fabric_extras.ranged_weapon.api.RangedConfig;
@@ -35,11 +34,11 @@ import java.util.function.Supplier;
 
 public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageItem {
     private static final int ARROW_COST = 200;
+
     public CrystalCrossbowItem(Properties properties, Supplier<Ingredient> repairIngredientSupplier, RangedConfig rangedConfig) {
         super(properties, repairIngredientSupplier);
-        ((CustomRangedWeapon)this).configure(rangedConfig);
+        ((CustomRangedWeapon) this).configure(rangedConfig);
     }
-
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
@@ -47,8 +46,10 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
         //BotaniaCombat.LOGGER.info("canCharge: " + String.valueOf(CanChargeWithMana(crossbowStack, player)));
         if (isCharged(crossbowStack)) {
             float shootingPower = containsChargedProjectile(crossbowStack, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
+
             performShooting(level, player, usedHand, crossbowStack, shootingPower, 0.5F);
             CrossbowItem.setCharged(crossbowStack, false);
+
             return InteractionResultHolder.consume(crossbowStack);
         } else if (CanChargeWithMana(crossbowStack, player)) {
             if (!isCharged(crossbowStack)) {
@@ -63,9 +64,10 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
 
     @Override
     public void releaseUsing(@NotNull ItemStack crossbowStack, @NotNull Level worldIn, LivingEntity livingEntity, int timeCharged) {
-        if(livingEntity instanceof Player player) {
+        if (livingEntity instanceof Player player) {
             int i = this.getUseDuration(crossbowStack) - timeCharged;
             float f = CrossbowItem.getPowerForTime(i, crossbowStack);
+
             if (f >= 1.0F && !isCharged(crossbowStack) && tryLoadProjectiles(livingEntity, crossbowStack)) {
                 setCharged(crossbowStack, true);
                 worldIn.playSound(player, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.CROSSBOW_LOADING_END, SoundSource.PLAYERS, 1.0F, 1.0F / (worldIn.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
@@ -75,7 +77,7 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
 
     //modified vanilla method
     private static boolean tryLoadProjectiles(@NotNull LivingEntity itemUser, @NotNull ItemStack crossbowStack) {
-        if(itemUser instanceof Player playerentity) {
+        if (itemUser instanceof Player playerentity) {
             int multishotLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MULTISHOT, crossbowStack);
             int arrowsToShoot = multishotLevel == 0 ? 1 : 3;
             boolean flag = CanChargeWithMana(crossbowStack, playerentity); //canCharge checks for creative mode
@@ -84,12 +86,9 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
             ItemStack fakeProjectileStack = new ItemStack(Items.ARROW); //this will only be used if the arrow is made of mana
 
             if (flag) {
-                if (realProjectileStack.isEmpty() || realProjectileStack.getItem() == Items.ARROW)
-                {
+                if (realProjectileStack.isEmpty() || realProjectileStack.getItem() == Items.ARROW) {
                     usedProjectileStack = fakeProjectileStack; //at this point we know that we are loading with a "mana arrow", so use a dummy stack
-                }
-                else
-                {
+                } else {
                     usedProjectileStack = realProjectileStack;
                 }
 
@@ -100,14 +99,15 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
                         usedProjectileStack = multishotDummyAmmo.copy();
                     }
 
-                    if (!CrossbowItem.loadProjectile(itemUser, crossbowStack, usedProjectileStack, i > 0, playerentity.getAbilities().instabuild)) {
+                    if (!CrossbowItem.loadProjectile(itemUser, crossbowStack, usedProjectileStack, i > 0, playerentity.isCreative())) {
                         return false;
                     }
-
                 }
             }
+
             return true;
         }
+
         return false;
     }
 
@@ -116,9 +116,10 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
         List<ItemStack> list = CrossbowItem.getChargedProjectiles(crossbowStack);
         float[] soundPitches = CrossbowItem.getShotPitches(shooter.getRandom());
 
-        for(int i = 0; i < list.size(); ++i) {
+        for (int i = 0; i < list.size(); ++i) {
             ItemStack itemStack = list.get(i);
-            boolean creativeMode = shooter instanceof Player && ((Player)shooter).getAbilities().instabuild;
+            boolean creativeMode = shooter instanceof Player && ((Player)shooter).isCreative();
+
             if (!itemStack.isEmpty()) {
                 if (i == 0) {
                     shootProjectile(level, shooter, usedHand, crossbowStack, itemStack, soundPitches[i], creativeMode, velocity, inaccuracy, 0.0F);
@@ -135,15 +136,16 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
 
     //modified vanilla method
     private static void shootProjectile(Level level, LivingEntity shooter, InteractionHand hand, ItemStack crossbowStack, ItemStack ammoStack, float soundPitch, boolean isCreativeMode, float velocity, float inaccuracy, float projectileAngle) {
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             boolean isFirework = ammoStack.is(Items.FIREWORK_ROCKET);
-            boolean isStandardArrow = ammoStack.is(Items.ARROW);
             Projectile projectile;
+
             if (isFirework) {
                 projectile = new FireworkRocketEntity(level, ammoStack, shooter, shooter.getX(), shooter.getEyeY() - 0.15000000596046448, shooter.getZ(), true);
             } else {
                 projectile = CrossbowItem.getArrow(level, shooter, crossbowStack, ammoStack);
-                if (isCreativeMode || projectileAngle != 0.0F || isStandardArrow) {
+
+                if (isCreativeMode || projectileAngle != 0.0F || ammoStack.is(Items.ARROW)) {
                     ((AbstractArrow)projectile).pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                 }
             }
@@ -151,11 +153,12 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
             if (shooter instanceof CrossbowAttackMob crossbowAttackMob) {
                 crossbowAttackMob.shootCrossbowProjectile(crossbowAttackMob.getTarget(), crossbowStack, projectile, projectileAngle);
             } else {
-                Vec3 vec3 = shooter.getUpVector(1.0F);
-                Quaternionf quaternionf = (new Quaternionf()).setAngleAxis(projectileAngle * 0.017453292F, vec3.x, vec3.y, vec3.z);
-                Vec3 vec32 = shooter.getViewVector(1.0F);
-                Vector3f vector3f = vec32.toVector3f().rotate(quaternionf);
-                (projectile).shoot(vector3f.x(), vector3f.y(), vector3f.z(), velocity, inaccuracy);
+                Vec3 up = shooter.getUpVector(1.0F);
+                Vec3 view = shooter.getViewVector(1.0F);
+                Quaternionf angle = (new Quaternionf()).setAngleAxis(projectileAngle * 0.017453292F, up.x, up.y, up.z);
+                Vector3f vector = view.toVector3f().rotate(angle);
+
+                (projectile).shoot(vector.x(), vector.y(), vector.z(), velocity, inaccuracy);
             }
 
             crossbowStack.hurtAndBreak(isFirework ? 3 : 1, shooter, (livingEntity) -> {
@@ -170,12 +173,13 @@ public class CrystalCrossbowItem extends CustomCrossbow implements CustomDamageI
     @Override
     public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
         boolean infinity = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0; //archers mod makes this possible
+
         return ToolCommons.damageItemIfPossible(stack, amount, entity, ARROW_COST / (infinity ? 2 : 1));
     }
 
     private static boolean CanChargeWithMana(ItemStack stack, Player player) {
         boolean infinity = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
-        return player.getAbilities().instabuild || ManaItemHandler.instance().requestManaExactForTool(stack, player, ARROW_COST / (infinity ? 2 : 1), false);
-    }
 
+        return player.isCreative() || ManaItemHandler.instance().requestManaExactForTool(stack, player, ARROW_COST / (infinity ? 2 : 1), false);
+    }
 }

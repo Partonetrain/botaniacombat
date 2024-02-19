@@ -24,8 +24,8 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 public class ManasteelShieldItem extends FabricShieldItem implements CustomDamageItem, FabricShield {
+    private final UUID ATTR_UUID = UUID.fromString("1b711943-4f29-43af-8d55-0b41d5983acf");
 
-    public final UUID ATTR_UUID = UUID.fromString("1b711943-4f29-43af-8d55-0b41d5983acf");
     public ManasteelShieldItem(Properties properties, int cooldownTicks, Tier tier) {
         super(properties, cooldownTicks, tier);
     }
@@ -41,7 +41,7 @@ public class ManasteelShieldItem extends FabricShieldItem implements CustomDamag
 
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (!world.isClientSide && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
+        if (!world.isClientSide() && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
             stack.setDamageValue(stack.getDamageValue() - 1);
         }
     }
@@ -50,12 +50,12 @@ public class ManasteelShieldItem extends FabricShieldItem implements CustomDamag
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {
         Multimap<Attribute, AttributeModifier> ret = super.getDefaultAttributeModifiers(slot);
-        if (slot == EquipmentSlot.OFFHAND) {
+
+        if (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND) {
             ret = HashMultimap.create(ret);
-            ret.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTR_UUID, "Manasteel Shield modifier", 0.2, AttributeModifier.Operation.ADDITION));
+            ret.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTR_UUID, "Shield modifier", 0.2, AttributeModifier.Operation.ADDITION));
         }
 
         return ret;
     }
-
 }

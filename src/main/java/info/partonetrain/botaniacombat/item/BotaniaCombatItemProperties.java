@@ -5,7 +5,6 @@ import net.minecraft.world.item.Item;
 import vazkii.botania.common.item.equipment.CustomDamageItem;
 
 public final class BotaniaCombatItemProperties {
-
     // If/when this gets ported to forge:
     // Forge does custom damage by just implementing a method on Item,
     // Fabric does it by an extra lambda to the Properties object
