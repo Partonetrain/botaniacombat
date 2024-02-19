@@ -35,6 +35,7 @@ If [Ranged Weapon API](https://www.curseforge.com/minecraft/mc-mods/ranged-weapo
 This mod only supports en_us.json currently.
 
 Credits / Thanks:
+- Unilock for [cleaning up the code and fixing compat with Sinytra Connector](https://github.com/Partonetrain/botaniacombat/pull/1)
 - Daedulus_dev for making Ranged Weapon API
 - arkosammy12 for helping with the Elementium Axe mixin
 - Adarsh and everyone else on the Violet Moon forums giving me feedback and ideas
@@ -47,7 +48,7 @@ If you like this mod, [consider supporting me on ko-fi](https://ko-fi.com/parton
 Maybe, but I am going to have to learn Architecturey first. Considering this uses a lot of Fabric libraries, I'm not sure that will happen without some outside help.
 
 ####  *Does this work with Sinytra Connector?*
-idk try it ¯\_(ツ)_/¯ If it does, then support for it is low priority
+It should, thanks to Unilock's PR. Support for it is lower priority than support for Fabric/Quilt.
 
 #### *How much damage does the mana beam from the new weapons do?*
 7 (or 3.5 hearts), same as Terra Blade's.
