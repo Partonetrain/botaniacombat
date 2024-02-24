@@ -10,6 +10,10 @@
       "required": true
     },
     {
+      "id": "botaniacombat:slaughtersaw",
+      "required": true
+    },
+    {
       "id": "botaniacombat:soulstaff",
       "required": true
     },

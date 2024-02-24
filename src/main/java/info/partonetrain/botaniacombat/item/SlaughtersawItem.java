@@ -3,7 +3,6 @@ package info.partonetrain.botaniacombat.item;
 import info.partonetrain.botaniacombat.BotaniaCombat;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
@@ -26,18 +25,18 @@ public class SlaughtersawItem extends BotaniaCombatWeaponItem{
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, @NotNull LivingEntity attacker) {
         int sharpness = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SHARPNESS, stack);
         float sharpnessBonus = (sharpness > 0 ? (0.5f * EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SHARPNESS, stack) + 0.5f) : 0);
-        float damageAmount = 10.0f + sharpnessBonus;
+        float meatyDamageAmount = 10.5f + sharpnessBonus; //see issue #2
 
         if (!target.level().isClientSide()
                 && target.getType().is(ENTITY_TYPE_TAG)
                 && attacker instanceof Player player) {
-            target.setSilent(true);
-            target.hurt(player.damageSources().playerAttack(player), damageAmount);
+            target.setSilent(true); //this is supposed to prevent the hurt and death sound, but only prevents the death sound?
+            target.hurt(player.damageSources().playerAttack(player), meatyDamageAmount);
         }
 
 
         stack.hurtAndBreak(1, attacker, e -> e.broadcastBreakEvent(InteractionHand.MAIN_HAND));
-        target.setSilent(false);
+        target.setSilent(false); //in case it had higher health than 10
         return true;
     }
 

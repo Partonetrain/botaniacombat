@@ -1,0 +1,1 @@
+advancement grant @p through botania:challenge/gaia_guardian_hardmode

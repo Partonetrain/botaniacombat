@@ -12,7 +12,7 @@
       },
       {
         "type": "crafting",
-        "text": "elementium_banner_shield1",
+        "text": "botaniacombat.page.elementium_banner_shield1",
         "recipe": "botaniacombat:elementium_shield"
       }
     ]

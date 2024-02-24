@@ -43,23 +43,23 @@
 
   "botaniacombat.entry.slaughtersaw": "The Slaughtersaw",
   "botaniacombat.tagline.slaughtersaw": "Botanical butcher's knife",
-  "botaniacombat.page.slaughtersaw0": "Keeping livestock is one of the oldest and most reliable sources of nutrition. The $(item)Slaughtersaw$() can expedite the slaughtering process by instantly and painlessly killing livestock the moment it makes contact.$(br)This only works on creatures that drop $(item)meat$(0), being that they are energy-dense. It is of little use on creatures that aren't edible.",
+  "botaniacombat.page.slaughtersaw0": "Keeping livestock is one of the oldest and most reliable sources of nutrition. The $(item)Slaughtersaw$() can expedite the slaughtering process by instantly and painlessly killing livestock the moment it makes contact.$(br)This high-damage effect only works on creatures that drop $(item)meat$(0), being that they are energy-dense. It is of little use on creatures that aren't edible.",
   "botaniacombat.page.slaughtersaw1": "Less cruel than repeatedly whacking it with a sword",
 
   "botaniacombat.entry.gaia_greatsword": "Gaia Greatsword",
   "botaniacombat.tagline.gaia_greatsword": "A massive, beam-spitting sword",
   "botaniacombat.page.gaia_greatsword0": "It is possible to use the power of $(item)Terrasteel$(0) and $(item)Gaia Spirits$(0)$(br)in tandem as long as the Spirits do not directly make contact with the Terrasteel.Because $(item)Gaia Spreaders$(0) have an outer layer of $(item)Dreamwood$(0), it is possible to attach them to Terrasteel and keep the Gaia energy separate. By forging three $(item)Terra Blades$(0) together and affixing four $(item)Gaia Spreaders$(0), a massive, daunting greatsword is made.",
   "botaniacombat.page.gaia_greatsword1": "Seven Deadly Mana Beams",
-  "botaniacombat.page.gaia_greatsword2": "Since the Gaia $(item)Gaia Greatsword$(0) is very heavy, it takes a great deal of effort and time to swing. A user of the $(item)Gaia Greatsword$(0) must take care to have enough \"wind-up\" time before getting too close to assailants.",
+  "botaniacombat.page.gaia_greatsword2": "Since the $(item)Gaia Greatsword$(0) is very heavy, it takes a great deal of effort and time to swing. A user of the $(item)Gaia Greatsword$(0) must take care to have enough \"wind-up\" time before getting too close to assailants.",
 
   "botaniacombat.entry.gaiaGifts": "Gaia Gifts",
   "botaniacombat.tagline.gaiaGifts": "Weapons of beings long since past",
-  "botaniacombat.page.gaiaGifts": "[BotaniaCombat] Given the $(l:alfhomancy/gaia_ritual_hardmode)$(thing)Gaia Guardian II$(0)$(/l) is known to drop $(l:alfhomancy/relic_info)$(thing)Dice of Fate$(0)$(/l), it is clear it holds the essence of beings from an age since past. Perhaps if you were to defeat it under certain conditions, it would grant you replicas of the weapons used by such entities.",
+  "botaniacombat.page.gaiaGifts": "Given the $(l:alfhomancy/gaia_ritual_hardmode)$(thing)Gaia Guardian II$(0)$(/l) is known to drop $(l:alfhomancy/relic_info)$(thing)Dice of Fate$(0)$(/l), it is clear it holds the essence of beings from an age since past. Perhaps if you were to defeat it under certain conditions, it would grant you replicas of the weapons used by such entities.",
 
   "botaniacombat.entry.mjolnir": "Gaia Gift: Mjölnir",
   "botaniacombat.tagline.mjolnir": "Thunder Hammer",
-  "botaniacombat.page.mjolnir0": "$(item)Mjölnir$() is the hammer of Thor, forged by dwarf brothers, Eitri and Brokkr. Although it was designed to be a hammer, the handle ended up being shorter, making it swing like a mace instead. $(br)It functions similarly to the $(l:ender/thunder_sword)$(thing)Thundercaller$(0)$(/l), but with a larger electricity range, mob-hopping cap, and damage output at the cost of slower swing speed.",
-  "botaniacombat.page.mjolnir1": "Right-click to summon a lightning bolt at the cost of some mana. Be careful with this power, however, as you will be in range to be electrocuted by the very lightning bolt you summoned.",
+  "botaniacombat.page.mjolnir0": "$(item)Mjölnir$() is the hammer of Thor, forged by dwarf brothers, Eitri and Brokkr. Although it was designed to be a hammer, the handle ended up being shorter, making it swing like a mace instead.",
+  "botaniacombat.page.mjolnir1": "It functions similarly to the $(l:ender/thunder_sword)$(thing)Thundercaller$(0)$(/l), but with a larger electricity range, mob-hopping cap, and damage output at the cost of slower swing speed.$(br2)Right-click to summon a lightning bolt at the cost of some mana. Be careful with this power, however, as you will be in range to be electrocuted by the very lightning bolt you summoned.",
 
   "botaniacombat.entry.manasteel_shield": "Manasteel Buckler",
   "botaniacombat.tagline.manasteel_shield":  "Small shield made out of Manasteel",
@@ -68,8 +68,8 @@
 
   "botaniacombat.entry.elementium_banner_shield": "Elementium Shield",
   "botaniacombat.tagline.elementium_banner_shield":  "Shield made out of Elementium",
-  "botaniacombat.page.elementium_banner_shield0": "The $(item)Elementium Shield$() is a standard-sized shield with the benefit of increasing your pixie spawn chance while it is being wielded.$(br)Successfully blocking with the Elementium Shield has a chance to spawn a pixie, just like if you had been damaged.",
-  "botaniacombat.page.elementium_shield1": "Great Fairy Shield",
+  "botaniacombat.page.elementium_banner_shield0": "The $(item)Elementium Shield$() is a standard-sized shield with the benefit of increasing your pixie spawn chance while it is being wielded.$(br2)Successfully blocking with the Elementium Shield has a chance to spawn a pixie, just like if you had been damaged.",
+  "botaniacombat.page.elementium_banner_shield1": "Great Fairy Shield",
 
   "botaniacombat.entry.terrasteel_shield": "Terra Tower Shield",
   "botaniacombat.tagline.terrasteel_shield":  "Tall, pushy, and powerful shield",
