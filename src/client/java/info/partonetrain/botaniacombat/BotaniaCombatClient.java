@@ -21,6 +21,7 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
+import vazkii.botania.common.item.equipment.tool.StarcallerItem;
 import vazkii.botania.common.item.equipment.tool.terrasteel.TerraBladeItem;
 
 import static com.github.crimsondawn45.fabricshieldlib.initializers.FabricShieldLibClient.renderBanner;
@@ -39,7 +40,7 @@ public class BotaniaCombatClient implements ClientModInitializer {
 
         if (BotaniaCombat.BETTER_COMBAT_INSTALLED) {
             BotaniaCombat.LOGGER.info("BetterCombat found, running client code");
-            BetterCombatClientEvents.ATTACK_START.register(this::checkTerrasteelSwing);
+            BetterCombatClientEvents.ATTACK_START.register(this::checkSwing);
         }
 
         if (BotaniaCombat.FABRIC_SHIELD_LIB_INSTALLED) {
@@ -58,13 +59,13 @@ public class BotaniaCombatClient implements ClientModInitializer {
         }
     }
 
-    public void checkTerrasteelSwing(LocalPlayer clientPlayerEntity, AttackHand attackHand) {
+    public void checkSwing(LocalPlayer clientPlayerEntity, AttackHand attackHand) {
         if (attackHand.itemStack().getItem() instanceof TerrasteelWeaponItem) {
             TerrasteelWeaponItem.leftClick(attackHand.itemStack());
+        }else if (attackHand.itemStack().getItem() instanceof GaiaGreatswordItem) {
+            GaiaGreatswordItem.leftClick(attackHand.itemStack());
         } else if (attackHand.itemStack().getItem() instanceof TerraBladeItem) {
             TerraBladeItem.leftClick(attackHand.itemStack()); //the botania weapon
-        } else if (attackHand.itemStack().getItem() instanceof GaiaGreatswordItem) {
-            GaiaGreatswordItem.leftClick(attackHand.itemStack());
         }
     }
 

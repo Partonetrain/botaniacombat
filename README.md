@@ -5,6 +5,7 @@ BotaniaCombat seeks to create a variety of weapons using [Botania](https://www.c
 This mod does the following:
 
 - Adds a Dagger for Elementium and Terrasteel (Manasteel equivalent is Botania's Soulscribe)
+- Adds the Slaughtersaw, a Manasteel weapon for harvesting livestock and usable as a knife (for example, with FarmersDelight)
 - Adds the Soulstaff, a battlestaff version of the Soulscribe
 - Adds a Spear for Elementium and Terrasteel
 - If you are a patron of Vazkii, terrasteel weapons will emit mana beams with a random color from your [Psi CAD colorizer](https://github.com/VazkiiMods/Psi/blob/master/contributors.properties) colors
@@ -58,3 +59,7 @@ A couple of reasons, but mostly these are mods I already use myself, and I don't
 
 #### *Is there a config?*
 Not at this time. I'm not sure what there would be to configure that can't already be configured through datapacks. If you need a config for something, [create an issue on the GitHub](https://github.com/Partonetrain/botaniacombat/issues).
+
+### *Why doesn't my Starcaller work like it should?*
+Unfortunately, the Starcaller works by [checking if the vanilla swing timer is equal to 1/6 every tick](https://github.com/VazkiiMods/Botania/blob/1.20.x/Xplat/src/main/java/vazkii/botania/common/item/equipment/tool/StarcallerItem.java#L41-L58).
+There's probably some workaround with invasive mixins to get it to work with BetterCombat swings, but I'm not sure what that would be.

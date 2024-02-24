@@ -1,6 +1,7 @@
 {
   "item.botaniacombat.elementium_dagger": "Elementium Dagger",
   "item.botaniacombat.terrasteel_dagger": "Terra Edge",
+  "item.botaniacombat.slaughtersaw": "Slaughtersaw",
   "item.botaniacombat.soulstaff": "Soulstaff",
   "item.botaniacombat.elementium_spear": "Elementium Spear",
   "item.botaniacombat.terrasteel_spear": "Terra Warspear",
@@ -40,6 +41,11 @@
   "advancement.botaniacombat:skadi_bow": "Bow of the Skiing Jötunn",
   "advancement.botaniacombat:skadi_bow.desc": "While protecting your feet from powdered snow\ndefeat Guardian II, and find Skaði's giant bow.",
 
+  "botaniacombat.entry.slaughtersaw": "The Slaughtersaw",
+  "botaniacombat.tagline.slaughtersaw": "Botanical butcher's knife",
+  "botaniacombat.page.slaughtersaw0": "Keeping livestock is one of the oldest and most reliable sources of nutrition. The $(item)Slaughtersaw$() can expedite the slaughtering process by instantly and painlessly killing livestock the moment it makes contact.$(br)This only works on creatures that drop $(item)meat$(0), being that they are energy-dense. It is of little use on creatures that aren't edible.",
+  "botaniacombat.page.slaughtersaw1": "Less cruel than repeatedly whacking it with a sword",
+
   "botaniacombat.entry.gaia_greatsword": "Gaia Greatsword",
   "botaniacombat.tagline.gaia_greatsword": "A massive, beam-spitting sword",
   "botaniacombat.page.gaia_greatsword0": "It is possible to use the power of $(item)Terrasteel$(0) and $(item)Gaia Spirits$(0)$(br)in tandem as long as the Spirits do not directly make contact with the Terrasteel.Because $(item)Gaia Spreaders$(0) have an outer layer of $(item)Dreamwood$(0), it is possible to attach them to Terrasteel and keep the Gaia energy separate. By forging three $(item)Terra Blades$(0) together and affixing four $(item)Gaia Spreaders$(0), a massive, daunting greatsword is made.",
@@ -70,6 +76,11 @@
   "botaniacombat.page.terrasteel_shield0": "Shields, while useful for protecting yourself from projectiles, can't prevent you from getting cornered. That is, not unless your shield is a $(item)Terra Tower Shield$(). To perform a Shield Bash, begin blocking while sneaking. This will send mobs in front of you back. $(br)The Shield Bash deflects knockback; that is, the more knockback resistance you have, the more knockback will be applied to mobs.",
   "botaniacombat.page.terrasteel_shield1": "I wanna push you around$(br)Well, I will, well, I will",
 
+  "botaniacombat.entry.svalinn": "Gaia Gift: Svalinn",
+  "botaniacombat.tagline.svalinn": "Sun Shield",
+  "botaniacombat.page.svalinn0": "Svalinn is a shield that protects the world (or, more specifically, Midgard - what seems to be known as the \"overworld\") from the sun. In the same way that the $(l:tools/terrasteel_shield)$(item)Terra Tower Shield$(0)$(/l) takes in knockback and deflects it during a Shield Bash, Svalinn takes in heat from the sun to burn enemies.",
+  "botaniacombat.page.svalinn1": "How long enemies burn for is dependent on how high in the sky the sun is, and there will be no ignition if used during the darkest hours of the night.$(br2)It will also grant its user immunity to fire at the cost of some mana, should they get ignited themselves.",
+
   "botaniacombat.entry.livingwood_crossbow": "Livingwood Crossbow",
   "botaniacombat.tagline.livingwood_crossbow":  "A crossbow that regenerates using Mana",
   "botaniacombat.page.livingwood_crossbow0": "The Livingwood Crossbow is the $(l:tools/livingwood_bow)$(item)Livingwood Bow$(0)$(/l) to the mundane Crossbow. That is to say, it works like a Crossbow does, but repairs itself with mana.",
@@ -79,11 +90,6 @@
   "botaniacombat.tagline.crystal_crossbow":  "A fast crossbow that creates arrows from Mana",
   "botaniacombat.page.crystal_crossbow0": "The Crystal Crossbow is the crossbow equivalent to the $(l:tools/crystal_bow)$(item)Crystal Bow$(0)$(/l). When charged, instead of conjuring an arrow, it stores the energy until the trigger is pulled, at which point the arrow is manifested. It is slightly more accurate than your standard crossbow.$(br)Should it be enchanted with $(thing)Multishot$(), the angle of the multiplied projectiles will be slightly wider.",
   "botaniacombat.page.crystal_crossbow1": "Probably unbalanced",
-
-  "botaniacombat.entry.svalinn": "Gaia Gift: Svalinn",
-  "botaniacombat.tagline.svalinn": "Sun Shield",
-  "botaniacombat.page.svalinn0": "Svalinn is a shield that protects the world (or, more specifically, Midgard - what seems to be known as the \"overworld\") from the sun. In the same way that the $(l:tools/terrasteel_shield)$(item)Terra Tower Shield$(0)$(/l) takes in knockback and deflects it during a Shield Bash, Svalinn takes in heat from the sun to burn enemies.",
-  "botaniacombat.page.svalinn1": "How long enemies burn for is dependent on how high in the sky the sun is, and there will be no ignition if used during the darkest hours of the night.$(br2)It will also grant its user immunity to fire at the cost of some mana, should they get ignited themselves.",
 
   "botaniacombat.entry.skadi_bow": "Gaia Gift: Skaði's Bow",
   "botaniacombat.tagline.skadi_bow": "Frost Bow",

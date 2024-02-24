@@ -54,6 +54,9 @@ dependencies {
 	modImplementation "vazkii.botania:Botania-xplat:${project.botania_version}"
 
 	modImplementation "maven.modrinth:better-combat:${project.better_combat}"
+
+	modImplementation "com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"
+
 	modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
 	modImplementation "maven.modrinth:ranged-weapon-api:${project.ranged_weapon_api_version}"
 

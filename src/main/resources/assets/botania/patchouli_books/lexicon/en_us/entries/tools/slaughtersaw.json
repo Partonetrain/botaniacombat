@@ -1,0 +1,17 @@
+{
+  "name": "botaniacombat.entry.slaughtersaw",
+  "category": "botania:tools",
+  "icon": "botaniacombat:slaughtersaw",
+  "advancement": "botania:main/mana_pool_pickup_lexicon",
+  "pages": [
+    {
+      "type": "text",
+      "text": "botaniacombat.page.slaughtersaw0"
+    },
+    {
+      "type": "crafting",
+      "text": "botaniacombat.page.slaughtersaw1",
+      "recipe": "botaniacombat:slaughtersaw"
+    }
+  ]
+}
