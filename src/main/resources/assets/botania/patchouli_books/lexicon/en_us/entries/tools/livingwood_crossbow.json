@@ -1,5 +1,5 @@
 {
-  "flag": "mod:ranged-weapon-api",
+  "flag": "mod:ranged_weapon_api",
   "name": "botaniacombat.entry.livingwood_crossbow",
   "category": "botania:tools",
   "icon": "botaniacombat:livingwood_crossbow",

@@ -31,7 +31,7 @@
     },
     {
       "id": "botaniacombat:mjolnir",
-      "required": false
+      "required": true
     },
     {
       "id": "botaniacombat:manasteel_shield",
