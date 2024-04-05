@@ -94,5 +94,27 @@
   "botaniacombat.entry.skadi_bow": "Gaia Gift: Skaði's Bow",
   "botaniacombat.tagline.skadi_bow": "Frost Bow",
   "botaniacombat.page.skadi_bow0": "Long, long ago, a jötunn by the name of Skaði skied down snowy mountains and hunted game. Her bow had the ability to nearly freeze her prey in place for a moment, which was just enough time to deliver the killing blow.",
-  "botaniacombat.page.skadi_bow1": "Skaði's Bow freely converts mundane arrows into Arrows of Slowness IV when fired. Being a larger bow, any arrow fired from it will have a greater velocity, resulting in greater damage.$(br2)Additionally, when enchanted with Infinity, Skaði's Bow does not require arrows at all. It will still consume non-mundane arrows."
+  "botaniacombat.page.skadi_bow1": "Skaði's Bow freely converts mundane arrows into Arrows of Slowness IV when fired. Being a larger bow, any arrow fired from it will have a greater velocity, resulting in greater damage.$(br2)Additionally, when enchanted with Infinity, Skaði's Bow does not require arrows at all. It will still consume non-mundane arrows.",
+
+  "text.autoconfig.botaniacombat.title": "BotaniaCombat config (Requires Restart)",
+  "text.autoconfig.botaniacombat.option.daggerDamageModifier": "Dagger Damage Modifier",
+  "text.autoconfig.botaniacombat.option.daggerSpeed": "Dagger Speed Modifier",
+  "text.autoconfig.botaniacombat.option.slaughtersawRestricted": "Slaughtersaw Restriction",
+  "text.autoconfig.botaniacombat.option.slaughtersawDamageModifier": "Slaughtersaw Damage Modifier",
+  "text.autoconfig.botaniacombat.option.slaughtersawSpeed": "Slaughtersaw Speed Modifier",
+  "text.autoconfig.botaniacombat.option.spearDamageModifier": "Spear Damage Modifier",
+  "text.autoconfig.botaniacombat.option.spearSpeed": "Spear Speed Modifier",
+  "text.autoconfig.botaniacombat.option.soulstaffDamageModifier": "Soulstaff Damage Modifier",
+  "text.autoconfig.botaniacombat.option.soulstaffSpeed": "Soulstaff Speed Modifier",
+  "text.autoconfig.botaniacombat.option.greatswordDamageModifier": "Gaia Greatsword Damage Modifier",
+  "text.autoconfig.botaniacombat.option.greatswordSpeed": "Gaia Greatsword Speed Modifier",
+  "text.autoconfig.botaniacombat.option.mjolinirDamageModifier": "Gaia Gift 1 Damage Modifier",
+  "text.autoconfig.botaniacombat.option.mjolnirSpeed": "Gaia Gift 1 Speed Modifier",
+
+  "text.autoconfig.botaniacombat.option.rangedItemConfig": "Ranged Weapon API Items",
+  "text.autoconfig.botaniacombat.option.crossbowDamage": "Crossbow Damage",
+  "text.autoconfig.botaniacombat.option.livingwoodPullTime": "Livingwood Crossbow Pull Time",
+  "text.autoconfig.botaniacombat.option.crystalPullTime": "Crystal Crossbow Pull Time",
+  "text.autoconfig.botaniacombat.option.skadiDamage": "Gaia Gift 3 Damage",
+  "text.autoconfig.botaniacombat.option.skadiPullTime": "Gaia Gift 3 Pull Time"
 }

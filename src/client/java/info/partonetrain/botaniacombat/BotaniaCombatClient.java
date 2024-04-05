@@ -54,7 +54,6 @@ public class BotaniaCombatClient implements ClientModInitializer {
 
             BuiltinItemRendererRegistry.INSTANCE.register(BotaniaCombatShieldItems.ELEMENTIUM_BANNER_SHIELD, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
                 renderBanner(stack, matrices, vertexConsumers, light, overlay, modelElementiumShield, ELEMENTIUM_BANNER_SHIELD_BASE, ELEMENTIUM_BANNER_SHIELD_BASE_NO_PATTERN);
-                //The first five parameters are taken from the method, while the last 3 you provide yourself. You will provide the model, and then your 2 sprite identifiers in the order of SHIELD_NAME_BASE and then SHIELD_NAME_BASE_NOPATTERN.
             });
         }
     }

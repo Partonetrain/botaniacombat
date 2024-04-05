@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 //The purpose of this plugin is to not apply LivingwoodBowItemMixin if RangedWeaponAPI is not installed
-//thx to arkosammy12 for the help
+//and to not apply enchantment related mixins if FarmersDelight isn't installed
 public class BotaniaCombatMixinPlugin implements IMixinConfigPlugin {
     @Override
     public void onLoad(String mixinPackage) {
@@ -27,6 +27,9 @@ public class BotaniaCombatMixinPlugin implements IMixinConfigPlugin {
 
         if (Arrays.asList(packageTree).contains("ranged")) {
             return BotaniaCombat.RANGED_WEAPON_API_INSTALLED;
+        }
+        if (Arrays.asList(packageTree).contains("slaughtersaw")) {
+            return BotaniaCombat.FARMERS_DELIGHT_INSTALLED;
         }
 
         return true;

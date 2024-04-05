@@ -1,6 +1,7 @@
 package info.partonetrain.botaniacombat.item;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
+import info.partonetrain.botaniacombat.registry.BotaniaCombatItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -23,6 +24,10 @@ public class SlaughtersawItem extends BotaniaCombatWeaponItem{
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, @NotNull LivingEntity attacker) {
+        if(BotaniaCombatItems.config.slaughtersawRestricted && !target.getType().is(ENTITY_TYPE_TAG)){
+            return false;
+        }
+
         int sharpness = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SHARPNESS, stack);
         float sharpnessBonus = (sharpness > 0 ? (0.5f * EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SHARPNESS, stack) + 0.5f) : 0);
         float meatyDamageAmount = 10.5f + sharpnessBonus; //see issue #2
