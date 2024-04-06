@@ -2,6 +2,10 @@ package info.partonetrain.botaniacombat.mixin.slaughtersaw;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
 import info.partonetrain.botaniacombat.item.SlaughtersawItem;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -22,8 +26,9 @@ public abstract class EnchantmentMixin {
     private void botaniaCombat$canEnchant(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         if(stack.getItem() instanceof SlaughtersawItem){
             //This doesn't work... see Issue #4
-            //BotaniaCombat.LOGGER.info("Slaughtersaw EnchantmentMixin: " + this.getDescriptionId());
+            BotaniaCombat.LOGGER.info("Slaughtersaw EnchantmentMixin: " + this.getDescriptionId());
             cir.setReturnValue(this.getDescriptionId().contains("backstabbing"));
+            stack.is(TagKey.create(Registries.ITEM, new ResourceLocation("c", "knives")));
         }
     }
 }

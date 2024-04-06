@@ -16,20 +16,20 @@ public final class BotaniaCombatItems {
 
     public static BotaniaCombatConfig config = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig();
 
-    public static final Item.Properties ITEM_PROPERTIES = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric();
-    public static final Item.Properties ITEM_PROPERTIES_UNCOMMON = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().fireResistant().rarity(Rarity.UNCOMMON);
-    //we run defaultItemBuilderWithCustomDamageOnFabric again because using ITEM_PROPERTIES again here would modify it
+    public static final Item.Properties ITEM_PROPERTIES_MANASTEEL = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().defaultDurability(300);
+    public static final Item.Properties ITEM_PROPERTIES_ELEMENTIUM = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric();
+    //we run defaultItemBuilderWithCustomDamageOnFabric again because using ITEM_PROPERTIES_MANASTEEL again here would modify it
+    public static final Item.Properties ITEM_PROPERTIES_TERRASTEEL = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().fireResistant().rarity(Rarity.UNCOMMON);
     public static final Item.Properties ITEM_PROPERTIES_EPIC = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().fireResistant().rarity(Rarity.EPIC);
 
     //manasteel dagger = botania soulscribe
-    public static final SingleHandedElementiumWeaponItem ELEMENTIUM_DAGGER = register("elementium_dagger", new SingleHandedElementiumWeaponItem(BotaniaCombatTiers.ELEMENTIUM_TIER, config.daggerDamageModifier, config.daggerSpeed, ITEM_PROPERTIES));
-    public static final TerrasteelWeaponItem TERRASTEEL_DAGGER = register("terrasteel_dagger", new TerrasteelWeaponItem(BotaniaCombatTiers.TERRASTEEL_TIER, config.daggerDamageModifier, config.daggerSpeed, ITEM_PROPERTIES_UNCOMMON));
-    public static final SlaughtersawItem SLAUGHTERSAW = register("slaughtersaw", new SlaughtersawItem(BotaniaCombatTiers.MANASTEEL_TIER, config.slaughtersawDamageModifier, config.slaughtersawSpeed, ITEM_PROPERTIES));
-
-    public static final SoulstaffItem SOULSTAFF = register("soulstaff", new SoulstaffItem(BotaniaCombatTiers.MANASTEEL_TIER, config.soulstaffDamageModifier, config.soulstaffSpeed, ITEM_PROPERTIES));
-    public static final TwoHandedElementiumWeaponItem ELEMENTIUM_SPEAR = register("elementium_spear", new TwoHandedElementiumWeaponItem(BotaniaCombatTiers.ELEMENTIUM_TIER, config.spearDamageModifier, config.spearSpeed, ITEM_PROPERTIES));
-    public static final TerrasteelWeaponItem TERRASTEEL_SPEAR = register("terrasteel_spear", new TerrasteelWeaponItem(BotaniaCombatTiers.TERRASTEEL_TIER, config.spearDamageModifier, config.spearSpeed, ITEM_PROPERTIES_UNCOMMON));
-    public static final GaiaGreatswordItem GAIA_GREATSWORD = register("gaia_greatsword", new GaiaGreatswordItem(BotaniaCombatTiers.TERRASTEEL_TIER, config.greatswordDamageModifier, config.greatswordSpeed, ITEM_PROPERTIES_UNCOMMON));
+    public static final SingleHandedElementiumWeaponItem ELEMENTIUM_DAGGER = register("elementium_dagger", new SingleHandedElementiumWeaponItem(BotaniaCombatTiers.ELEMENTIUM_TIER, config.daggerDamageModifier, config.daggerSpeed, ITEM_PROPERTIES_ELEMENTIUM));
+    public static final TerrasteelWeaponItem TERRASTEEL_DAGGER = register("terrasteel_dagger", new TerrasteelWeaponItem(BotaniaCombatTiers.TERRASTEEL_TIER, config.daggerDamageModifier, config.daggerSpeed, ITEM_PROPERTIES_TERRASTEEL));
+    public static final SlaughtersawItem SLAUGHTERSAW = register("slaughtersaw", new SlaughtersawItem(BotaniaCombatTiers.MANASTEEL_TIER, config.slaughtersawDamageModifier, config.slaughtersawSpeed, ITEM_PROPERTIES_MANASTEEL));
+    public static final SoulstaffItem SOULSTAFF = register("soulstaff", new SoulstaffItem(BotaniaCombatTiers.MANASTEEL_TIER, config.soulstaffDamageModifier, config.soulstaffSpeed, ITEM_PROPERTIES_MANASTEEL));
+    public static final TwoHandedElementiumWeaponItem ELEMENTIUM_SPEAR = register("elementium_spear", new TwoHandedElementiumWeaponItem(BotaniaCombatTiers.ELEMENTIUM_TIER, config.spearDamageModifier, config.spearSpeed, ITEM_PROPERTIES_ELEMENTIUM));
+    public static final TerrasteelWeaponItem TERRASTEEL_SPEAR = register("terrasteel_spear", new TerrasteelWeaponItem(BotaniaCombatTiers.TERRASTEEL_TIER, config.spearDamageModifier, config.spearSpeed, ITEM_PROPERTIES_TERRASTEEL));
+    public static final GaiaGreatswordItem GAIA_GREATSWORD = register("gaia_greatsword", new GaiaGreatswordItem(BotaniaCombatTiers.TERRASTEEL_TIER, config.greatswordDamageModifier, config.greatswordSpeed, ITEM_PROPERTIES_TERRASTEEL));
     public static final MjolnirItem MJOLNIR = register("mjolnir", new MjolnirItem(BotaniaCombatTiers.TERRASTEEL_TIER, config.mjolinirDamageModifier, config.mjolnirSpeed, ITEM_PROPERTIES_EPIC));
 
     public static void init() {}
