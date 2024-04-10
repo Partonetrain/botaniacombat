@@ -1,6 +1,5 @@
 package info.partonetrain.botaniacombat.mixin.slaughtersaw;
 
-import info.partonetrain.botaniacombat.BotaniaCombat;
 import info.partonetrain.botaniacombat.item.SlaughtersawItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

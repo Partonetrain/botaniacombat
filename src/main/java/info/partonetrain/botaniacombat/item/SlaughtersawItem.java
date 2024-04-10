@@ -69,7 +69,7 @@ public class SlaughtersawItem extends BotaniaCombatDiggerItem{
         }
     }
 
-    public static boolean enchantmentAllowed(Enchantment enchantment){
+    public static boolean isEnchantmentAllowed(Enchantment enchantment){
         return allowedEnchantments.contains(enchantment);
     }
 
