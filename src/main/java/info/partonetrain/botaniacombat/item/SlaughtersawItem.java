@@ -28,10 +28,10 @@ public class SlaughtersawItem extends BotaniaCombatDiggerItem{
     public static final TagKey<Block> MINEABLE_TAG = TagKey.create(Registries.BLOCK, new ResourceLocation(BotaniaCombat.MOD_ID, "mineable/slaughtersaw"));
 
     static List<Enchantment> allowedEnchantments = new ArrayList<Enchantment>();
+    static boolean allowedEnchantmentsInitiated = false;
             
     public SlaughtersawItem(float attackDamageFromWeaponType, float attackSpeed, Tier tier, Properties properties) {
         super(attackDamageFromWeaponType, attackSpeed, tier, MINEABLE_TAG, properties);
-        initAllowedEnchantments();
     }
 
     @Override
@@ -61,15 +61,25 @@ public class SlaughtersawItem extends BotaniaCombatDiggerItem{
             if(e.category == EnchantmentCategory.WEAPON && !(e.getDescriptionId().contains("sweeping"))){
                 allowedEnchantments.add(e);
             }
-        }
 
-        if(BotaniaCombat.FARMERS_DELIGHT_INSTALLED){
-            allowedEnchantments.add(BuiltInRegistries.ENCHANTMENT.get(
-                    new ResourceLocation("farmersdelight", "backstabbing")));
+            if(BotaniaCombat.FARMERS_DELIGHT_INSTALLED) {
+                allowedEnchantments.add(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("farmersdelight", "backstabbing")));
+                //Farmers Delight knives have Digger enchantments, so the Slaughtersaw will too if FD is installed
+
+                if (e.category == EnchantmentCategory.DIGGER && !(e.getDescriptionId().contains("fortune"))) {
+                    allowedEnchantments.add(e);
+                    //NOTE: FDRF overrides Backstabbing's canEnchant method.
+                    //As of writing, this code is ineffective for Backstabbing.
+                    //See issue: https://github.com/MehVahdJukaar/FarmersDelight/issues/22
+                }
+            }
         }
     }
 
     public static boolean isEnchantmentAllowed(Enchantment enchantment){
+        if(!allowedEnchantmentsInitiated){
+            initAllowedEnchantments(); // only determine this once in game to ensure backstabbing is registered
+        }
         return allowedEnchantments.contains(enchantment);
     }
 

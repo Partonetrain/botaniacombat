@@ -16,9 +16,6 @@ public abstract class EnchantmentMixin {
         if(stack.getItem() instanceof SlaughtersawItem){
             Enchantment self = (Enchantment) (Object) this;
             cir.setReturnValue(SlaughtersawItem.isEnchantmentAllowed(self));
-            //NOTE: FDRF overrides Backstabbing's canEnchant method.
-            // As of writing, this code is ineffective for Backstabbing.
-            //See issue: https://github.com/MehVahdJukaar/FarmersDelight/issues/22
         }
     }
 }
