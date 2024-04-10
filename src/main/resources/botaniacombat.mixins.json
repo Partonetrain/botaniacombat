@@ -10,7 +10,7 @@
     "PixieHandlerMixin",
     "TerraBladeItemMixin",
     "ranged.LivingwoodBowItemMixin",
-    "slaughtersaw.EnchantmentMixin",
+    "EnchantmentMixin",
     "slaughtersaw.EnchantmentHelperMixin"
   ],
   "injectors": {

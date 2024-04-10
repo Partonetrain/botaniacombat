@@ -25,7 +25,7 @@ public final class BotaniaCombatItems {
     //manasteel dagger = botania soulscribe
     public static final SingleHandedElementiumWeaponItem ELEMENTIUM_DAGGER = register("elementium_dagger", new SingleHandedElementiumWeaponItem(BotaniaCombatTiers.ELEMENTIUM_TIER, config.daggerDamageModifier, config.daggerSpeed, ITEM_PROPERTIES_ELEMENTIUM));
     public static final TerrasteelWeaponItem TERRASTEEL_DAGGER = register("terrasteel_dagger", new TerrasteelWeaponItem(BotaniaCombatTiers.TERRASTEEL_TIER, config.daggerDamageModifier, config.daggerSpeed, ITEM_PROPERTIES_TERRASTEEL));
-    public static final SlaughtersawItem SLAUGHTERSAW = register("slaughtersaw", new SlaughtersawItem(BotaniaCombatTiers.MANASTEEL_TIER, config.slaughtersawDamageModifier, config.slaughtersawSpeed, ITEM_PROPERTIES_MANASTEEL));
+    public static final SlaughtersawItem SLAUGHTERSAW = register("slaughtersaw", new SlaughtersawItem(config.slaughtersawDamageModifier, config.slaughtersawSpeed, BotaniaCombatTiers.MANASTEEL_TIER, ITEM_PROPERTIES_MANASTEEL));
     public static final SoulstaffItem SOULSTAFF = register("soulstaff", new SoulstaffItem(BotaniaCombatTiers.MANASTEEL_TIER, config.soulstaffDamageModifier, config.soulstaffSpeed, ITEM_PROPERTIES_MANASTEEL));
     public static final TwoHandedElementiumWeaponItem ELEMENTIUM_SPEAR = register("elementium_spear", new TwoHandedElementiumWeaponItem(BotaniaCombatTiers.ELEMENTIUM_TIER, config.spearDamageModifier, config.spearSpeed, ITEM_PROPERTIES_ELEMENTIUM));
     public static final TerrasteelWeaponItem TERRASTEEL_SPEAR = register("terrasteel_spear", new TerrasteelWeaponItem(BotaniaCombatTiers.TERRASTEEL_TIER, config.spearDamageModifier, config.spearSpeed, ITEM_PROPERTIES_TERRASTEEL));

@@ -21,8 +21,8 @@ public class BotaniaCombatRangedItems {
     public static final Item.Properties ITEM_PROPERTIES_EPIC =  BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().defaultDurability(3200).fireResistant().rarity(Rarity.EPIC);
 
     public static BotaniaCombatConfig.RangedItemConfig config = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().rangedItemConfig;
-    private static final RangedConfig LIVINGWOOD_CROSSBOW_CONFIG = new RangedConfig(config.livingwoodPullTime, config.crossbowDamage, null);
-    private static final RangedConfig CRYSTAL_CROSSBOW_CONFIG = new RangedConfig(config.crystalPullTime, config.crossbowDamage, null);
+    private static final RangedConfig LIVINGWOOD_CROSSBOW_CONFIG = new RangedConfig(config.livingwoodPullTime, config.crossbowDamage, 0.0f);
+    private static final RangedConfig CRYSTAL_CROSSBOW_CONFIG = new RangedConfig(config.crystalPullTime, config.crossbowDamage, 0.0f);
     private static final RangedConfig SKADI_BOW_CONFIG = new RangedConfig(config.skadiPullTime, config.skadiDamage, 5f);
 
     public static final LivingwoodCrossbowItem LIVINGWOOD_CROSSBOW = register("livingwood_crossbow", new LivingwoodCrossbowItem(ITEM_PROPERTIES_LIVINGWOOD, () -> Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "livingwood_twig"))), LIVINGWOOD_CROSSBOW_CONFIG));

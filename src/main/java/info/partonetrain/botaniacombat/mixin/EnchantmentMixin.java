@@ -1,11 +1,6 @@
-package info.partonetrain.botaniacombat.mixin.slaughtersaw;
+package info.partonetrain.botaniacombat.mixin;
 
-import info.partonetrain.botaniacombat.BotaniaCombat;
 import info.partonetrain.botaniacombat.item.SlaughtersawItem;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -19,16 +14,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Enchantment.class)
 public abstract class EnchantmentMixin {
 
-    @Shadow @Final public EnchantmentCategory category;
-    @Shadow public abstract String getDescriptionId();
-
     @Inject(method = "canEnchant", at = @At("RETURN"), cancellable = true)
     private void botaniaCombat$canEnchant(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         if(stack.getItem() instanceof SlaughtersawItem){
-            //This doesn't work... see Issue #4
-            BotaniaCombat.LOGGER.info("Slaughtersaw EnchantmentMixin: " + this.getDescriptionId());
-            cir.setReturnValue(this.getDescriptionId().contains("backstabbing"));
-            stack.is(TagKey.create(Registries.ITEM, new ResourceLocation("c", "knives")));
+            cir.setReturnValue(SlaughtersawItem.enchantmentAllowed((Enchantment)(Object) this));
+            //NOTE: FDRF overrides Backstabbing's canEnchant method.
+            // As of writing, this code is ineffective for Backstabbing.
+            //See issue: https://github.com/MehVahdJukaar/FarmersDelight/issues/22
         }
     }
 }

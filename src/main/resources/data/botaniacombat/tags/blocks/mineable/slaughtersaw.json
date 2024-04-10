@@ -1,0 +1,9 @@
+{
+    "values": [
+        "#c:mineable/knife",
+        {
+            "id": "#farmersdelight:mineable/knife",
+            "required": false
+        }
+    ]
+}

@@ -14,7 +14,7 @@ public class BotaniaCombatConfig implements ConfigData {
     @Comment("Whether or not the Slaughtersaw can ONLY hit entities in the #botaniacombat:meaty entity tag")
     public boolean slaughtersawRestricted = false;
     @Comment("Modifier of Slaughtersaw damage amount relative to Manasteel tier damage")
-    public int slaughtersawDamageModifier = -5;
+    public float slaughtersawDamageModifier = -5;
     @Comment("Modifier of Slaughtersaw speed relative to default speed (4)")
     public float slaughtersawSpeed = -2f;
     @Comment("Modifier of spear damage amount relative to tier damage")

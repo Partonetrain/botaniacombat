@@ -15,9 +15,9 @@ public abstract class LivingwoodBowItemMixin {
     @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/world/item/Item$Properties;)V")
     private void botaniacombat$addRangedConfigToBotania(CallbackInfo info) {
         if (((Object) this) instanceof CrystalBowItem) {
-            ((CustomRangedWeapon) this).configure(new RangedConfig(12, 6, null));
+            ((CustomRangedWeapon) this).configure(new RangedConfig(12, 6, 0.0f));
         } else {
-            ((CustomRangedWeapon) this).configure(new RangedConfig(20, 6, null));
+            ((CustomRangedWeapon) this).configure(new RangedConfig(20, 6, 0.0f));
         }
     }
 }

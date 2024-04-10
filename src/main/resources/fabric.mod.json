@@ -44,7 +44,7 @@
 		"bettercombat": "*",
 		"modelfix": "*",
 		"fabricshieldlib": "*",
-		"ranged_weapon_api": "*"
+		"ranged_weapon_api": ">=1.1.0"
 	},
 	"accessWidener" : "botaniacombat.accesswidener"
 }
