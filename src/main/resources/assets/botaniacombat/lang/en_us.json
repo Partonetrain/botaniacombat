@@ -112,9 +112,9 @@
   "text.autoconfig.botaniacombat.option.mjolnirSpeed": "Gaia Gift 1 Speed Modifier",
 
   "text.autoconfig.botaniacombat.option.rangedItemConfig": "Ranged Weapon API Items",
-  "text.autoconfig.botaniacombat.option.crossbowDamage": "Crossbow Damage",
-  "text.autoconfig.botaniacombat.option.livingwoodPullTime": "Livingwood Crossbow Pull Time",
-  "text.autoconfig.botaniacombat.option.crystalPullTime": "Crystal Crossbow Pull Time",
-  "text.autoconfig.botaniacombat.option.skadiDamage": "Gaia Gift 3 Damage",
-  "text.autoconfig.botaniacombat.option.skadiPullTime": "Gaia Gift 3 Pull Time"
+  "text.autoconfig.botaniacombat.option.rangedItemConfig.crossbowDamage": "Crossbow Damage",
+  "text.autoconfig.botaniacombat.option.rangedItemConfig.livingwoodPullTime": "Livingwood Crossbow Pull Time",
+  "text.autoconfig.botaniacombat.option.rangedItemConfig.crystalPullTime": "Crystal Crossbow Pull Time",
+  "text.autoconfig.botaniacombat.option.rangedItemConfig.skadiDamage": "Gaia Gift 3 Damage",
+  "text.autoconfig.botaniacombat.option.rangedItemConfig.skadiPullTime": "Gaia Gift 3 Pull Time"
 }

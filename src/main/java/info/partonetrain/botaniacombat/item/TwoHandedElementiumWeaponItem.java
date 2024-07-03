@@ -18,8 +18,7 @@ public class TwoHandedElementiumWeaponItem extends BotaniaCombatWeaponItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {
         Multimap<Attribute, AttributeModifier> ret = super.getDefaultAttributeModifiers(slot);
-
-        if (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND) {
+        if (slot == EquipmentSlot.MAINHAND) {
             ret = HashMultimap.create(ret);
             ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Weapon modifier", 0.1));
         }
