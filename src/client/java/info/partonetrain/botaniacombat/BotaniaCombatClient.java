@@ -4,6 +4,7 @@ import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldSetModelCallback
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
 import info.partonetrain.botaniacombat.registry.BotaniaCombatShieldItems;
+import info.partonetrain.botaniacombat.render.entity.BotaniaCombatEntityRenderers;
 import net.bettercombat.api.AttackHand;
 import net.bettercombat.api.client.BetterCombatClientEvents;
 import net.fabricmc.api.ClientModInitializer;
@@ -16,11 +17,13 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.model.ShieldModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
+import vazkii.botania.client.render.entity.EntityRenderers;
 import vazkii.botania.common.item.equipment.tool.StarcallerItem;
 import vazkii.botania.common.item.equipment.tool.terrasteel.TerraBladeItem;
 
@@ -56,6 +59,8 @@ public class BotaniaCombatClient implements ClientModInitializer {
                 renderBanner(stack, matrices, vertexConsumers, light, overlay, modelElementiumShield, ELEMENTIUM_BANNER_SHIELD_BASE, ELEMENTIUM_BANNER_SHIELD_BASE_NO_PATTERN);
             });
         }
+
+        BotaniaCombatEntityRenderers.registerBlockEntityRenderers(BlockEntityRenderers::register);
     }
 
     public void checkSwing(LocalPlayer clientPlayerEntity, AttackHand attackHand) {

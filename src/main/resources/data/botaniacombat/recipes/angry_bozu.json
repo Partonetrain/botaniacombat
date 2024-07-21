@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "botania:teru_teru_bozu"
+    },
+    {
+      "item": "botania:rune_wrath"
+    },
+    {
+      "item": "botania:life_essence"
+    }
+  ],
+  "result": {
+    "item": "botaniacombat:angry_bozu"
+  }
+}

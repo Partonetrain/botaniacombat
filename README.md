@@ -12,6 +12,7 @@ This mod does the following:
 - Adds additional post-Gaia weapon, the Gaia Greatsword, which can use all of your Patreon colors
 - Buffs player-spawned pixies by making them always have the +2 damage bonus that would normally only be applied when the player is holding the Elementium Sword
 - Adds Gaia Gifts: "secret" weapon(s) obtained by defeating Gaia II under specific conditions
+- 2.2.0 Adds "Angry Angry Bozu", an "evil upgrade" to Botania's Teru Teru Bozu that can summon thunderstorms. Useful for Channeling Tridents and Thundercaller.
 
 If [Better Combat](https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus) is installed, it also does the following:
 

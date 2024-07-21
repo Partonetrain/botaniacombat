@@ -38,7 +38,7 @@
 		"minecraft": ">=1.20",
 		"cloth-config": ">=11",
 		"fabric-api": "*",
-		"botania": "*"
+		"botania": ">=1.20.1-445"
 	},
 	"suggests": {
 		"bettercombat": "*",

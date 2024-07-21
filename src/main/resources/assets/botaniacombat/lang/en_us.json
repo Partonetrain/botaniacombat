@@ -34,6 +34,8 @@
   "item.botaniacombat.crystal_crossbow": "Crystal Crossbow",
   "item.botaniacombat.skadi_bow": "Skaði's Bow",
 
+  "block.botaniacombat.angry_bozu": "Angry Angry Bozu",
+
   "advancement.botaniacombat:mjolnir": "Hammer of the Thunder God",
   "advancement.botaniacombat:mjolnir.desc": "Under the tempest's rage, where lightning dances free,\ndefeat Guardian II, to witness Thor's gift to thee.",
   "advancement.botaniacombat:svalinn": "The Splendid Sun-shield",
@@ -95,6 +97,11 @@
   "botaniacombat.tagline.skadi_bow": "Frost Bow",
   "botaniacombat.page.skadi_bow0": "Long, long ago, a jötunn by the name of Skaði skied down snowy mountains and hunted game. Her bow had the ability to nearly freeze her prey in place for a moment, which was just enough time to deliver the killing blow.",
   "botaniacombat.page.skadi_bow1": "Skaði's Bow freely converts mundane arrows into Arrows of Slowness IV when fired. Being a larger bow, any arrow fired from it will have a greater velocity, resulting in greater damage.$(br2)Additionally, when enchanted with Infinity, Skaði's Bow does not require arrows at all. It will still consume non-mundane arrows.",
+
+  "botaniacombat.entry.angry_bozu": "Angry Angry Bozu",
+  "botaniacombat.tagline.angry_bozu": "just a glimpse into my dark reality.",
+  "botaniacombat.page.angry_bozu0": "This fella is an angry, erratic upgrade to the $(item)Teru Teru Bozu$(). It retains the ability to clear the skies, but it would prefer you summon a storm by giving it a $(item)Wither Rose$().$(br2)Placing a $(item)Redstone Comparator$() adjacent will allow it to detect thunderstorms.",
+  "botaniacombat.page.angry_bozu1": "haha. just a glimpse into my dark reality.",
 
   "text.autoconfig.botaniacombat.title": "BotaniaCombat config (Requires Restart)",
   "text.autoconfig.botaniacombat.option.daggerDamageModifier": "Dagger Damage Modifier",

@@ -4,9 +4,7 @@ import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldBlockCallback;
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
 import info.partonetrain.botaniacombat.item.shield.ElementiumBannerShieldItem;
-import info.partonetrain.botaniacombat.registry.BotaniaCombatItems;
-import info.partonetrain.botaniacombat.registry.BotaniaCombatRangedItems;
-import info.partonetrain.botaniacombat.registry.BotaniaCombatShieldItems;
+import info.partonetrain.botaniacombat.registry.*;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -38,12 +36,14 @@ public class BotaniaCombat implements ModInitializer {
             BotaniaCombatShieldItems.init();
             ShieldBlockCallback.EVENT.register(ElementiumBannerShieldItem::BlockAttack); //register summon pixie event to FSL event
         }
-
         if (RANGED_WEAPON_API_INSTALLED) {
             BotaniaCombatRangedItems.init();
         }
 
-        LOGGER.info("BotaniaCombat initialized");
+        BotaniaCombatBlocks.init();
+        BotaniaCombatBlockEntities.init();
+
         PsiContributorColors.get();
+        LOGGER.info("BotaniaCombat initialized");
     }
 }

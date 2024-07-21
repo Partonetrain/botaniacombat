@@ -25,9 +25,9 @@ public class BotaniaCombatRangedItems {
     private static final RangedConfig CRYSTAL_CROSSBOW_CONFIG = new RangedConfig(config.crystalPullTime, config.crossbowDamage, 0.0f);
     private static final RangedConfig SKADI_BOW_CONFIG = new RangedConfig(config.skadiPullTime, config.skadiDamage, 5f);
 
-    public static final LivingwoodCrossbowItem LIVINGWOOD_CROSSBOW = register("livingwood_crossbow", new LivingwoodCrossbowItem(ITEM_PROPERTIES_LIVINGWOOD, () -> Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "livingwood_twig"))), LIVINGWOOD_CROSSBOW_CONFIG));
-    public static final CrystalCrossbowItem CRYSTAL_CROSSBOW = register("crystal_crossbow", new CrystalCrossbowItem(ITEM_PROPERTIES_CRYSTAL, () -> Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "livingwood_twig"))), CRYSTAL_CROSSBOW_CONFIG));
-    public static final SkadiBowItem SKADI_BOW = register("skadi_bow", new SkadiBowItem(ITEM_PROPERTIES_EPIC, () -> Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "terrasteel_ingot"))), SKADI_BOW_CONFIG));
+    public static final LivingwoodCrossbowItem LIVINGWOOD_CROSSBOW = registerItem("livingwood_crossbow", new LivingwoodCrossbowItem(ITEM_PROPERTIES_LIVINGWOOD, () -> Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "livingwood_twig"))), LIVINGWOOD_CROSSBOW_CONFIG));
+    public static final CrystalCrossbowItem CRYSTAL_CROSSBOW = registerItem("crystal_crossbow", new CrystalCrossbowItem(ITEM_PROPERTIES_CRYSTAL, () -> Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "livingwood_twig"))), CRYSTAL_CROSSBOW_CONFIG));
+    public static final SkadiBowItem SKADI_BOW = registerItem("skadi_bow", new SkadiBowItem(ITEM_PROPERTIES_EPIC, () -> Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("botania", "terrasteel_ingot"))), SKADI_BOW_CONFIG));
 
     public static void init() {}
 }

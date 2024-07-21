@@ -1,0 +1,17 @@
+{
+  "name": "botaniacombat.entry.angry_bozu",
+  "category": "botania:devices",
+  "icon": "botaniacombat:angry_bozu",
+  "advancement": "botania:main/elf_lexicon_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "botaniacombat.page.angry_bozu0"
+    },
+    {
+      "type": "crafting",
+      "text": "botaniacombat.page.angry_bozu1",
+      "recipe": "botaniacombat:angry_bozu"
+    }
+  ]
+}
