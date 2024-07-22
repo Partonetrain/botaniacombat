@@ -2,6 +2,7 @@
   "name": "botaniacombat.entry.angry_bozu",
   "category": "botania:devices",
   "icon": "botaniacombat:angry_bozu",
+  "entry_color": "aa00",
   "advancement": "botania:main/elf_lexicon_pickup",
   "pages": [
     {

@@ -36,7 +36,6 @@ public class BotaniaCombatConfig implements ConfigData {
 
     @ConfigEntry.Gui.CollapsibleObject
     public RangedItemConfig rangedItemConfig = new RangedItemConfig();
-
     public static class RangedItemConfig{
         @Comment("Damage of both Livingwood and Crystal crossbows")
         public float crossbowDamage = 9f;

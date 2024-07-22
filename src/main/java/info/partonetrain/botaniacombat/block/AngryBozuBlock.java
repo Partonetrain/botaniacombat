@@ -1,10 +1,13 @@
+/*
+ * This class uses code adapted from the Botania mod.
+ * Relevant code: https://github.com/VazkiiMods/Botania/blob/1.20.x/Xplat/src/main/java/vazkii/botania/common/block/TeruTeruBozuBlock.java
+ */
+
 package info.partonetrain.botaniacombat.block;
 
 import info.partonetrain.botaniacombat.block.block_entity.AngryBozuBlockEntity;
 import info.partonetrain.botaniacombat.registry.BotaniaCombatBlockEntities;
-import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;

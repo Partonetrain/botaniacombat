@@ -45,13 +45,16 @@ public class TerrasteelShieldItem extends FabricShieldItem implements CustomDama
 
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (!world.isClientSide() && entity instanceof Player player && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
-            stack.setDamageValue(stack.getDamageValue() - 1);
-            this.inventoryTickExtra(stack, player);
+        if(!world.isClientSide() && entity instanceof Player player){
+            if (stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
+                stack.setDamageValue(stack.getDamageValue() - 1);
+            }
+            this.inventoryTickExtra(stack, player, false);
         }
+
     }
 
-    public void inventoryTickExtra(ItemStack stack, Player player) {
+    public void inventoryTickExtra(ItemStack stack, Player player, boolean extraFlag) {
         // NO-OP
     }
 

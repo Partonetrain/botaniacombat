@@ -28,8 +28,8 @@ public class BotaniaCombatMixinPlugin implements IMixinConfigPlugin {
         if (Arrays.asList(packageTree).contains("ranged")) {
             return BotaniaCombat.RANGED_WEAPON_API_INSTALLED;
         }
-        if (Arrays.asList(packageTree).contains("slaughtersaw")) {
-            return BotaniaCombat.FARMERS_DELIGHT_INSTALLED;
+        if (Arrays.asList(packageTree).contains("shield")) {
+            return BotaniaCombat.FABRIC_SHIELD_LIB_INSTALLED;
         }
 
         return true;

@@ -11,10 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import vazkii.botania.client.core.handler.ClientTickHandler;
 import vazkii.botania.client.model.BotaniaModelLayers;
 import vazkii.botania.client.model.TeruTeruBozuModel;
-import vazkii.botania.client.render.block_entity.TeruTeruBozuBlockEntityRenderer;
 import vazkii.botania.common.helper.VecHelper;
-
-import java.util.Random;
 
 import static vazkii.botania.client.core.handler.ClientTickHandler.partialTicks;
 
@@ -33,21 +30,33 @@ public class AngryBozuBlockEntityRenderer implements BlockEntityRenderer<AngryBo
         poseStack.mulPose(VecHelper.rotateX(180));
         double time = ClientTickHandler.ticksInGame + partialTicks;
         boolean hasWorld = blockEntity != null && blockEntity.getLevel() != null;
-        poseStack.translate(0.5F, -1.5F, -0.5F);
         if (hasWorld) {
+            poseStack.translate(0.5F, -1.5F, -0.5F);
             poseStack.mulPose(VecHelper.rotateY((float) (time * 0.3)));
             float rotZ = 4F * (float) Math.sin(time * 0.05F);
-            //"rage"
-            if(time % 10 == 0 || time % 10 == 2 || time % 10 == 4){
-                rotZ -= 1;
-            }else if(time % 10 == 1 || time % 10 == 3 || time % 10 == 5){
-                rotZ += 1;
-            }
+            rotZ += getShakeOffset((int) time);
             poseStack.mulPose(VecHelper.rotateZ(rotZ));
+        }
+        else //inventory render
+        {
+            poseStack.translate(0.5F, -1.3F, -0.5F);
+            float scale = 0.85F;
+            poseStack.scale(scale, scale, scale);
+
+            poseStack.mulPose(VecHelper.rotateZ(getShakeOffset((int) time)));
         }
 
         VertexConsumer vertexConsumer = buffer.getBuffer(model.renderType(texture));
         model.renderToBuffer(poseStack, vertexConsumer, packedLight, packedOverlay, 1, 1, 1, 1);
         poseStack.popPose();
+    }
+
+    public float getShakeOffset(int time){ //makes it look like it's "shaking with rage"
+        if(time % 10 == 0 || time % 10 == 2){
+            return - 1;
+        }else if(time % 10 == 1 || time % 10 == 3){
+            return 1;
+        }
+        return 0;
     }
 }

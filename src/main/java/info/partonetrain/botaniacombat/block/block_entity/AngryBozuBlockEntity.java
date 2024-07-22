@@ -1,3 +1,7 @@
+/*
+ * This class uses code adapted from the Botania mod.
+ * Relevant code: https://github.com/VazkiiMods/Botania/blob/1.20.x/Xplat/src/main/java/vazkii/botania/common/block/block_entity/TeruTeruBozuBlockEntity.java
+ */
 package info.partonetrain.botaniacombat.block.block_entity;
 
 import info.partonetrain.botaniacombat.registry.BotaniaCombatBlockEntities;
@@ -5,8 +9,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.LevelData;
-import net.minecraft.world.level.storage.ServerLevelData;
 import vazkii.botania.common.block.block_entity.BotaniaBlockEntity;
 
 public class AngryBozuBlockEntity extends BotaniaBlockEntity {

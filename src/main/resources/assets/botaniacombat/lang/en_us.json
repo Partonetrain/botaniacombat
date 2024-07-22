@@ -60,8 +60,8 @@
 
   "botaniacombat.entry.mjolnir": "Gaia Gift: Mjölnir",
   "botaniacombat.tagline.mjolnir": "Thunder Hammer",
-  "botaniacombat.page.mjolnir0": "$(item)Mjölnir$() is the hammer of Thor, forged by dwarf brothers, Eitri and Brokkr. Although it was designed to be a hammer, the handle ended up being shorter, making it swing like a mace instead.",
-  "botaniacombat.page.mjolnir1": "It functions similarly to the $(l:ender/thunder_sword)$(thing)Thundercaller$(0)$(/l), but with a larger electricity range, mob-hopping cap, and damage output at the cost of slower swing speed.$(br2)Right-click to summon a lightning bolt at the cost of some mana. Be careful with this power, however, as you will be in range to be electrocuted by the very lightning bolt you summoned.",
+  "botaniacombat.page.mjolnir0": "$(item)Mjölnir$() is the hammer of Thor, forged by dwarf brothers, Eitri and Brokkr. Although it was designed to be a hammer, the handle ended up being shorter, making it swing like a mace instead.$(br2)It functions similarly to the $(l:ender/thunder_sword)$(thing)Thundercaller$(0)$(/l), but with a larger electricity range, mob-hopping cap, and damage output at the cost of slower swing speed.",
+  "botaniacombat.page.mjolnir1": "Right-click to summon a lightning bolt at the cost of some $(thing)mana$(). Be careful with this power, however, as you may be in range to be electrocuted by the very lightning bolt you summoned. This lightning will shatter connected $(l:tools/rainbow_rod)$(thing)Bifrost$(0)$(/l) blocks (at the cost of even more $(thing)mana$()), just as Thor did eons ago.",
 
   "botaniacombat.entry.manasteel_shield": "Manasteel Buckler",
   "botaniacombat.tagline.manasteel_shield":  "Small shield made out of Manasteel",
@@ -81,7 +81,7 @@
   "botaniacombat.entry.svalinn": "Gaia Gift: Svalinn",
   "botaniacombat.tagline.svalinn": "Sun Shield",
   "botaniacombat.page.svalinn0": "Svalinn is a shield that protects the world (or, more specifically, Midgard - what seems to be known as the \"overworld\") from the sun. In the same way that the $(l:tools/terrasteel_shield)$(item)Terra Tower Shield$(0)$(/l) takes in knockback and deflects it during a Shield Bash, Svalinn takes in heat from the sun to burn enemies.",
-  "botaniacombat.page.svalinn1": "How long enemies burn for is dependent on how high in the sky the sun is, and there will be no ignition if used during the darkest hours of the night.$(br2)It will also grant its user immunity to fire at the cost of some mana, should they get ignited themselves.",
+  "botaniacombat.page.svalinn1": "How long enemies burn for is dependent on how high in the sky the sun is, and there will be no ignition if used during the darkest hours of the night.$(br2)It will also grant its user temporary immunity to fire at the cost of some $(thing)mana$(), should they come into contact with heat.",
 
   "botaniacombat.entry.livingwood_crossbow": "Livingwood Crossbow",
   "botaniacombat.tagline.livingwood_crossbow":  "A crossbow that regenerates using Mana",

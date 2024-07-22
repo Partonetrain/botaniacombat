@@ -104,7 +104,7 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
                     }
 
                     int j = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, stack);
-                    if (j > 0) {
+                    if (j > 0) { //TODO modify for archers power nerf config
                         abstractArrow.setBaseDamage(abstractArrow.getBaseDamage() + (double) j * 0.5 + 0.5);
                     }
 

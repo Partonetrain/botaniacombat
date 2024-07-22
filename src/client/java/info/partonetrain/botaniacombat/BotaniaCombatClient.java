@@ -60,7 +60,12 @@ public class BotaniaCombatClient implements ClientModInitializer {
             });
         }
 
-        BotaniaCombatEntityRenderers.registerBlockEntityRenderers(BlockEntityRenderers::register);
+        BotaniaCombatEntityRenderers.init(BlockEntityRenderers::register);
+        for (var pair : BotaniaCombatEntityRenderers.BLOCKENTITY_ITEM_RENDERER_FACTORIES.entrySet()) {
+            var block = pair.getKey();
+            var renderer = pair.getValue().apply(block);
+            BuiltinItemRendererRegistry.INSTANCE.register(block, renderer::render);
+        }
     }
 
     public void checkSwing(LocalPlayer clientPlayerEntity, AttackHand attackHand) {

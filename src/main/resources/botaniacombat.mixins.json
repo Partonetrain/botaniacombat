@@ -7,10 +7,11 @@
     "BotaniaLeftClickPacketMixin",
     "ElementiumAxeItemMixin",
     "ElementiumSwordItemMixin",
+    "EnchantmentMixin",
     "PixieHandlerMixin",
     "TerraBladeItemMixin",
     "ranged.LivingwoodBowItemMixin",
-    "EnchantmentMixin"
+    "shield.PlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

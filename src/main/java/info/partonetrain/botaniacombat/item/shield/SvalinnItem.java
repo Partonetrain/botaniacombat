@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import vazkii.botania.api.mana.ManaItemHandler;
 
 public class SvalinnItem extends TerrasteelShieldItem {
     public SvalinnItem(Properties properties, int cooldownTicks, Tier tier) {
@@ -17,20 +18,22 @@ public class SvalinnItem extends TerrasteelShieldItem {
     }
 
     @Override
-    public void inventoryTickExtra(ItemStack stack, Player player) {
-        super.inventoryTickExtra(stack, player);
-        player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 300));
+    public void inventoryTickExtra(ItemStack stack, Player player, boolean extraFlag) {
+        if(player.getOffhandItem() == stack
+                && (extraFlag || player.isOnFire())
+                && !player.hasEffect(MobEffects.FIRE_RESISTANCE)
+                && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)){
+            player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 150));
+        }
     }
 
     @Override
     public void useExtra(LivingEntity living, Level world) {
-        super.useExtra(living, world);
         living.setSecondsOnFire(this.getSvalinnSecondsOnFire(world.getDayTime()));
     }
 
     @Override
     public void doFXExtra(ServerLevel ws, AABB aabb) {
-        super.doFXExtra(ws, aabb);
         ws.sendParticles(ParticleTypes.FLAME, aabb.getCenter().x(), aabb.getCenter().y(), aabb.getCenter().z(), this.getSvalinnSecondsOnFire(ws.getDayTime()), 0, 0, 0, 0.25D);
     }
 
