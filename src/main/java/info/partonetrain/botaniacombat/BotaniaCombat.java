@@ -20,6 +20,8 @@ public class BotaniaCombat implements ModInitializer {
     public static final boolean FABRIC_SHIELD_LIB_INSTALLED = FabricLoader.getInstance().isModLoaded("fabricshieldlib");
     public static final boolean RANGED_WEAPON_API_INSTALLED = FabricLoader.getInstance().isModLoaded("ranged_weapon_api");
     public static final boolean FARMERS_DELIGHT_INSTALLED = FabricLoader.getInstance().isModLoaded("farmersdelight");
+    public static final boolean ARCHERS_INSTALLED = FabricLoader.getInstance().isModLoaded("archers");
+
 
     public static final int MANA_PER_DAMAGE = 60;
     public static final int MANA_PER_DAMAGE_TERRA = 100;

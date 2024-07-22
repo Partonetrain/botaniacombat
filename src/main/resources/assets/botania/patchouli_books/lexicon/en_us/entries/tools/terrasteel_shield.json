@@ -13,6 +13,10 @@
       "type": "crafting",
       "text": "botaniacombat.page.terrasteel_shield1",
       "recipe": "botaniacombat:terrasteel_shield"
+    },
+    {
+      "type": "text",
+      "text": "botaniacombat.page.terrasteel_shield2"
     }
   ]
 }

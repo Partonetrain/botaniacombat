@@ -74,9 +74,9 @@ public class TerrasteelShieldItem extends FabricShieldItem implements CustomDama
             Vec3 destVec = srcVec.add(lookVec);
 
             AABB areaInFrontOfPlayer = new AABB(destVec.x() + range, destVec.y() + range, destVec.z() + range, destVec.x() - range, destVec.y(), destVec.z() - range);
-            List<LivingEntity> mobsInFront = world.getEntitiesOfClass(LivingEntity.class, areaInFrontOfPlayer);
+            List<LivingEntity> livingInFront = world.getEntitiesOfClass(LivingEntity.class, areaInFrontOfPlayer);
 
-            for (LivingEntity living : mobsInFront) {
+            for (LivingEntity living : livingInFront) {
                 if (living.isAlive() && !living.is(user) && !user.isAlliedTo(living)) {
                     living.knockback((getPushPower(user)), -lookAngle.x, -lookAngle.z);
                     this.useExtra(living, world);

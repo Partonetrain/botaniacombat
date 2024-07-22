@@ -1,16 +1,19 @@
 package info.partonetrain.botaniacombat.item.ranged;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
+import net.archers.ArchersMod;
 import net.fabric_extras.ranged_weapon.api.CustomBow;
 import net.fabric_extras.ranged_weapon.api.CustomRangedWeapon;
 import net.fabric_extras.ranged_weapon.api.RangedConfig;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;
@@ -31,6 +34,8 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class SkadiBowItem extends CustomBow implements CustomDamageItem {
+
+    private static final int MANA_PER_HIT = 50;
     RangedConfig rangedConfig;
 
     public SkadiBowItem(Properties settings, Supplier<Ingredient> repairIngredientSupplier, RangedConfig rangedConfig) {
@@ -103,9 +108,9 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
                         abstractArrow.setCritArrow(true);
                     }
 
-                    int j = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, stack);
-                    if (j > 0) { //TODO modify for archers power nerf config
-                        abstractArrow.setBaseDamage(abstractArrow.getBaseDamage() + (double) j * 0.5 + 0.5);
+                    int powerLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, stack);
+                    if (powerLevel > 0) {
+                        abstractArrow.setBaseDamage(abstractArrow.getBaseDamage() + calculatePowerBonus(powerLevel));
                     }
 
                     int k = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PUNCH_ARROWS, stack);
@@ -143,5 +148,39 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
                 player.awardStat(Stats.ITEM_USED.get(this));
             }
         }
+    }
+
+    @Override
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, @NotNull LivingEntity attacker) {
+        if(!target.level().isClientSide() && attacker instanceof Player player &&
+                ManaItemHandler.instance().requestManaExactForTool(stack, player, MANA_PER_HIT, true)){
+            if (target.getType().is(EntityTypeTags.FREEZE_HURTS_EXTRA_TYPES)) {
+                target.hurt(player.damageSources().playerAttack(player), (float) (5 + calculatePowerBonus(EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, stack))));
+            }
+
+            target.setTicksFrozen(target.getTicksFrozen() + 200);
+            target.setIsInPowderSnow(true);
+            if (target instanceof Skeleton s){
+                s.doFreezeConversion();
+            }
+        }
+
+        stack.hurtAndBreak(1, attacker, e -> e.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+        return true;
+    }
+
+    //Archers mod nerfs Power enchantment. Since SkadiBow overrides releaseUsing,
+    //it doesn't inherit the Archers nerfing mixin. So account for that here.
+    public double calculatePowerBonus(int powerLevel){
+        if(powerLevel == 0){
+            return 0;
+        }
+        if(BotaniaCombat.ARCHERS_INSTALLED){
+            float configValue = ArchersMod.tweaksConfig.value.power_enchantment_multiplier_per_level;
+            if(configValue > 0){
+                return (1 + powerLevel * configValue);
+            }
+        }
+        return (double) powerLevel * 0.5 + 0.5;
     }
 }
