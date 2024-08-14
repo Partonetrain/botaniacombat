@@ -10,6 +10,7 @@
     "EnchantmentMixin",
     "PixieHandlerMixin",
     "TerraBladeItemMixin",
+    "ranged.AbstractArrowMixin",
     "ranged.LivingwoodBowItemMixin",
     "shield.PlayerMixin"
   ],

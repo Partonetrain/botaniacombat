@@ -1,6 +1,7 @@
 package info.partonetrain.botaniacombat.item.ranged;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
+import info.partonetrain.botaniacombat.ITickFreezeArrow;
 import net.archers.ArchersMod;
 import net.fabric_extras.ranged_weapon.api.CustomBow;
 import net.fabric_extras.ranged_weapon.api.CustomRangedWeapon;
@@ -13,6 +14,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -129,7 +131,9 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
                     if (arrowWasFree) {
                         abstractArrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                     }
-
+                    if(abstractArrow.isCritArrow()){
+                        ((ITickFreezeArrow) abstractArrow).botaniacombat$setFreezeTicks(200);
+                    }
                     level.addFreshEntity(abstractArrow);
                 }
 
@@ -155,10 +159,11 @@ public class SkadiBowItem extends CustomBow implements CustomDamageItem {
         if(!target.level().isClientSide() && attacker instanceof Player player &&
                 ManaItemHandler.instance().requestManaExactForTool(stack, player, MANA_PER_HIT, true)){
             if (target.getType().is(EntityTypeTags.FREEZE_HURTS_EXTRA_TYPES)) {
-                target.hurt(player.damageSources().playerAttack(player), (float) (5 + calculatePowerBonus(EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, stack))));
+                float freezeHurtsExtraDmg = (float) player.getAttribute(Attributes.ATTACK_DAMAGE).getValue() + (float) (4 + calculatePowerBonus(EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, stack)));
+                target.hurt(player.damageSources().playerAttack(player), freezeHurtsExtraDmg);
             }
 
-            target.setTicksFrozen(target.getTicksFrozen() + 200);
+            target.setTicksFrozen(target.getTicksFrozen() + 500);
             target.setIsInPowderSnow(true);
             if (target instanceof Skeleton s){
                 s.doFreezeConversion();

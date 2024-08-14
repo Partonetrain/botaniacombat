@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "botaniacombat:angry_bozu"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "botaniacombat:blocks/angry_bozu"
+}
