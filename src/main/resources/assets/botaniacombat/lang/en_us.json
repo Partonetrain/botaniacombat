@@ -104,6 +104,9 @@
   "botaniacombat.page.angry_bozu0": "This fella is an angry, erratic upgrade to the $(item)Teru Teru Bozu$(). It retains the ability to clear the skies, but it would prefer you summon a storm by giving it a $(item)Wither Rose$().$(br2)Placing a $(item)Redstone Comparator$() adjacent will allow it to detect thunderstorms.",
   "botaniacombat.page.angry_bozu1": "haha. just a glimpse into my dark reality.",
 
+  "botaniacombat.entry.damageLens": "Damaging Lens Bonus",
+  "botaniacombat.page.damageLens": "A $(l:botania:tools/mana_blaster)Mana Blaster$() with a Damage Lens attached is affected by Ranged Damage bonuses. Unlike other ranged weapons, a Blaster with such a lens seems to deal magic damage, bypassing armor.",
+
   "text.autoconfig.botaniacombat.title": "BotaniaCombat config (Requires Restart)",
   "text.autoconfig.botaniacombat.option.daggerDamageModifier": "Dagger Damage Modifier",
   "text.autoconfig.botaniacombat.option.daggerSpeed": "Dagger Speed Modifier",
@@ -124,5 +127,15 @@
   "text.autoconfig.botaniacombat.option.rangedItemConfig.livingwoodPullTime": "Livingwood Crossbow Pull Time",
   "text.autoconfig.botaniacombat.option.rangedItemConfig.crystalPullTime": "Crystal Crossbow Pull Time",
   "text.autoconfig.botaniacombat.option.rangedItemConfig.skadiDamage": "Gaia Gift 3 Damage",
-  "text.autoconfig.botaniacombat.option.rangedItemConfig.skadiPullTime": "Gaia Gift 3 Pull Time"
+  "text.autoconfig.botaniacombat.option.rangedItemConfig.skadiPullTime": "Gaia Gift 3 Pull Time",
+
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig": "Botania Nerfs/Buffs (optional, unchanged by default)",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.terraBladeDamage": "Terrasteel Weapon Burst Damage",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.chakramDamage": "Thorn Chakram Damage",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.missileDamage": "Magic Missile Damage",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.dmgLensDamage": "Damaging Lens Damage",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.odinHealthMod": "Ring of Odin Health Mod",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.odinHealthOperation": "Ring of Odin Health Operation",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.babylonDamage": "Treasury Weapon (King Key) damage"
+
 }

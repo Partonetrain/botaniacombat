@@ -21,7 +21,6 @@ public class BotaniaCombat implements ModInitializer {
     public static final boolean RANGED_WEAPON_API_INSTALLED = FabricLoader.getInstance().isModLoaded("ranged_weapon_api");
     public static final boolean FARMERS_DELIGHT_INSTALLED = FabricLoader.getInstance().isModLoaded("farmersdelight");
     public static final boolean ARCHERS_INSTALLED = FabricLoader.getInstance().isModLoaded("archers");
-
     public static final int MANA_PER_DAMAGE = 60;
     public static final int MANA_PER_DAMAGE_TERRA = 100;
 
@@ -29,6 +28,7 @@ public class BotaniaCombat implements ModInitializer {
     public void onInitialize() {
         AutoConfig.register(BotaniaCombatConfig.class, JanksonConfigSerializer::new);
         BotaniaCombatItems.init();
+        ConfiguredValues.init(); //prevents loading issues; ensures autoconfig is registered before values are used
 
         AttackEntityCallback.EVENT.register(TerrasteelWeaponItem::attackEntity); //fabric events for if BetterCombat is not installed
         AttackEntityCallback.EVENT.register(GaiaGreatswordItem::attackEntity);

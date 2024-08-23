@@ -25,6 +25,9 @@ public class BotaniaCombatMixinPlugin implements IMixinConfigPlugin {
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         String[] packageTree = mixinClassName.split("\\.");
 
+        if(Arrays.asList(packageTree).contains("nerf")){
+            return true;
+        }
         if (Arrays.asList(packageTree).contains("ranged")) {
             return BotaniaCombat.RANGED_WEAPON_API_INSTALLED;
         }

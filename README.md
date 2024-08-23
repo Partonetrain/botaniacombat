@@ -34,7 +34,7 @@ If [Ranged Weapon API](https://www.curseforge.com/minecraft/mc-mods/ranged-weapo
 - Adds bow Gaia Gift
 
 **NOTE**: To ensure that the Lexica and subtitles from Botania are accurate, this mod includes an enabled-by-default resource pack that overrides some of Botania's lang file.
-This mod only supports en_us.json currently.
+This mod only supports en_us.json currently (translations wanted)
 
 Credits / Thanks:
 - Unilock for [cleaning up the code and fixing compat with Sinytra Connector](https://github.com/Partonetrain/botaniacombat/pull/1)
@@ -47,20 +47,19 @@ If you like this mod, [consider supporting me on ko-fi](https://ko-fi.com/parton
 
 ## FAQ
 ####  *Will you make a Forge version?*
-Maybe, but I am going to have to learn Architecturey first. Considering this uses a lot of Fabric libraries, I'm not sure that will happen without some outside help.
+Maybe in future Minecraft versions. This is unlikely to happen in 1.20.1
 
 ####  *Does this work with Sinytra Connector?*
 It should, thanks to Unilock's PR. Support for it is lower priority than support for Fabric/Quilt.
 
 #### *How much damage does the mana beam from the new weapons do?*
-7 (or 3.5 hearts), same as Terra Blade's.
+8 (or 4 hearts), same as Terra Blade, although this can be configured
 
 #### *Why so many optional dependencies*?
 A couple of reasons, but mostly these are mods I already use myself, and I don't like doing mixin on vanilla when there's just a library I could use that does it
 
 #### *Is there a config?*
-Not at this time. I'm not sure what there would be to configure that can't already be configured through datapacks. If you need a config for something, [create an issue on the GitHub](https://github.com/Partonetrain/botaniacombat/issues).
+Yes, and a quite extensive one at that. Values pertaining to BotaniaCombat weapons can be changed, and certain Botania items can be nerfed (or buffed) as well.
 
 ### *Why doesn't my Starcaller work like it should?*
-Unfortunately, the Starcaller works by [checking if the vanilla swing timer is equal to 1/6 every tick](https://github.com/VazkiiMods/Botania/blob/1.20.x/Xplat/src/main/java/vazkii/botania/common/item/equipment/tool/StarcallerItem.java#L41-L58).
-There's probably some workaround with invasive mixins to get it to work with BetterCombat swings, but I'm not sure what that would be.
+WIP

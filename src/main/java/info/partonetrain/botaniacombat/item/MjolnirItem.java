@@ -83,7 +83,7 @@ public class MjolnirItem extends BotaniaCombatWeaponItem {
     //derived from ThundercallerItem
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity entity, @NotNull LivingEntity attacker) {
-        double range = 8;
+        double range = 10;
         IntList alreadyTargetedEntities = new IntArrayList();
 
         Predicate<Entity> selector = e -> e instanceof LivingEntity && e instanceof Enemy && !(e instanceof Player) && !alreadyTargetedEntities.contains(e.getId());
@@ -107,7 +107,7 @@ public class MjolnirItem extends BotaniaCombatWeaponItem {
 
             alreadyTargetedEntities.add(target.getId());
             prevTarget = target;
-            dmg--;
+            dmg -= 2;
         }
 
         if (!alreadyTargetedEntities.isEmpty()) {

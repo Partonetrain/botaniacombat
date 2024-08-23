@@ -4,6 +4,7 @@ import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
 @Config(name = BotaniaCombat.MOD_ID)
 public class BotaniaCombatConfig implements ConfigData {
@@ -33,7 +34,6 @@ public class BotaniaCombatConfig implements ConfigData {
     public int mjolinirDamageModifier = 4;
     @Comment("Modifier of Mjolnir speed relative to default speed (4)")
     public float mjolnirSpeed = -2.8f;
-
     @ConfigEntry.Gui.CollapsibleObject
     public RangedItemConfig rangedItemConfig = new RangedItemConfig();
     public static class RangedItemConfig{
@@ -47,5 +47,24 @@ public class BotaniaCombatConfig implements ConfigData {
         public float skadiDamage = 10f;
         @Comment("Pull time in ticks of Skadi Bow")
         public int skadiPullTime = 30;
+    }
+
+    @ConfigEntry.Gui.CollapsibleObject
+    public BotaniaNerfsConfig botaniaNerfsConfig = new BotaniaNerfsConfig();
+    public static class BotaniaNerfsConfig{
+        @Comment("Terrasteel Mana Burst damage")
+        public float terraBladeDamage = 8;
+        @Comment("Thorn Chakram damage")
+        public float chakramDamage = 12;
+        @Comment("Missile from Unstable Reservoir Rod (does not effect Gaia Gaurdian)")
+        public float missileDamage = 7;
+        @Comment("Damaging Lens damage, recommended to lower if RWAPI is installed")
+        public float dmgLensDamage = 8;
+        @Comment("Ring of Odin health modifier amount")
+        public float odinHealthMod = 20f;
+        @Comment("Ring of Odin operation: ADDITION/MULTIPLY_BASE/MULTIPLY_TOTAL")
+        public AttributeModifier.Operation odinHealthOperation = AttributeModifier.Operation.ADDITION;
+        @Comment("Key of King's Law projectile damage; explosion power (and the damage from explosion) is unaffected")
+        public float babylonDamage = 20f;
     }
 }

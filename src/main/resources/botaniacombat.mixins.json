@@ -10,8 +10,15 @@
     "EnchantmentMixin",
     "PixieHandlerMixin",
     "TerraBladeItemMixin",
+    "nerf.BabylonWeaponEntityMixin",
+    "nerf.DamagingLensMixin",
+    "nerf.MagicMissileEntityMixin",
+    "nerf.RingOfOdinItemMixin",
+    "nerf.TerraBladeItemMixin",
+    "nerf.ThornChakramEntityMixin",
     "ranged.AbstractArrowMixin",
     "ranged.LivingwoodBowItemMixin",
+    "ranged.ManaBlasterMixin",
     "shield.PlayerMixin"
   ],
   "injectors": {

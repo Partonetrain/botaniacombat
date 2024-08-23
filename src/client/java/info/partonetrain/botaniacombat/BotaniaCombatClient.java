@@ -23,8 +23,6 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
-import vazkii.botania.client.render.entity.EntityRenderers;
-import vazkii.botania.common.item.equipment.tool.StarcallerItem;
 import vazkii.botania.common.item.equipment.tool.terrasteel.TerraBladeItem;
 
 import static com.github.crimsondawn45.fabricshieldlib.initializers.FabricShieldLibClient.renderBanner;
