@@ -1,6 +1,7 @@
 package info.partonetrain.botaniacombat.network;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
+import info.partonetrain.botaniacombat.registry.BotaniaCombatNetworking;
 import net.fabricmc.fabric.api.networking.v1.FabricPacket;
 import net.fabricmc.fabric.api.networking.v1.PacketType;
 import net.minecraft.network.FriendlyByteBuf;
@@ -21,6 +22,6 @@ public class TerrasteelWeaponHitPacket implements FabricPacket {
 
     @Override
     public PacketType<?> getType() {
-        return BotaniaCombat.TERRASTEEL_WEAPON_PACKET_TYPE;
+        return BotaniaCombatNetworking.TERRASTEEL_WEAPON_PACKET_TYPE;
     }
 }

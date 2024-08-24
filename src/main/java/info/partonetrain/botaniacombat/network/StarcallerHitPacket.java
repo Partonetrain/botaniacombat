@@ -1,6 +1,7 @@
 package info.partonetrain.botaniacombat.network;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
+import info.partonetrain.botaniacombat.registry.BotaniaCombatNetworking;
 import net.fabricmc.fabric.api.networking.v1.FabricPacket;
 import net.fabricmc.fabric.api.networking.v1.PacketType;
 import net.minecraft.network.FriendlyByteBuf;
@@ -22,6 +23,6 @@ public class StarcallerHitPacket implements FabricPacket {
 
     @Override
     public PacketType<?> getType() {
-        return BotaniaCombat.STARCALLER_HIT_PACKET_PACKET_TYPE;
+        return BotaniaCombatNetworking.STARCALLER_HIT_PACKET_PACKET_TYPE;
     }
 }

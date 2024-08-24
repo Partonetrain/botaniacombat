@@ -4,16 +4,12 @@ import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldBlockCallback;
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
 import info.partonetrain.botaniacombat.item.shield.ElementiumBannerShieldItem;
-import info.partonetrain.botaniacombat.network.StarcallerHitPacket;
-import info.partonetrain.botaniacombat.network.TerrasteelWeaponHitPacket;
 import info.partonetrain.botaniacombat.registry.*;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
-import net.fabricmc.fabric.api.networking.v1.PacketType;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,11 +23,6 @@ public class BotaniaCombat implements ModInitializer {
     public static final boolean ARCHERS_INSTALLED = FabricLoader.getInstance().isModLoaded("archers");
     public static final int MANA_PER_DAMAGE = 60;
     public static final int MANA_PER_DAMAGE_TERRA = 100;
-
-    public static final ResourceLocation TERRASTEEL_WEAPON_PACKET_ID = new ResourceLocation(MOD_ID, "terrasteel_weapon");
-    public static final ResourceLocation STARCALLER_PACKET_ID = new ResourceLocation(MOD_ID, "starcaller");
-    public static final PacketType<StarcallerHitPacket> STARCALLER_HIT_PACKET_PACKET_TYPE = PacketType.create(STARCALLER_PACKET_ID, StarcallerHitPacket::new);
-    public static final PacketType<TerrasteelWeaponHitPacket> TERRASTEEL_WEAPON_PACKET_TYPE = PacketType.create(TERRASTEEL_WEAPON_PACKET_ID, TerrasteelWeaponHitPacket::new);
 
     @Override
     public void onInitialize() {
@@ -59,7 +50,6 @@ public class BotaniaCombat implements ModInitializer {
         BotaniaCombatBlockEntities.init();
 
         PsiContributorColors.get();
-
 
         LOGGER.info("BotaniaCombat initialized");
     }
