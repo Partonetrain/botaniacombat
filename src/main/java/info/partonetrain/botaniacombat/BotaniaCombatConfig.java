@@ -19,7 +19,7 @@ public class BotaniaCombatConfig implements ConfigData {
     @Comment("Modifier of Slaughtersaw speed relative to default speed (4)")
     public float slaughtersawSpeed = -2f;
     @Comment("Modifier of spear damage amount relative to tier damage")
-    public int spearDamageModifier = -1;
+    public int spearDamageModifier = 0;
     @Comment("Modifier of spear speed relative to default speed (4)")
     public float spearSpeed = -2.6f;
     @Comment("Modifier of Soulstaff damage amount relative to Manasteel tier damage")
@@ -52,6 +52,8 @@ public class BotaniaCombatConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public BotaniaNerfsConfig botaniaNerfsConfig = new BotaniaNerfsConfig();
     public static class BotaniaNerfsConfig{
+        @Comment("Conform Soulscribe to Dagger stats specified above")
+        public boolean conformSoulscribe;
         @Comment("Terrasteel weapon projectile damage")
         public float terraBladeDamage = 8;
         @Comment("Chakram damage, poison/fire damage is unchanged")

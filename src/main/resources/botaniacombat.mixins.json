@@ -16,6 +16,7 @@
     "nerf.FallingStarEntityMixin",
     "nerf.MagicMissileEntityMixin",
     "nerf.RingOfOdinItemMixin",
+    "nerf.SoulscribeItemMixin",
     "nerf.TerraBladeItemMixin",
     "nerf.ThornChakramEntityMixin",
     "ranged.AbstractArrowMixin",
