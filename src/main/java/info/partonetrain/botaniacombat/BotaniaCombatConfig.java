@@ -52,10 +52,14 @@ public class BotaniaCombatConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public BotaniaNerfsConfig botaniaNerfsConfig = new BotaniaNerfsConfig();
     public static class BotaniaNerfsConfig{
-        @Comment("Terrasteel Mana Burst damage")
+        @Comment("Terrasteel weapon projectile damage")
         public float terraBladeDamage = 8;
-        @Comment("Thorn Chakram damage")
+        @Comment("Chakram damage, poison/fire damage is unchanged")
         public float chakramDamage = 12;
+        @Comment("Starcaller projectile")
+        public float fallingStarNormalDamage = 5;
+        @Comment("Starcaller projectile, 25% chance of using this instead of normal damage")
+        public float fallingStarHighDamage = 10;
         @Comment("Missile from Unstable Reservoir Rod (does not effect Gaia Gaurdian)")
         public float missileDamage = 7;
         @Comment("Damaging Lens damage, recommended to lower if RWAPI is installed")

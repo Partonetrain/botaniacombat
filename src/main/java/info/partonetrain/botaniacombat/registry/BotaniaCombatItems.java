@@ -13,7 +13,6 @@ import net.minecraft.world.item.Rarity;
 import vazkii.botania.api.BotaniaRegistries;
 
 public final class BotaniaCombatItems {
-
     public static BotaniaCombatConfig config = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig();
 
     public static final Item.Properties ITEM_PROPERTIES_MANASTEEL = BotaniaCombatItemProperties.defaultItemBuilderWithCustomDamageOnFabric().defaultDurability(300);

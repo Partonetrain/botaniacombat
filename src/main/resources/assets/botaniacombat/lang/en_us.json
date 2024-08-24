@@ -131,7 +131,9 @@
 
   "text.autoconfig.botaniacombat.option.botaniaNerfsConfig": "Botania Nerfs/Buffs (optional, unchanged by default)",
   "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.terraBladeDamage": "Terrasteel Weapon Burst Damage",
-  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.chakramDamage": "Thorn Chakram Damage",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.chakramDamage": "Thorn/Flare Chakram Damage",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.fallingStarNormalDamage": "Falling Star Damage",
+  "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.fallingStarHighDamage": "Falling Star High Damage",
   "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.missileDamage": "Magic Missile Damage",
   "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.dmgLensDamage": "Damaging Lens Damage",
   "text.autoconfig.botaniacombat.option.botaniaNerfsConfig.odinHealthMod": "Ring of Odin Health Mod",

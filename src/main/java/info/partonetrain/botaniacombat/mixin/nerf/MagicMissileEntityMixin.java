@@ -1,7 +1,7 @@
 package info.partonetrain.botaniacombat.mixin.nerf;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import info.partonetrain.botaniacombat.ConfiguredValues;
+import info.partonetrain.botaniacombat.BotaniaNerfConfiguredValues;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -15,8 +15,7 @@ public class MagicMissileEntityMixin {
             return 12;
         }
         else{
-            return ConfiguredValues.missileDamage;
+            return BotaniaNerfConfiguredValues.missileDamage;
         }
-
     }
 }

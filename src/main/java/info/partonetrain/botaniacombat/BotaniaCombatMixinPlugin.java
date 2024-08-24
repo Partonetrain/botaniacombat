@@ -28,6 +28,9 @@ public class BotaniaCombatMixinPlugin implements IMixinConfigPlugin {
         if(Arrays.asList(packageTree).contains("nerf")){
             return true;
         }
+        if (Arrays.asList(packageTree).contains("bettercombat")) {
+            return BotaniaCombat.BETTER_COMBAT_INSTALLED;
+        }
         if (Arrays.asList(packageTree).contains("ranged")) {
             return BotaniaCombat.RANGED_WEAPON_API_INSTALLED;
         }

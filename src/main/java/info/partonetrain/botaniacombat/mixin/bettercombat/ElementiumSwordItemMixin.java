@@ -1,4 +1,4 @@
-package info.partonetrain.botaniacombat.mixin;
+package info.partonetrain.botaniacombat.mixin.bettercombat;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -23,7 +23,7 @@ public class ElementiumSwordItemMixin {
             locals = LocalCapture.CAPTURE_FAILHARD
     )
     private void botaniacombat$addOffhandAttributeToElementiumSword(@NotNull EquipmentSlot slot, CallbackInfoReturnable<@NotNull Multimap<Attribute, AttributeModifier>> cir, Multimap<Attribute, AttributeModifier> ret) {
-        if (BotaniaCombat.BETTER_COMBAT_INSTALLED && slot == EquipmentSlot.OFFHAND) {
+        if (slot == EquipmentSlot.OFFHAND) {
             ret = HashMultimap.create(ret);
             ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Sword modifier", 0.05));
         }

@@ -1,5 +1,6 @@
-package info.partonetrain.botaniacombat.mixin;
+package info.partonetrain.botaniacombat.mixin.bettercombat;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import info.partonetrain.botaniacombat.BotaniaCombat;
 import info.partonetrain.botaniacombat.PsiContributorColors;
 import net.minecraft.sounds.SoundSource;
@@ -22,26 +23,23 @@ public class TerraBladeItemMixin {
     @Inject(
             method = "trySpawnBurst(Lnet/minecraft/world/entity/player/Player;F)V",
             at = @At("HEAD"),
-            locals = LocalCapture.CAPTURE_FAILHARD,
             cancellable = true
     )
     private static void botaniacombat$addOffhandBurst(Player player, float attackStrength, CallbackInfo ci) {
-        if (BotaniaCombat.BETTER_COMBAT_INSTALLED) {
-            if (!player.isSpectator()
-                    && !player.getOffhandItem().isEmpty()
-                    && player.getOffhandItem().is(BotaniaItems.terraSword)
-                    && attackStrength == 1) {
-                ManaBurstEntity burst = TerraBladeItem.getBurst(player, player.getOffhandItem());
-                player.level().addFreshEntity(burst);
-                player.getOffhandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.OFF_HAND));
-                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
-                ci.cancel(); //cancel the rest of the method so it doesn't check the main hand if there was an offhand burst.
-            }
+        if (!player.isSpectator()
+                && !player.getOffhandItem().isEmpty()
+                && player.getOffhandItem().is(BotaniaItems.terraSword)
+                && attackStrength == 1) {
+            ManaBurstEntity burst = TerraBladeItem.getBurst(player, player.getOffhandItem());
+            player.level().addFreshEntity(burst);
+            player.getOffhandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.OFF_HAND));
+            player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+            ci.cancel(); //cancel the rest of the method so it doesn't check the main hand if there was an offhand burst.
         }
     }
 
-    @Inject(method = "getBurst", at = @At("TAIL"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private static void botaniacombat$makeManaBeamPatronColors(Player player, ItemStack stack, CallbackInfoReturnable<ManaBurstEntity> cir, ManaBurstEntity burst) {
+    @Inject(method = "getBurst", at = @At("TAIL"))
+    private static void botaniacombat$makeManaBeamPatronColors(Player player, ItemStack stack, CallbackInfoReturnable<ManaBurstEntity> cir, @Local ManaBurstEntity burst) {
         if (PsiContributorColors.isContributor(player.getName().getString().toLowerCase())) {
             int[] colors = PsiContributorColors.getColors(player.getName().getString().toLowerCase());
             int random = player.level().getRandom().nextInt(colors.length);

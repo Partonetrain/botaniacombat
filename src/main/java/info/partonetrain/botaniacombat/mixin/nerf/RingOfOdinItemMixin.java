@@ -2,7 +2,7 @@ package info.partonetrain.botaniacombat.mixin.nerf;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import info.partonetrain.botaniacombat.ConfiguredValues;
+import info.partonetrain.botaniacombat.BotaniaNerfConfiguredValues;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -21,7 +21,7 @@ public class RingOfOdinItemMixin {
     public void botaniacombat_nerfAttributeModifiers(ItemStack stack, CallbackInfoReturnable<Multimap<Attribute, AttributeModifier>> cir){
         Multimap<Attribute, AttributeModifier> attributes = HashMultimap.create();
         attributes.put(Attributes.MAX_HEALTH,
-                new AttributeModifier(getBaubleUUID(stack), "Odin Ring", ConfiguredValues.odinHealthMod, ConfiguredValues.odinHealthOperation));
+                new AttributeModifier(getBaubleUUID(stack), "Odin Ring", BotaniaNerfConfiguredValues.odinHealthMod, BotaniaNerfConfiguredValues.odinHealthOperation));
         cir.setReturnValue(attributes);
         cir.cancel();
     }

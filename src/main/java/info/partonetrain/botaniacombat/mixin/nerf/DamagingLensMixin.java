@@ -2,7 +2,7 @@ package info.partonetrain.botaniacombat.mixin.nerf;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import info.partonetrain.botaniacombat.BotaniaCombat;
-import info.partonetrain.botaniacombat.ConfiguredValues;
+import info.partonetrain.botaniacombat.BotaniaNerfConfiguredValues;
 import net.fabric_extras.ranged_weapon.api.EntityAttributes_RangedWeapon;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
@@ -20,7 +20,7 @@ public class DamagingLensMixin {
             damage = (float) player.getAttributeValue(EntityAttributes_RangedWeapon.DAMAGE.attribute); //will get value from held blaster
         }
         else{
-            damage = ConfiguredValues.dmgLensDamage;
+            damage = BotaniaNerfConfiguredValues.dmgLensDamage;
         }
 
         return damage;

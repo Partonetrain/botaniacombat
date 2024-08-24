@@ -1,6 +1,6 @@
 package info.partonetrain.botaniacombat.mixin.ranged;
 
-import info.partonetrain.botaniacombat.ConfiguredValues;
+import info.partonetrain.botaniacombat.BotaniaNerfConfiguredValues;
 import net.fabric_extras.ranged_weapon.api.EntityAttributes_RangedWeapon;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,7 +21,7 @@ import java.util.UUID;
 @Mixin(ManaBlasterItem.class)
 public abstract class ManaBlasterMixin extends Item {
     @Unique
-    float damage = ConfiguredValues.dmgLensDamage;
+    float damage = BotaniaNerfConfiguredValues.dmgLensDamage;
     @Unique
     AttributeModifier mod1 = new AttributeModifier(UUID.fromString("60dfc4ff-de55-4f4f-8b4b-a7748c26ec4d"), "Blaster mainhand modifier", damage, AttributeModifier.Operation.ADDITION);
     @Unique

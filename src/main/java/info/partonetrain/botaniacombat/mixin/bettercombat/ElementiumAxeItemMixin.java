@@ -1,4 +1,4 @@
-package info.partonetrain.botaniacombat.mixin;
+package info.partonetrain.botaniacombat.mixin.bettercombat;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -22,14 +22,10 @@ public class ElementiumAxeItemMixin extends Item {
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
         Multimap<Attribute, AttributeModifier> ret = super.getDefaultAttributeModifiers(slot);
-
-        if (BotaniaCombat.BETTER_COMBAT_INSTALLED) {
-            if (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND) {
-                ret = HashMultimap.create(ret);
-                ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Axe modifier", 0.05));
-            }
+        if (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND) {
+            ret = HashMultimap.create(ret);
+            ret.put(PixieHandler.PIXIE_SPAWN_CHANCE, PixieHandler.makeModifier(slot, "Axe modifier", 0.05));
         }
-
         return ret;
     }
 }

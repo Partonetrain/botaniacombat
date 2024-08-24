@@ -4,12 +4,15 @@ import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldBlockCallback;
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
 import info.partonetrain.botaniacombat.item.shield.ElementiumBannerShieldItem;
+import info.partonetrain.botaniacombat.network.StarcallerHitPacket;
 import info.partonetrain.botaniacombat.registry.*;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.networking.v1.PacketType;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,11 +27,14 @@ public class BotaniaCombat implements ModInitializer {
     public static final int MANA_PER_DAMAGE = 60;
     public static final int MANA_PER_DAMAGE_TERRA = 100;
 
+    public static final ResourceLocation STARCALLER_PACKET_ID = new ResourceLocation(MOD_ID, "starcaller");
+    public static final PacketType<StarcallerHitPacket> STARCALLER_HIT_PACKET_PACKET_TYPE = PacketType.create(STARCALLER_PACKET_ID, StarcallerHitPacket::new);
+
     @Override
     public void onInitialize() {
         AutoConfig.register(BotaniaCombatConfig.class, JanksonConfigSerializer::new);
         BotaniaCombatItems.init();
-        ConfiguredValues.init(); //prevents loading issues; ensures autoconfig is registered before values are used
+        BotaniaNerfConfiguredValues.init(); //prevents loading issues; ensures autoconfig is registered before values are used
 
         AttackEntityCallback.EVENT.register(TerrasteelWeaponItem::attackEntity); //fabric events for if BetterCombat is not installed
         AttackEntityCallback.EVENT.register(GaiaGreatswordItem::attackEntity);
@@ -45,6 +51,8 @@ public class BotaniaCombat implements ModInitializer {
         BotaniaCombatBlockEntities.init();
 
         PsiContributorColors.get();
+
+        BotaniaCombatNetworking.init();
         LOGGER.info("BotaniaCombat initialized");
     }
 }

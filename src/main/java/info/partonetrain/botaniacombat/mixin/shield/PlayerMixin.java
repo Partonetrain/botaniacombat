@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
 public abstract class PlayerMixin {
-    @Inject(method = "Lnet/minecraft/world/entity/player/Player;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("TAIL"))
+    @Inject(method = "hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("TAIL"))
     private void botaniacombat$svallinCatchFireDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir){
         Player player = (Player) (Object) this;
         ItemStack offhand = player.getItemBySlot(EquipmentSlot.OFFHAND);
