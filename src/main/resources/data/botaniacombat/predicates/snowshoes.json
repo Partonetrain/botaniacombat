@@ -1,0 +1,19 @@
+{
+  "fabric:load_conditions": [
+      {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+          "ranged_weapon_api",
+          "artifacts",
+          "cardinal-components"
+      ]
+      }
+    ],
+    "condition": "minecraft:entity_properties",
+    "entity": "this",
+    "predicate": {
+      "type": "minecraft:player",
+      "nbt": "{cardinal_components:{\"trinkets:trinkets\": {feet: {shoes: {Items: [{id: \"artifacts:snowshoes\", Count: 1b}]}}}}}"
+    }
+  }
+  

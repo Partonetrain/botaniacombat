@@ -4,6 +4,7 @@ import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldSetModelCallback
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
 import info.partonetrain.botaniacombat.network.StarcallerAttackHitHandler;
+import info.partonetrain.botaniacombat.network.TerrasteelWeaponAttackHitHandler;
 import info.partonetrain.botaniacombat.registry.BotaniaCombatShieldItems;
 import info.partonetrain.botaniacombat.render.entity.BotaniaCombatEntityRenderers;
 import net.bettercombat.api.AttackHand;
@@ -43,8 +44,7 @@ public class BotaniaCombatClient implements ClientModInitializer {
         this.registerOptionalResourcePack(); //for botaniacombatlang respack
 
         if (BotaniaCombat.BETTER_COMBAT_INSTALLED) {
-            BotaniaCombat.LOGGER.info("BetterCombat found, running client code");
-            BetterCombatClientEvents.ATTACK_START.register(this::checkBetterCombatSwing);
+            BetterCombatClientEvents.ATTACK_HIT.register(new TerrasteelWeaponAttackHitHandler());
             BetterCombatClientEvents.ATTACK_HIT.register(new StarcallerAttackHitHandler());
         }
 
@@ -67,18 +67,6 @@ public class BotaniaCombatClient implements ClientModInitializer {
             var block = pair.getKey();
             var renderer = pair.getValue().apply(block);
             BuiltinItemRendererRegistry.INSTANCE.register(block, renderer::render);
-        }
-    }
-
-    public void checkBetterCombatSwing(LocalPlayer clientPlayerEntity, AttackHand attackHand) {
-        if (attackHand.itemStack().getItem() instanceof TerrasteelWeaponItem) {
-            TerrasteelWeaponItem.leftClick(attackHand.itemStack());
-        }
-        else if (attackHand.itemStack().getItem() instanceof GaiaGreatswordItem) {
-            GaiaGreatswordItem.leftClick(attackHand.itemStack());
-        }
-        else if (attackHand.itemStack().getItem() instanceof TerraBladeItem) {
-            TerraBladeItem.leftClick(attackHand.itemStack()); //the botania weapon
         }
     }
 

@@ -11,7 +11,7 @@ public class BotaniaCombatConfig implements ConfigData {
     @Comment("Modifier of dagger damage amount relative to tier damage")
     public int daggerDamageModifier = -3;
     @Comment("Modifier of dagger speed relative to default speed (4)")
-    public float daggerSpeed = -2.0f;
+    public float daggerSpeed = -1.6f;
     @Comment("Whether or not the Slaughtersaw can ONLY hit entities in the #botaniacombat:meaty entity tag")
     public boolean slaughtersawRestricted = false;
     @Comment("Modifier of Slaughtersaw damage amount relative to Manasteel tier damage")
@@ -21,15 +21,15 @@ public class BotaniaCombatConfig implements ConfigData {
     @Comment("Modifier of spear damage amount relative to tier damage")
     public int spearDamageModifier = -1;
     @Comment("Modifier of spear speed relative to default speed (4)")
-    public float spearSpeed = -2.8f;
+    public float spearSpeed = -2.6f;
     @Comment("Modifier of Soulstaff damage amount relative to Manasteel tier damage")
     public int soulstaffDamageModifier = -1;
     @Comment("Modifier of Soulstaff speed relative to default speed (4)")
     public float soulstaffSpeed = -2.3f;
     @Comment("Modifier of Gaia Greatsword damage amount relative to Terrasteel tier damage")
-    public int greatswordDamageModifier = 3;
+    public int greatswordDamageModifier = 4;
     @Comment("Modifier of Gaia Greatsword speed relative to default speed (4)")
-    public float greatswordSpeed = -3.4f;
+    public float greatswordSpeed = -3f;
     @Comment("Modifier of Mjolnir damage relative to Terrasteel tier damage")
     public int mjolinirDamageModifier = 4;
     @Comment("Modifier of Mjolnir speed relative to default speed (4)")

@@ -1,0 +1,2 @@
+advancement grant @p only botania:challenge/botaniacombat_skadi_bow
+advancement revoke @p only botania:challenge/botaniacombat_artifactsmod_skadi_bow

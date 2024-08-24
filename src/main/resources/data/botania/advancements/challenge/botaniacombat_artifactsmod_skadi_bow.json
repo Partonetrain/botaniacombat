@@ -1,0 +1,51 @@
+{
+  "display": {
+    "icon": {
+      "item": "botaniacombat:skadi_bow"
+    },
+    "title": {
+      "translate": "advancement.botaniacombat:skadi_bow"
+    },
+    "description": {
+      "translate": "advancement.botaniacombat:skadi_bow.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "botania:challenge/gaia_guardian_hardmode",
+  "criteria": {
+    "kill_guardian_with_snowshoes": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:reference",
+            "name": "botaniacombat:snowshoes"
+          }
+        ],
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "botania:doppleganger",
+              "nbt": "{hardMode:1b}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kill_guardian_with_snowshoes"
+    ]
+  ],
+  "rewards": {
+    "function": "botaniacombat:grant_skadi_bow",
+    "experience": 0
+  },
+  "sends_telemetry_event": true
+}

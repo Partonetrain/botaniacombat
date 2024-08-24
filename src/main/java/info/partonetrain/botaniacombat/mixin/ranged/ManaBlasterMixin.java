@@ -31,7 +31,7 @@ public abstract class ManaBlasterMixin extends Item {
     }
 
     @Inject(method = "inventoryTick", at = @At("HEAD"))
-    public void botaniacombat_setDamageLensNBT(ItemStack stack, Level world, Entity entity, int slot, boolean selected, CallbackInfo ci){
+    public void botaniacombat$setDamageLensNBT(ItemStack stack, Level world, Entity entity, int slot, boolean selected, CallbackInfo ci){
         if(ManaBlasterItem.getLens(stack).is(BotaniaItems.lensDamage)){
             if(!stack.getAttributeModifiers(EquipmentSlot.MAINHAND).containsKey(EntityAttributes_RangedWeapon.DAMAGE.attribute)){
                 stack.addAttributeModifier(EntityAttributes_RangedWeapon.DAMAGE.attribute, mod1, EquipmentSlot.MAINHAND);

@@ -5,6 +5,7 @@ import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
 import info.partonetrain.botaniacombat.item.shield.ElementiumBannerShieldItem;
 import info.partonetrain.botaniacombat.network.StarcallerHitPacket;
+import info.partonetrain.botaniacombat.network.TerrasteelWeaponHitPacket;
 import info.partonetrain.botaniacombat.registry.*;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
@@ -27,8 +28,10 @@ public class BotaniaCombat implements ModInitializer {
     public static final int MANA_PER_DAMAGE = 60;
     public static final int MANA_PER_DAMAGE_TERRA = 100;
 
+    public static final ResourceLocation TERRASTEEL_WEAPON_PACKET_ID = new ResourceLocation(MOD_ID, "terrasteel_weapon");
     public static final ResourceLocation STARCALLER_PACKET_ID = new ResourceLocation(MOD_ID, "starcaller");
     public static final PacketType<StarcallerHitPacket> STARCALLER_HIT_PACKET_PACKET_TYPE = PacketType.create(STARCALLER_PACKET_ID, StarcallerHitPacket::new);
+    public static final PacketType<TerrasteelWeaponHitPacket> TERRASTEEL_WEAPON_PACKET_TYPE = PacketType.create(TERRASTEEL_WEAPON_PACKET_ID, TerrasteelWeaponHitPacket::new);
 
     @Override
     public void onInitialize() {
@@ -36,8 +39,10 @@ public class BotaniaCombat implements ModInitializer {
         BotaniaCombatItems.init();
         BotaniaNerfConfiguredValues.init(); //prevents loading issues; ensures autoconfig is registered before values are used
 
-        AttackEntityCallback.EVENT.register(TerrasteelWeaponItem::attackEntity); //fabric events for if BetterCombat is not installed
-        AttackEntityCallback.EVENT.register(GaiaGreatswordItem::attackEntity);
+        if(!BETTER_COMBAT_INSTALLED){ //fabric events for vanilla combat
+            AttackEntityCallback.EVENT.register(TerrasteelWeaponItem::attackEntity);
+            AttackEntityCallback.EVENT.register(GaiaGreatswordItem::attackEntity);
+        }
 
         if (FABRIC_SHIELD_LIB_INSTALLED) {
             BotaniaCombatShieldItems.init();
@@ -46,13 +51,16 @@ public class BotaniaCombat implements ModInitializer {
         if (RANGED_WEAPON_API_INSTALLED) {
             BotaniaCombatRangedItems.init();
         }
+        if (BETTER_COMBAT_INSTALLED){
+            BotaniaCombatNetworking.initBetterCombat();
+        }
 
         BotaniaCombatBlocks.init();
         BotaniaCombatBlockEntities.init();
 
         PsiContributorColors.get();
 
-        BotaniaCombatNetworking.init();
+
         LOGGER.info("BotaniaCombat initialized");
     }
 }

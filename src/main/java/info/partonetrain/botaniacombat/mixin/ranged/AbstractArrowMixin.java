@@ -21,7 +21,7 @@ public class AbstractArrowMixin implements ITickFreezeArrow {
     }
 
     @Inject(method = "doPostHurtEffects", at = @At("HEAD"))
-    public void botaniacombat_addFrozenTicks(LivingEntity target, CallbackInfo ci){
+    public void botaniacombat$addFrozenTicks(LivingEntity target, CallbackInfo ci){
         target.setTicksFrozen(target.getTicksFrozen() + freezeTicks);
     }
 }
