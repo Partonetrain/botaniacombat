@@ -3,6 +3,14 @@ package info.partonetrain.botaniacombat;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import static java.lang.System.getProperty;
+
 public class BotaniaNerfConfiguredValues { //have default values loaded so mixins don't classload config
     public static boolean conformSoulscribe = false;
     public static int daggerDamageModifier = -3;
@@ -29,5 +37,24 @@ public class BotaniaNerfConfiguredValues { //have default values loaded so mixin
         odinHealthOperation = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.odinHealthOperation;
         babylonDamage = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.babylonDamage;
         missileDamage = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.missileDamage;
+    }
+
+    public static void readFromFileDirectly() {
+        //this is necessary because Botania may register Soulscribe before config is read and conformSoulscribe is set
+        //however, mixin is always applied first; SoulscribeItemMixin calls this method
+        if (!conformSoulscribe) { //if it's false then it might not have been set
+            BotaniaCombat.LOGGER.info("Reading from config file directly to confirm conformSoulscribe option");
+            final String configFileLoc = System.getProperty("user.dir") + "\\config\\botaniacombat.json5";
+            Path configFilePath = Paths.get(configFileLoc); //converts to correct path regardless of platform
+            try {
+                String conformSoulscribeLine = Files.readAllLines(configFilePath).toString();
+                if (conformSoulscribeLine.contains("\"conformSoulscribe\": true")) {
+                    conformSoulscribe = true;
+                }
+            } catch (IOException e) {
+                BotaniaCombat.LOGGER.error("config error:" + e);
+                BotaniaCombat.LOGGER.info("Don't fret! Above error is most likely one-time occurrence from config file not existing yet");
+            }
+        }
     }
 }
