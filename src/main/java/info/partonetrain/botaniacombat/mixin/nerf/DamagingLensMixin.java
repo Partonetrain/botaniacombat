@@ -14,7 +14,7 @@ import vazkii.botania.common.item.lens.DamagingLens;
 @Mixin(DamagingLens.class)
 public class DamagingLensMixin {
     @ModifyArg(method = "updateBurst", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"), index = 1)
-    public float botanaicombat_modifyDamageLensDamage(float value, @Local ThrowableProjectile entity){
+    public float botanaicombat$modifyDamageLensDamage(float value, @Local ThrowableProjectile entity){
         float damage;
         if(BotaniaCombat.RANGED_WEAPON_API_INSTALLED && entity.getOwner() instanceof Player player){
             damage = (float) player.getAttributeValue(EntityAttributes_RangedWeapon.DAMAGE.attribute); //will get value from held blaster

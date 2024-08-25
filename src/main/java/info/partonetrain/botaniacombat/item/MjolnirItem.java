@@ -94,7 +94,7 @@ public class MjolnirItem extends BotaniaCombatWeaponItem {
 
         for (int i = 0; i < hops; i++) {
             List<Entity> entities = entity.level().getEntities(prevTarget, new AABB(prevTarget.getX() - range, prevTarget.getY() - range, prevTarget.getZ() - range, prevTarget.getX() + range, prevTarget.getY() + range, prevTarget.getZ() + range), selector);
-            if (entities.isEmpty()) {
+            if (entities.isEmpty() || dmg < 1) {
                 break;
             }
 

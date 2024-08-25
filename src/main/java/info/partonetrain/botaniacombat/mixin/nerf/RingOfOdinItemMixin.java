@@ -18,7 +18,7 @@ import static vazkii.botania.common.item.equipment.bauble.BaubleItem.getBaubleUU
 @Mixin(RingOfOdinItem.class)
 public class RingOfOdinItemMixin {
     @Inject(method = "getEquippedAttributeModifiers", at = @At("HEAD"), cancellable = true)
-    public void botaniacombat_nerfAttributeModifiers(ItemStack stack, CallbackInfoReturnable<Multimap<Attribute, AttributeModifier>> cir){
+    public void botaniacombat$nerfAttributeModifiers(ItemStack stack, CallbackInfoReturnable<Multimap<Attribute, AttributeModifier>> cir){
         Multimap<Attribute, AttributeModifier> attributes = HashMultimap.create();
         attributes.put(Attributes.MAX_HEALTH,
                 new AttributeModifier(getBaubleUUID(stack), "Odin Ring", BotaniaNerfConfiguredValues.odinHealthMod, BotaniaNerfConfiguredValues.odinHealthOperation));

@@ -9,7 +9,7 @@ import vazkii.botania.common.entity.BabylonWeaponEntity;
 @Mixin(BabylonWeaponEntity.class)
 public class BabylonWeaponEntityMixin {
     @ModifyArg(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
-    public float botanaicombat_modifyBabylonWeaponDamage(float value){
+    public float botanaicombat$modifyBabylonWeaponDamage(float value){
         return BotaniaNerfConfiguredValues.babylonDamage;
     }
 }

@@ -6,13 +6,12 @@ import net.fabricmc.fabric.api.networking.v1.FabricPacket;
 import net.fabricmc.fabric.api.networking.v1.PacketType;
 import net.minecraft.network.FriendlyByteBuf;
 
-public class StarcallerHitPacket implements FabricPacket {
+public class TerrasteelWeaponHitPacket implements FabricPacket {
     private final boolean offhand;
-
-    public StarcallerHitPacket(boolean offhand){
+    public TerrasteelWeaponHitPacket(boolean offhand){
         this.offhand = offhand;
     }
-    public StarcallerHitPacket(FriendlyByteBuf buf){
+    public TerrasteelWeaponHitPacket(FriendlyByteBuf buf){
         offhand = buf.readBoolean();
     }
 
@@ -23,6 +22,6 @@ public class StarcallerHitPacket implements FabricPacket {
 
     @Override
     public PacketType<?> getType() {
-        return BotaniaCombatNetworking.STARCALLER_HIT_PACKET_PACKET_TYPE;
+        return BotaniaCombatNetworking.TERRASTEEL_WEAPON_PACKET_TYPE;
     }
 }

@@ -9,7 +9,7 @@ import vazkii.botania.common.item.equipment.tool.terrasteel.TerraBladeItem;
 @Mixin(TerraBladeItem.class)
 public class TerraBladeItemMixin {
     @ModifyVariable(method = "updateBurst", at = @At(value = "STORE", target = "Lnet/minecraft/world/item/Tier;getAttackDamageBonus()F"), ordinal = 0)
-    public float botaniacombat_modifyTerraBladeDamage(float original){
+    public float botaniacombat$modifyTerraBladeDamage(float original){
         return BotaniaNerfConfiguredValues.terraBladeDamage;
     }
 }

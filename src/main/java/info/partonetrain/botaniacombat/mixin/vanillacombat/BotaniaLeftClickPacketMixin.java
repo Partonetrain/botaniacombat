@@ -1,4 +1,4 @@
-package info.partonetrain.botaniacombat.mixin;
+package info.partonetrain.botaniacombat.mixin.vanillacombat;
 
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;

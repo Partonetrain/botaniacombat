@@ -12,13 +12,14 @@ This mod does the following:
 - Adds additional post-Gaia weapon, the Gaia Greatsword, which can use all of your Patreon colors
 - Buffs player-spawned pixies by making them always have the +2 damage bonus that would normally only be applied when the player is holding the Elementium Sword
 - Adds Gaia Gifts: "secret" weapon(s) obtained by defeating Gaia II under specific conditions
-- 2.2.0 Adds "Angry Angry Bozu", an "evil upgrade" to Botania's Teru Teru Bozu that can summon thunderstorms. Useful for Channeling Tridents and Thundercaller.
+- Adds "Angry Angry Bozu", an "evil upgrade" to Botania's Teru Teru Bozu that can summon thunderstorms. Useful for Channeling Tridents and Thundercaller
 
 If [Better Combat](https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus) is installed, it also does the following:
 
 - Adds offhand pixie spawn chance attribute to Elementium weapons (including Elementium Sword)
 - Adds pixie spawn chance attributes to the Elementium Axe
-- Makes Terrasteel weapons (including Terra Blade) shoot a beam at the start of a BetterCombat swing; also works with offhand swings
+- Makes Terrasteel weapons (including Terra Blade) shoot a beam during a BetterCombat swing; also works with offhand swings
+- Makes Starcaller work similar to Terrasteel weapons
 - Reduces Thundercaller attack range to 1.5 (from BetterCombat's default 2.5), electricity range is unaffected
 
 If [Fabric Shield Lib](https://www.curseforge.com/minecraft/mc-mods/fabric-shield-lib) is installed, it also does the following:
@@ -28,13 +29,14 @@ If [Fabric Shield Lib](https://www.curseforge.com/minecraft/mc-mods/fabric-shiel
 - Adds shield Gaia Gift
 
 If [Ranged Weapon API](https://www.curseforge.com/minecraft/mc-mods/ranged-weapon-api) is installed, it also does the following:
-- Adds Pull Time and Projectile Damage attributes to Botania's bows
+- Adds Pull Time and Ranged Damage attributes to Botania's bows
 - Adds Livingwood Crossbow
 - Adds Crystal Crossbow
+- Adds Ranged Damage attribute to Mana Blaster with Damage lens (which deals magic damage)
 - Adds bow Gaia Gift
 
 **NOTE**: To ensure that the Lexica and subtitles from Botania are accurate, this mod includes an enabled-by-default resource pack that overrides some of Botania's lang file.
-This mod only supports en_us.json currently (translations wanted)
+This mod only supports en_us.json currently (translations wanted).
 
 Credits / Thanks:
 - Unilock for [cleaning up the code and fixing compat with Sinytra Connector](https://github.com/Partonetrain/botaniacombat/pull/1)
@@ -42,6 +44,7 @@ Credits / Thanks:
 - arkosammy12 for helping with the Elementium Axe mixin
 - Adarsh and everyone else on the Violet Moon forums giving me feedback and ideas
 - June (of BasicWeapons) for letting me use that mod's method for dynamic item renders in the older versions
+- brokenk3yboard for helping me understand Fabric networking API
 
 If you like this mod, [consider supporting me on ko-fi](https://ko-fi.com/partonetrain) ^_^
 
@@ -59,7 +62,4 @@ It should, thanks to Unilock's PR. Support for it is lower priority than support
 A couple of reasons, but mostly these are mods I already use myself, and I don't like doing mixin on vanilla when there's just a library I could use that does it
 
 #### *Is there a config?*
-Yes, and a quite extensive one at that. Values pertaining to BotaniaCombat weapons can be changed, and certain Botania items can be nerfed (or buffed) as well.
-
-### *Why doesn't my Starcaller work like it should?*
-WIP
+Yes, and a quite extensive one at that. It can be configured via ModMenu. Values pertaining to BotaniaCombat weapons can be changed, and certain Botania items can be nerfed (or buffed) as well.

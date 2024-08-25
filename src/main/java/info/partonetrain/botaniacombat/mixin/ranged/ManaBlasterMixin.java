@@ -21,18 +21,20 @@ import java.util.UUID;
 @Mixin(ManaBlasterItem.class)
 public abstract class ManaBlasterMixin extends Item {
     @Unique
-    float damage = BotaniaNerfConfiguredValues.dmgLensDamage;
+    float damage;
     @Unique
-    AttributeModifier mod1 = new AttributeModifier(UUID.fromString("60dfc4ff-de55-4f4f-8b4b-a7748c26ec4d"), "Blaster mainhand modifier", damage, AttributeModifier.Operation.ADDITION);
-    @Unique
-    AttributeModifier mod2 = new AttributeModifier(UUID.fromString("2c9b7180-d04f-4b1f-9574-174969759856"), "Blaster offhand modifier", damage, AttributeModifier.Operation.ADDITION);
+    AttributeModifier mod1, mod2;
+
     public ManaBlasterMixin(Properties properties) {
         super(properties);
     }
 
     @Inject(method = "inventoryTick", at = @At("HEAD"))
-    public void botaniacombat_setDamageLensNBT(ItemStack stack, Level world, Entity entity, int slot, boolean selected, CallbackInfo ci){
+    public void botaniacombat$setDamageLensNBT(ItemStack stack, Level world, Entity entity, int slot, boolean selected, CallbackInfo ci){
         if(ManaBlasterItem.getLens(stack).is(BotaniaItems.lensDamage)){
+            damage = BotaniaNerfConfiguredValues.dmgLensDamage;
+            mod1 = new AttributeModifier(UUID.fromString("60dfc4ff-de55-4f4f-8b4b-a7748c26ec4d"), "Blaster mainhand modifier", damage, AttributeModifier.Operation.ADDITION);
+            mod2 = new AttributeModifier(UUID.fromString("2c9b7180-d04f-4b1f-9574-174969759856"), "Blaster offhand modifier", damage, AttributeModifier.Operation.ADDITION);
             if(!stack.getAttributeModifiers(EquipmentSlot.MAINHAND).containsKey(EntityAttributes_RangedWeapon.DAMAGE.attribute)){
                 stack.addAttributeModifier(EntityAttributes_RangedWeapon.DAMAGE.attribute, mod1, EquipmentSlot.MAINHAND);
                 stack.addAttributeModifier(EntityAttributes_RangedWeapon.DAMAGE.attribute, mod2, EquipmentSlot.OFFHAND);

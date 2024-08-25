@@ -1,6 +1,7 @@
 package info.partonetrain.botaniacombat.mixin.bettercombat;
 
 import info.partonetrain.botaniacombat.IStarcaller;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -14,7 +15,7 @@ public class StarcallerItemMixin implements IStarcaller { //StarcallerItem will 
     @Shadow(remap = false) //summonFallingStar is private for some reason
     private void summonFallingStar(ItemStack stack, Level world, Player player) {}
     @Override
-    public void botaniacombat_summonStarBetterCombat(ItemStack stack, Level level, Player player){
+    public void botaniacombat$summonStarBetterCombat(ItemStack stack, Level level, Player player, InteractionHand interactionHand){
         long timeSinceLast = level.getGameTime() - ItemNBTHelper.getLong(stack, "lastTriggerTime", level.getGameTime());
         if (timeSinceLast > 12L && !level.isClientSide()) { //12L = StarcallerItem.INTERVAL
             ItemNBTHelper.setLong(stack, "lastTriggerTime", level.getGameTime());

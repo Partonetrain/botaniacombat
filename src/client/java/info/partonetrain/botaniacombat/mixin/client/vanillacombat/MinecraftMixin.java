@@ -1,4 +1,4 @@
-package info.partonetrain.botaniacombat.mixin.client;
+package info.partonetrain.botaniacombat.mixin.client.vanillacombat;
 
 import info.partonetrain.botaniacombat.item.GaiaGreatswordItem;
 import info.partonetrain.botaniacombat.item.TerrasteelWeaponItem;
@@ -17,7 +17,6 @@ public abstract class MinecraftMixin {
     @Nullable
     public LocalPlayer player;
 
-    //this is not actually called when the player swings and BetterCombat is installed, but it's here in case you want to use the mod without BetterCombat or for misc compat
     @Inject(method = "startAttack", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;resetAttackStrengthTicker()V"))
     private void leftClickEmpty(CallbackInfoReturnable<Boolean> ci) {
         TerrasteelWeaponItem.leftClick(player.getMainHandItem());

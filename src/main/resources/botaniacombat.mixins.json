@@ -4,9 +4,9 @@
   "plugin": "info.partonetrain.botaniacombat.BotaniaCombatMixinPlugin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BotaniaLeftClickPacketMixin",
     "EnchantmentMixin",
     "PixieHandlerMixin",
+    "TerraBladeItemMixin",
     "bettercombat.ElementiumAxeItemMixin",
     "bettercombat.ElementiumSwordItemMixin",
     "bettercombat.StarcallerItemMixin",
@@ -14,14 +14,18 @@
     "nerf.BabylonWeaponEntityMixin",
     "nerf.DamagingLensMixin",
     "nerf.FallingStarEntityMixin",
+    "nerf.FlugelTiaraItemMixin",
+    "nerf.FlugelTiaraItemMixin$FlugelTiaraClientLogicMixin",
     "nerf.MagicMissileEntityMixin",
     "nerf.RingOfOdinItemMixin",
+    "nerf.SoulscribeItemMixin",
     "nerf.TerraBladeItemMixin",
     "nerf.ThornChakramEntityMixin",
     "ranged.AbstractArrowMixin",
     "ranged.LivingwoodBowItemMixin",
     "ranged.ManaBlasterMixin",
-    "shield.PlayerMixin"
+    "shield.PlayerMixin",
+    "vanillacombat.BotaniaLeftClickPacketMixin"
   ],
   "injectors": {
     "defaultRequire": 1

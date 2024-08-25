@@ -11,7 +11,7 @@ public class BotaniaCombatConfig implements ConfigData {
     @Comment("Modifier of dagger damage amount relative to tier damage")
     public int daggerDamageModifier = -3;
     @Comment("Modifier of dagger speed relative to default speed (4)")
-    public float daggerSpeed = -2.0f;
+    public float daggerSpeed = -1.6f;
     @Comment("Whether or not the Slaughtersaw can ONLY hit entities in the #botaniacombat:meaty entity tag")
     public boolean slaughtersawRestricted = false;
     @Comment("Modifier of Slaughtersaw damage amount relative to Manasteel tier damage")
@@ -19,17 +19,17 @@ public class BotaniaCombatConfig implements ConfigData {
     @Comment("Modifier of Slaughtersaw speed relative to default speed (4)")
     public float slaughtersawSpeed = -2f;
     @Comment("Modifier of spear damage amount relative to tier damage")
-    public int spearDamageModifier = -1;
+    public int spearDamageModifier = 0;
     @Comment("Modifier of spear speed relative to default speed (4)")
-    public float spearSpeed = -2.8f;
+    public float spearSpeed = -2.6f;
     @Comment("Modifier of Soulstaff damage amount relative to Manasteel tier damage")
     public int soulstaffDamageModifier = -1;
     @Comment("Modifier of Soulstaff speed relative to default speed (4)")
     public float soulstaffSpeed = -2.3f;
     @Comment("Modifier of Gaia Greatsword damage amount relative to Terrasteel tier damage")
-    public int greatswordDamageModifier = 3;
+    public int greatswordDamageModifier = 4;
     @Comment("Modifier of Gaia Greatsword speed relative to default speed (4)")
-    public float greatswordSpeed = -3.4f;
+    public float greatswordSpeed = -3f;
     @Comment("Modifier of Mjolnir damage relative to Terrasteel tier damage")
     public int mjolinirDamageModifier = 4;
     @Comment("Modifier of Mjolnir speed relative to default speed (4)")
@@ -52,6 +52,8 @@ public class BotaniaCombatConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public BotaniaNerfsConfig botaniaNerfsConfig = new BotaniaNerfsConfig();
     public static class BotaniaNerfsConfig{
+        @Comment("Conform Soulscribe to Dagger stats specified above (extra Enderman damage is unchanged)")
+        public boolean conformSoulscribe;
         @Comment("Terrasteel weapon projectile damage")
         public float terraBladeDamage = 8;
         @Comment("Chakram damage, poison/fire damage is unchanged")
@@ -62,6 +64,14 @@ public class BotaniaCombatConfig implements ConfigData {
         public float fallingStarHighDamage = 10;
         @Comment("Missile from Unstable Reservoir Rod (does not effect Gaia Gaurdian)")
         public float missileDamage = 7;
+        @Comment("Flugel Tiara mana cost per tick")
+        public int tiaraCost = 35;
+        @Comment("Flugel Tiara mana cost per tick when flight meter is empty and Eye of the Flugel is in inventory")
+        public int tiaraOverkillCost = 105;
+        @Comment("Additional time to be removed from the tiara each tick of flight (should be positive). 0 = 60 secs max (default lexicon is wrong), 1 = 30 secs, 2 = 15 secs, etc")
+        public int tiaraExtraTime = 0;
+        @Comment("(Client Only) Force the flight bar to move this many rows up/down")
+        public int tiaraAdditionalRow = 0;
         @Comment("Damaging Lens damage, recommended to lower if RWAPI is installed")
         public float dmgLensDamage = 8;
         @Comment("Ring of Odin health modifier amount")
