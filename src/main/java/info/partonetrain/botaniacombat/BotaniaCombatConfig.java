@@ -52,7 +52,7 @@ public class BotaniaCombatConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public BotaniaNerfsConfig botaniaNerfsConfig = new BotaniaNerfsConfig();
     public static class BotaniaNerfsConfig{
-        @Comment("Conform Soulscribe to Dagger stats specified above")
+        @Comment("Conform Soulscribe to Dagger stats specified above (extra Enderman damage is unchanged)")
         public boolean conformSoulscribe;
         @Comment("Terrasteel weapon projectile damage")
         public float terraBladeDamage = 8;
@@ -64,6 +64,14 @@ public class BotaniaCombatConfig implements ConfigData {
         public float fallingStarHighDamage = 10;
         @Comment("Missile from Unstable Reservoir Rod (does not effect Gaia Gaurdian)")
         public float missileDamage = 7;
+        @Comment("Flugel Tiara mana cost per tick")
+        public int tiaraCost = 35;
+        @Comment("Flugel Tiara mana cost per tick when flight meter is empty and Eye of the Flugel is in inventory")
+        public int tiaraOverkillCost = 105;
+        @Comment("Additional time to be removed from the tiara each tick of flight (should be positive). 0 = 60 secs max (default lexicon is wrong), 1 = 30 secs, 2 = 15 secs, etc")
+        public int tiaraExtraTime = 0;
+        @Comment("(Client Only) Force the flight bar to move this many rows up/down")
+        public int tiaraAdditionalRow = 0;
         @Comment("Damaging Lens damage, recommended to lower if RWAPI is installed")
         public float dmgLensDamage = 8;
         @Comment("Ring of Odin health modifier amount")

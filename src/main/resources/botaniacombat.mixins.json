@@ -14,6 +14,8 @@
     "nerf.BabylonWeaponEntityMixin",
     "nerf.DamagingLensMixin",
     "nerf.FallingStarEntityMixin",
+    "nerf.FlugelTiaraItemMixin",
+    "nerf.FlugelTiaraItemMixin$FlugelTiaraClientLogicMixin",
     "nerf.MagicMissileEntityMixin",
     "nerf.RingOfOdinItemMixin",
     "nerf.SoulscribeItemMixin",

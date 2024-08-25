@@ -8,6 +8,6 @@
   "botania.page.terraSword1": "If you prefer, other forms of fashioning Terrasteel into weapons also exist: the $(item)Terra Edge$(0) and $(item)Terra Warspear$(0).",
 
   "botania.page.odinRing0": "One of the three mythical rings of the $(thing)Aesir$(0), the $(item)Ring of Odin$(0) grants its bearer the vitality and resistance of the Father God. It provides its wearer with extra health and indefinite protection from various kinds of environmental damage, including drowning, suffocation, fire, and starvation.",
-
+  "botania.page.flightTiara4": "This marvelous reproduction of ancient artifice isn't perfect, though: the tiara can't provide the power of flight indefinitely. If used consecutively, it'll \"overload\" and lose its ability to sustain flight.$(p)A \"flight bar\" is displayed on the HUD to monitor this usage.",
   "botania.subtitle.terraBlade": "Terrasteel weapon activates"
 }
