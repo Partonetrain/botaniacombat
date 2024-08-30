@@ -47,8 +47,6 @@ public class BotaniaCombatConfig implements ConfigData {
         public float skadiDamage = 10f;
         @Comment("Pull time in ticks of Skadi Bow")
         public int skadiPullTime = 30;
-        @Comment("Add ranged attributes to Elementium and Manaweave armor")
-        public boolean addRangedAttributes = false;
     }
 
     @ConfigEntry.Gui.CollapsibleObject

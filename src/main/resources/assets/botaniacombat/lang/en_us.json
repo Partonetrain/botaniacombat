@@ -105,7 +105,7 @@
   "botaniacombat.page.angry_bozu1": "haha. just a glimpse into my dark reality.",
 
   "botaniacombat.entry.damageLens": "Damaging Lens Bonus",
-  "botaniacombat.page.damageLens": "A $(l:botania:tools/mana_blaster)Mana Blaster$() with a Damage Lens attached is affected by Ranged Damage and Draw Speed bonuses. On the downside, it won't recieve the cooldown reduction from Haste effect. Unlike other ranged weapons, a Blaster with such a lens seems to deal magic damage, bypassing armor.",
+  "botaniacombat.page.damageLens": "A $(l:botania:tools/mana_blaster)Mana Blaster$() with a Damage Lens attached is affected by Ranged Damage and Draw Speed bonuses. On the downside, it won't recieve the cooldown reduction from the Haste effect. Unlike other ranged weapons, a Blaster with such a lens seems to deal magic damage, bypassing armor.",
 
   "text.autoconfig.botaniacombat.title": "BotaniaCombat config (Requires Restart)",
   "text.autoconfig.botaniacombat.option.daggerDamageModifier": "Dagger Damage Modifier",
