@@ -11,7 +11,7 @@ public class BotaniaCombatConfig implements ConfigData {
     @Comment("Modifier of dagger damage amount relative to tier damage")
     public int daggerDamageModifier = -3;
     @Comment("Modifier of dagger speed relative to default speed (4)")
-    public float daggerSpeed = -1.6f;
+    public float daggerSpeed = -2.0f;
     @Comment("Whether or not the Slaughtersaw can ONLY hit entities in the #botaniacombat:meaty entity tag")
     public boolean slaughtersawRestricted = false;
     @Comment("Modifier of Slaughtersaw damage amount relative to Manasteel tier damage")
@@ -19,17 +19,17 @@ public class BotaniaCombatConfig implements ConfigData {
     @Comment("Modifier of Slaughtersaw speed relative to default speed (4)")
     public float slaughtersawSpeed = -2f;
     @Comment("Modifier of spear damage amount relative to tier damage")
-    public int spearDamageModifier = 0;
+    public int spearDamageModifier = -1;
     @Comment("Modifier of spear speed relative to default speed (4)")
-    public float spearSpeed = -2.6f;
+    public float spearSpeed = -2.8f;
     @Comment("Modifier of Soulstaff damage amount relative to Manasteel tier damage")
     public int soulstaffDamageModifier = -1;
     @Comment("Modifier of Soulstaff speed relative to default speed (4)")
     public float soulstaffSpeed = -2.3f;
     @Comment("Modifier of Gaia Greatsword damage amount relative to Terrasteel tier damage")
-    public int greatswordDamageModifier = 4;
+    public int greatswordDamageModifier = 3;
     @Comment("Modifier of Gaia Greatsword speed relative to default speed (4)")
-    public float greatswordSpeed = -3f;
+    public float greatswordSpeed = -3.4f;
     @Comment("Modifier of Mjolnir damage relative to Terrasteel tier damage")
     public int mjolinirDamageModifier = 4;
     @Comment("Modifier of Mjolnir speed relative to default speed (4)")
@@ -53,11 +53,17 @@ public class BotaniaCombatConfig implements ConfigData {
     public BotaniaNerfsConfig botaniaNerfsConfig = new BotaniaNerfsConfig();
     public static class BotaniaNerfsConfig{
         @Comment("Conform Soulscribe to Dagger stats specified above (extra Enderman damage is unchanged)")
-        public boolean conformSoulscribe;
+        public boolean conformSoulscribe = false;
+        @Comment("Adds negative movespeed modifier to Terrasteel Armor")
+        public boolean slowTerraArmor = false;
+        @Comment("Keep in mind this is in addition to 100 mana per durability. This mana is lost and not propagated to the beam. If set, mana is required for firing beams")
+        public int terrasteelBeamCost = 0;
         @Comment("Terrasteel weapon projectile damage")
         public float terraBladeDamage = 8;
         @Comment("Chakram damage, poison/fire damage is unchanged")
         public float chakramDamage = 12;
+        @Comment("Keep in mind this is in addition to 120 mana per durability. If set, mana is required for summoning stars")
+        public int starcallerProjectileCost = 0;
         @Comment("Starcaller projectile")
         public float fallingStarNormalDamage = 5;
         @Comment("Starcaller projectile, 25% chance of using this instead of normal damage")
@@ -72,6 +78,8 @@ public class BotaniaCombatConfig implements ConfigData {
         public int tiaraExtraTime = 0;
         @Comment("(Client Only) Force the flight bar to move this many rows up/down")
         public int tiaraAdditionalRow = 0;
+        @Comment("Mana cost of firing Mana Blaster")
+        public int manaBlasterCost = 120;
         @Comment("Damaging Lens damage, recommended to lower if RWAPI is installed")
         public float dmgLensDamage = 8;
         @Comment("Ring of Odin health modifier amount")

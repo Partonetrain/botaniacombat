@@ -3,20 +3,20 @@ package info.partonetrain.botaniacombat;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static java.lang.System.getProperty;
-
 public class BotaniaNerfConfiguredValues { //have default values loaded so mixins don't classload config
+    public static float terraBladeDamage = 7;
+    public static int terrasteelBeamCost = 0;
+    public static boolean slowTerraArmor = false;
     public static boolean conformSoulscribe = false;
     public static int daggerDamageModifier = -3;
     public static float daggerSpeed =  -1.6f;
-    public static float terraBladeDamage = 7;
     public static float chakramDamage = 12;
+    public static int starcallerProjectileCost = 0;
     public static float fallingStarNormalDamage = 5;
     public static float fallingStarHighDamage = 10;
     public static float missileDamage = 7f;
@@ -24,19 +24,24 @@ public class BotaniaNerfConfiguredValues { //have default values loaded so mixin
     public static int tiaraOverkillCost = 105;
     public static int tiaraExtraTime = 0;
     public static int tiaraAdditionalRow = 0;
+    public static int manaBlasterCost = 120;
     public static float dmgLensDamage = 8;
     public static float odinHealthMod = 20f;
     public static AttributeModifier.Operation odinHealthOperation = AttributeModifier.Operation.ADDITION;
     public static float babylonDamage = 20f;
     public static void init(){
+        terraBladeDamage = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.terraBladeDamage;
+        terrasteelBeamCost = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.terrasteelBeamCost;
+        slowTerraArmor = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.slowTerraArmor;
         conformSoulscribe = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.conformSoulscribe;
         daggerDamageModifier = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().daggerDamageModifier;
         daggerSpeed = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().daggerSpeed;
-        terraBladeDamage = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.terraBladeDamage;
         chakramDamage = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.chakramDamage;
+        starcallerProjectileCost = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.starcallerProjectileCost;
         fallingStarNormalDamage = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.fallingStarNormalDamage;
         fallingStarHighDamage = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.fallingStarHighDamage;
         missileDamage = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.missileDamage;
+        manaBlasterCost = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.manaBlasterCost;
         tiaraCost = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.tiaraCost;
         tiaraOverkillCost = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.tiaraOverkillCost;
         tiaraExtraTime = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.tiaraExtraTime;
@@ -46,6 +51,7 @@ public class BotaniaNerfConfiguredValues { //have default values loaded so mixin
         odinHealthOperation = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.odinHealthOperation;
         babylonDamage = AutoConfig.getConfigHolder(BotaniaCombatConfig.class).getConfig().botaniaNerfsConfig.babylonDamage;
     }
+
 
     public static void readFromFileDirectly() {
         //this is necessary because Botania may register Soulscribe before config is read and conformSoulscribe is set

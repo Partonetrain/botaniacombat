@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import vazkii.botania.common.item.equipment.armor.terrasteel.TerrasteelArmorItem;
 
 public class BotaniaCombat implements ModInitializer {
     public static final String MOD_ID = "botaniacombat";

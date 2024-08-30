@@ -25,7 +25,7 @@ public class BotaniaCombatNetworking {
                 ItemStack stack = offhand ? player.getOffhandItem(): player.getMainHandItem();
                 Item item = stack.getItem();
                 ITerrasteelWeapon terraWeapon = (ITerrasteelWeapon)item;
-                terraWeapon.botaniacombat$summonBeamBetterCombat(stack, player.level(), player, offhand ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
+                terraWeapon.botaniacombat$spawnBeamBetterCombat(stack, player.level(), player, offhand ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
             });
         });
 

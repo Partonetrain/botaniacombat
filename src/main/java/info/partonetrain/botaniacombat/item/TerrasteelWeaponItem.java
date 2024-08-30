@@ -1,6 +1,7 @@
 package info.partonetrain.botaniacombat.item;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
+import info.partonetrain.botaniacombat.BotaniaNerfConfiguredValues;
 import info.partonetrain.botaniacombat.ITerrasteelWeapon;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import org.jetbrains.annotations.Nullable;
+import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.entity.ManaBurstEntity;
 import vazkii.botania.common.handler.BotaniaSounds;
 import vazkii.botania.common.item.BotaniaItems;
@@ -62,17 +64,19 @@ public class TerrasteelWeaponItem extends BotaniaCombatWeaponItem implements ITe
     }
 
     @Override
-    public void botaniacombat$summonBeamBetterCombat(ItemStack stack, Level level, Player player, InteractionHand interactionHand) {
-        final ItemStack DUMMY_TERRABLADE = new ItemStack(BotaniaItems.terraSword);
-        float attackStrength = player.getAttackStrengthScale(0F);
-        if (!player.isSpectator()
-                && stack.getItem() instanceof ITerrasteelWeapon
-                && attackStrength == 1) {
-            ManaBurstEntity burst = TerraBladeItem.getBurst(player, stack);
-            burst.setSourceLens(DUMMY_TERRABLADE);
-            player.level().addFreshEntity(burst);
-            stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(interactionHand));
-            player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+    public void botaniacombat$spawnBeamBetterCombat(ItemStack stack, Level level, Player player, InteractionHand interactionHand) {
+        if(ManaItemHandler.INSTANCE.requestManaExactForTool(stack, player, BotaniaNerfConfiguredValues.terrasteelBeamCost, true)) {
+            final ItemStack DUMMY_TERRABLADE = new ItemStack(BotaniaItems.terraSword);
+            float attackStrength = player.getAttackStrengthScale(0F);
+            if (!player.isSpectator()
+                    && stack.getItem() instanceof ITerrasteelWeapon
+                    && attackStrength == 1) {
+                ManaBurstEntity burst = TerraBladeItem.getBurst(player, stack);
+                burst.setSourceLens(DUMMY_TERRABLADE);
+                player.level().addFreshEntity(burst);
+                stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(interactionHand));
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+            }
         }
     }
 }

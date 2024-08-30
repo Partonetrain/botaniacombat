@@ -1,6 +1,7 @@
 package info.partonetrain.botaniacombat.item;
 
 import info.partonetrain.botaniacombat.BotaniaCombat;
+import info.partonetrain.botaniacombat.BotaniaNerfConfiguredValues;
 import info.partonetrain.botaniacombat.ColorContainer;
 import info.partonetrain.botaniacombat.ITerrasteelWeapon;
 import net.minecraft.sounds.SoundSource;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import org.jetbrains.annotations.Nullable;
+import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.entity.ManaBurstEntity;
 import vazkii.botania.common.handler.BotaniaSounds;
 import vazkii.botania.common.item.BotaniaItems;
@@ -45,14 +47,17 @@ public class GaiaGreatswordItem extends BotaniaCombatWeaponItem implements ITerr
     }
 
     public static void trySpawnBursts(Player player, float attackStrength) { //vanilla combat ONLY
-        if (!player.isSpectator()) {
-            //mainhand
-            if (!player.getMainHandItem().isEmpty()
-                    && player.getMainHandItem().getItem() instanceof GaiaGreatswordItem
-                    && attackStrength == 1) {
-                spawnSevenBursts(player);
-                player.getMainHandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
-                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+        final ItemStack DUMMY_TERRABLADE = new ItemStack(BotaniaItems.terraSword);
+        if(ManaItemHandler.INSTANCE.requestManaExactForTool(DUMMY_TERRABLADE, player, BotaniaNerfConfiguredValues.terrasteelBeamCost, true)) {
+            if (!player.isSpectator()) {
+                //mainhand
+                if (!player.getMainHandItem().isEmpty()
+                        && player.getMainHandItem().getItem() instanceof GaiaGreatswordItem
+                        && attackStrength == 1) {
+                    spawnSevenBursts(player);
+                    player.getMainHandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+                    player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+                }
             }
         }
     }
@@ -87,14 +92,19 @@ public class GaiaGreatswordItem extends BotaniaCombatWeaponItem implements ITerr
     }
 
     @Override
-    public void botaniacombat$summonBeamBetterCombat(ItemStack stack, Level level, Player player, InteractionHand interactionHand) {
-        float attackStrength = player.getAttackStrengthScale(0F);
-        if (!player.isSpectator()
-                && stack.getItem() instanceof ITerrasteelWeapon
-                && attackStrength == 1) {
-            spawnSevenBursts(player);
-            stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(interactionHand));
-            player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+    public void botaniacombat$spawnBeamBetterCombat(ItemStack stack, Level level, Player player, InteractionHand interactionHand) {
+        if(ManaItemHandler.INSTANCE.requestManaExactForTool(stack, player, BotaniaNerfConfiguredValues.terrasteelBeamCost, true)) {
+            final ItemStack DUMMY_TERRABLADE = new ItemStack(BotaniaItems.terraSword);
+            if(ManaItemHandler.INSTANCE.requestManaExactForTool(DUMMY_TERRABLADE, player, BotaniaNerfConfiguredValues.terrasteelBeamCost, true)) {
+                float attackStrength = player.getAttackStrengthScale(0F);
+                if (!player.isSpectator()
+                        && stack.getItem() instanceof ITerrasteelWeapon
+                        && attackStrength == 1) {
+                    spawnSevenBursts(player);
+                    stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(interactionHand));
+                    player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+                }
+            }
         }
     }
 }

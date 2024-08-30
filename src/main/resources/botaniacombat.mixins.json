@@ -17,15 +17,20 @@
     "nerf.FlugelTiaraItemMixin",
     "nerf.FlugelTiaraItemMixin$FlugelTiaraClientLogicMixin",
     "nerf.MagicMissileEntityMixin",
+    "nerf.ManaBlasterItemMixin",
+    "nerf.ManaItemHandlerImplMixin",
     "nerf.RingOfOdinItemMixin",
     "nerf.SoulscribeItemMixin",
+    "nerf.StarcallerItemMixin",
     "nerf.TerraBladeItemMixin",
+    "nerf.TerrasteelArmorItemMixin",
     "nerf.ThornChakramEntityMixin",
     "ranged.AbstractArrowMixin",
     "ranged.LivingwoodBowItemMixin",
     "ranged.ManaBlasterMixin",
     "shield.PlayerMixin",
-    "vanillacombat.BotaniaLeftClickPacketMixin"
+    "vanillacombat.BotaniaLeftClickPacketMixin",
+    "vanillacombat.TerraBladeItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

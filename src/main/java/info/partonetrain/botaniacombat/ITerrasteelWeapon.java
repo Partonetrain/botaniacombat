@@ -6,5 +6,5 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public interface ITerrasteelWeapon {
-    void botaniacombat$summonBeamBetterCombat(ItemStack stack, Level level, Player player, InteractionHand interactionHand);
+    void botaniacombat$spawnBeamBetterCombat(ItemStack stack, Level level, Player player, InteractionHand interactionHand);
 }
