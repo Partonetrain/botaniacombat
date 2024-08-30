@@ -51,7 +51,6 @@ public abstract class ManaBlasterMixin extends Item {
                 stack.addAttributeModifier(EntityAttributes_RangedWeapon.DAMAGE.attribute, mod1, EquipmentSlot.MAINHAND);
                 stack.addAttributeModifier(EntityAttributes_RangedWeapon.DAMAGE.attribute, mod2, EquipmentSlot.OFFHAND);
                 stack.getOrCreateTag().putInt(TAG_DAMAGING_COOLDOWN, calculateModifiedCooldown(player)); //use player ranged speed attribute for cooldown instead
-                stack.getOrCreateTag().putInt(TAG_DAMAGING_COOLDOWN, calculateModifiedCooldown(player)); //use player ranged speed attribute for cooldown instead
             }
         }else{
             if(stack.getTag() != null){
@@ -73,9 +72,13 @@ public abstract class ManaBlasterMixin extends Item {
     @ModifyArgs(method = "use", at= @At(value = "INVOKE", target = "Lvazkii/botania/common/item/ManaBlasterItem;setCooldown(Lnet/minecraft/world/item/ItemStack;I)V", ordinal = 1))
     public void botaniacombat$useModifiedCooldown(Args args){
         ItemStack stack = args.get(0);
-        int modifiedCooldown = ItemNBTHelper.getInt(stack, TAG_DAMAGING_COOLDOWN, 30); //if no tag, modifiedCooldown is set to 30
-        BotaniaCombat.LOGGER.info(String.valueOf(modifiedCooldown));
-        args.set(1, modifiedCooldown);
+        int cooldown = args.get(1);
+        //BotaniaCombat.LOGGER.info(String.valueOf(cooldown));
+        if(ManaBlasterItem.getLens(stack).is(BotaniaItems.lensDamage)){
+            int modifiedCooldown = ItemNBTHelper.getInt(stack, TAG_DAMAGING_COOLDOWN, 30); //if no tag, modifiedCooldown is set to 30
+            args.set(1, modifiedCooldown);
+            //BotaniaCombat.LOGGER.info(" -> " + modifiedCooldown);
+        }
     }
 
     @Unique
