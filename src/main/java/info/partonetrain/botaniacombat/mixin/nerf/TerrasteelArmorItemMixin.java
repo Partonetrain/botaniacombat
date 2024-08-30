@@ -21,10 +21,6 @@ import java.util.UUID;
 
 @Mixin(TerrasteelArmorItem.class)
 public class TerrasteelArmorItemMixin {
-
-
-
-
     @Inject(
             method = "getDefaultAttributeModifiers(Lnet/minecraft/world/entity/EquipmentSlot;)Lcom/google/common/collect/Multimap;",
             at = @At("TAIL"),
