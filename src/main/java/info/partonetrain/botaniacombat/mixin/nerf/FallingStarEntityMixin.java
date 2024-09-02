@@ -9,7 +9,7 @@ import vazkii.botania.common.entity.FallingStarEntity;
 @Mixin(FallingStarEntity.class)
 public class FallingStarEntityMixin {
     @ModifyArg(method = "onHitEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"), index = 1)
-    public float botanaicombat$modifyFallingStarDamage(float amount){
+    public float botaniacombat$modifyFallingStarDamage(float amount){
             return Math.random() < 0.25 ? BotaniaNerfConfiguredValues.fallingStarHighDamage : BotaniaNerfConfiguredValues.fallingStarNormalDamage;
     }
 }
