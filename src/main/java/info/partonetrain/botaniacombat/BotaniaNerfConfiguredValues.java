@@ -1,7 +1,10 @@
 package info.partonetrain.botaniacombat;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import net.fabric_extras.ranged_weapon.api.EntityAttributes_RangedWeapon;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.player.Player;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -69,6 +72,15 @@ public class BotaniaNerfConfiguredValues { //have default values loaded so mixin
                 BotaniaCombat.LOGGER.error("config error:" + e);
                 BotaniaCombat.LOGGER.info("Don't fret! Above error is most likely one-time occurrence from config file not existing yet");
             }
+        }
+    }
+
+    public static float getDamageLensDamage(Entity entity){
+        if(BotaniaCombat.RANGED_WEAPON_API_INSTALLED && entity instanceof Player player){
+            return (float) player.getAttributeValue(EntityAttributes_RangedWeapon.DAMAGE.attribute); //will get value from held blaster
+        }
+        else {
+            return dmgLensDamage;
         }
     }
 }

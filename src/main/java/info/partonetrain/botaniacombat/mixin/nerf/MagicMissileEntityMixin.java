@@ -10,7 +10,7 @@ import vazkii.botania.common.entity.MagicMissileEntity;
 @Mixin(MagicMissileEntity.class)
 public class MagicMissileEntityMixin {
     @ModifyArg(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"), index = 1)
-    public float botanaicombat$modifyMagicMissleDamage(float amount, @Local boolean evil){
+    public float botaniacombat$modifyMagicMissleDamage(float amount, @Local boolean evil){
         if(evil){
             return 12;
         }
